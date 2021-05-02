@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<package>
+    <metadata>
+        <id>$id$</id>
+        <title>$title$</title>
+        <version>$version$</version>
+        <tags>Mocking Wrapper Arrowood</tags>
+        <copyright>$Copyright$</copyright>
+        <authors>Joe Arrowood</authors>
+        <description>$description$</description>
+        <license type="file">License.txt</license>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <dependencies>
+            <group targetFramework=".NETFramework4.6.1" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="License\License.txt" target=""/>
+    </files>
+</package>
