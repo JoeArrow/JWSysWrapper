@@ -34,6 +34,8 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.DirectoryServices.Protocols" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,8 +47,13 @@
     <Compile Include="Impl\DateTimeWrap.cs" />
     <Compile Include="Impl\DirectoryServices\DirectoryEntriesWrap.cs" />
     <Compile Include="Impl\DirectoryServices\DirectoryEntryConfigurationWrap.cs" />
+    <Compile Include="Impl\DirectoryServices\DirectoryEntryFactory.cs" />
     <Compile Include="Impl\DirectoryServices\DirectoryEntryWrap.cs" />
+    <Compile Include="Impl\DirectoryServices\DirectorySearcherFactory.cs" />
     <Compile Include="Impl\DirectoryServices\DirectorySearcherWrap.cs" />
+    <Compile Include="Impl\DirectoryServices\LdapConnectionFactory.cs" />
+    <Compile Include="Impl\DirectoryServices\LdapConnectionWrap.cs" />
+    <Compile Include="Impl\DirectoryServices\PrincipalContextWrap.cs" />
     <Compile Include="Impl\DirectoryServices\PropertyCollectionWrap.cs" />
     <Compile Include="Impl\DirectoryServices\PropertyValueCollectionWrap.cs" />
     <Compile Include="Impl\DirectoryServices\ResultPropertyCollectionWrap.cs" />
@@ -63,7 +70,12 @@
     <Compile Include="Interface\DirectoryServices\IDirectoryEntries.cs" />
     <Compile Include="Interface\DirectoryServices\IDirectoryEntry.cs" />
     <Compile Include="Interface\DirectoryServices\IDirectoryEntryConfiguration.cs" />
+    <Compile Include="Interface\DirectoryServices\IDirectoryEntryFactory.cs" />
     <Compile Include="Interface\DirectoryServices\IDirectorySearcher.cs" />
+    <Compile Include="Interface\DirectoryServices\IDirectorySearcherFactory.cs" />
+    <Compile Include="Interface\DirectoryServices\ILdapConnection.cs" />
+    <Compile Include="Interface\DirectoryServices\ILdapConnectionFactory.cs" />
+    <Compile Include="Interface\DirectoryServices\IPrincipalContext.cs" />
     <Compile Include="Interface\DirectoryServices\IPropertyCollection.cs" />
     <Compile Include="Interface\DirectoryServices\IPropertyValueCollection.cs" />
     <Compile Include="Interface\DirectoryServices\IResultPropertyCollection.cs" />
