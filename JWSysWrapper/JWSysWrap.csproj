@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,12 +43,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Impl\DateTimeWrap.cs" />
+    <Compile Include="Impl\DirectoryServices\DirectoryEntriesWrap.cs" />
+    <Compile Include="Impl\DirectoryServices\DirectoryEntryConfigurationWrap.cs" />
+    <Compile Include="Impl\DirectoryServices\DirectoryEntryWrap.cs" />
+    <Compile Include="Impl\DirectoryServices\PropertyCollectionWrap.cs" />
+    <Compile Include="Impl\DirectoryServices\PropertyValueCollectionWrap.cs" />
+    <Compile Include="Impl\DirectoryServices\SchemaNameCollectionWrap.cs" />
     <Compile Include="Impl\IO\Compression\GZipStreamWrap.cs" />
     <Compile Include="Impl\IO\FileStreamWrap.cs" />
     <Compile Include="Impl\IO\FileWrap.cs" />
     <Compile Include="Impl\IO\StreamWrap.cs" />
     <Compile Include="Impl\IO\StreamWriterWrap.cs" />
     <Compile Include="Impl\TimeSpanWrap.cs" />
+    <Compile Include="Interface\DirectoryServices\IDirectoryEntries.cs" />
+    <Compile Include="Interface\DirectoryServices\IDirectoryEntry.cs" />
+    <Compile Include="Interface\DirectoryServices\IDirectoryEntryConfiguration.cs" />
+    <Compile Include="Interface\DirectoryServices\IPropertyCollection.cs" />
+    <Compile Include="Interface\DirectoryServices\IPropertyValueCollection.cs" />
+    <Compile Include="Interface\DirectoryServices\ISchemaNameCollection.cs" />
     <Compile Include="Interface\IDateTime.cs" />
     <Compile Include="Interface\IO\Compression\IGZipStream.cs" />
     <Compile Include="Interface\IO\IFile.cs" />
@@ -65,6 +78,13 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Impl\Collections\Generic\" />
+    <Folder Include="Impl\Collections\Specialized\" />
+    <Folder Include="Impl\Data\" />
+    <Folder Include="Interface\Collections\Generic\" />
+    <Folder Include="Interface\Collections\Specialized\" />
+    <Folder Include="Interface\Data\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
