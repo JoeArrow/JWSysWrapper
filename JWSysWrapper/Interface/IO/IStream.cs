@@ -4,7 +4,7 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace JWSysWrapper.Interface.IO
+namespace JWSysWrap.Interface.IO
 {
     public interface IStream
     {

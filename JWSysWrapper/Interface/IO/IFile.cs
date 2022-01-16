@@ -12,7 +12,7 @@ using System.Text;
 using System.Collections.Generic;
 using System.Security.AccessControl;
 
-namespace JWSysWrapper.Interface.IO
+namespace JWSysWrap.Interface.IO
 {
     // ----------------------------------------------------
     /// <summary>

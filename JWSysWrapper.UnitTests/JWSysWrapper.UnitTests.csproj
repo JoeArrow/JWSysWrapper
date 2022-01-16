@@ -69,9 +69,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\JWSysWrapper\JWSysWrapper.csproj">
+    <ProjectReference Include="..\JWSysWrapper\JWSysWrap.csproj">
       <Project>{d16acfd2-6240-4b1f-9ec4-0f1940b9989e}</Project>
-      <Name>JWSysWrapper</Name>
+      <Name>JWSysWrap</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -14,9 +14,9 @@ using System.Security.AccessControl;
 
 using Microsoft.Win32.SafeHandles;
 
-using JWSysWrapper.Interface.IO;
+using JWSysWrap.Interface.IO;
 
-namespace JWSysWrapper.Impl.IO
+namespace JWSysWrap.Impl.IO
 {
     // ----------------------------------------------------
     /// <summary>

@@ -8,7 +8,7 @@
 
 using System;
 
-namespace JWSysWrapper.Interface
+namespace JWSysWrap.Interface
 {
     // ----------------------------------------------------
     /// <summary>

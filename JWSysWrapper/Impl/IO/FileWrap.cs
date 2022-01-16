@@ -11,10 +11,10 @@ using System.Text;
 using System.Collections.Generic;
 using System.Security.AccessControl;
 
-using JWSysWrapper.Interface;
-using JWSysWrapper.Interface.IO;
+using JWSysWrap.Interface;
+using JWSysWrap.Interface.IO;
 
-namespace JWSysWrapper.Impl.IO
+namespace JWSysWrap.Impl.IO
 {
     // ----------------------------------------------------
     /// <summary>

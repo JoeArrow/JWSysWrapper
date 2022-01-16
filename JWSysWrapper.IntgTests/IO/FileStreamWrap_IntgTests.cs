@@ -10,13 +10,13 @@ using System.IO;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using JWSysWrapper.Impl.IO;
+using JWSysWrap.Impl.IO;
 using System;
 using System.Runtime.InteropServices;
 using Microsoft.Win32.SafeHandles;
 using System.Security.AccessControl;
 
-namespace JWSysWrapper.IntgTests
+namespace JWSysWrap.IntgTests
 {
     // ----------------------------------------------------
     /// <summary>

@@ -10,7 +10,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JWSysWrapper.Interface.IO
+namespace JWSysWrap.Interface.IO
 {
     // ----------------------------------------------------
     /// <summary>

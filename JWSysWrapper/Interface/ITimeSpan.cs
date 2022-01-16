@@ -12,7 +12,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 
-namespace JWSysWrapper.Interface
+namespace JWSysWrap.Interface
 {
     // ----------------------------------------------------
     /// <summary>

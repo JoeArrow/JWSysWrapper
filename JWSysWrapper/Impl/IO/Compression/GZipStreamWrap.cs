@@ -6,14 +6,14 @@
 //
 #endregion
 
-using JWSysWrapper.Interface.IO;
-using JWSysWrapper.Interface.IO.Compression;
+using JWSysWrap.Interface.IO;
+using JWSysWrap.Interface.IO.Compression;
 
 using System;
 using System.IO;
 using System.IO.Compression;
 
-namespace JWSysWrapper.Impl.IO.Compression
+namespace JWSysWrap.Impl.IO.Compression
 {
     // ----------------------------------------------------
     /// <summary>
