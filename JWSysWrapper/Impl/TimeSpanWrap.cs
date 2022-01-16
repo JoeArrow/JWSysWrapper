@@ -31,11 +31,16 @@ namespace JWSysWrapper.Impl
         public readonly TimeSpan MaxValue;
         public readonly TimeSpan MinValue;
 
+        // ------------------------------------------------
+
         public TimeSpanWrap(TimeSpan timeSpan) => Instance = timeSpan;
         public TimeSpanWrap(long ticks) => Instance = new TimeSpan(ticks);
         public TimeSpanWrap(int hours, int minutes, int seconds) => Instance = new TimeSpan(hours, minutes, seconds);
         public TimeSpanWrap(int days, int hours, int minutes, int seconds) => Instance = new TimeSpan(days, hours, minutes, seconds);
-        public TimeSpanWrap(int days, int hours, int minutes, int seconds, int milliseconds) => Instance = new TimeSpan(days, hours, minutes, seconds, milliseconds);
+        public TimeSpanWrap(int days, int hours, int minutes, int seconds, int milliseconds) => 
+            Instance = new TimeSpan(days, hours, minutes, seconds, milliseconds);
+
+        // ------------------------------------------------
 
         public double TotalMilliseconds { get => Instance.TotalMilliseconds; }
         public double TotalHours { get => Instance.TotalHours; }
@@ -123,16 +128,17 @@ namespace JWSysWrapper.Impl
         }
 
         public ITimeSpan Add(ITimeSpan ts) => new TimeSpanWrap(Instance.Add(ts.Instance));
-        public int CompareTo(object value) => Instance.CompareTo(((ITimeSpan)value).Instance);
         public int CompareTo(ITimeSpan value) => Instance.CompareTo(value.Instance);
+        public int CompareTo(object value) => Instance.CompareTo(((ITimeSpan)value).Instance);
         public ITimeSpan Duration() => new TimeSpanWrap(Instance.Duration());
         public bool Equals(ITimeSpan obj) => Instance.Equals(obj.Instance);
         public override bool Equals(object value) => Instance.Equals(((ITimeSpan)value).Instance);
         public override int GetHashCode() => Instance.GetHashCode();
         public ITimeSpan Negate() => new TimeSpanWrap(Instance.Negate());
         public ITimeSpan Subtract(ITimeSpan ts) => new TimeSpanWrap(Instance.Subtract(ts.Instance));
-        public string ToString(string format, IFormatProvider formatProvider) => Instance.ToString(format, formatProvider);
-        public string ToString(string format) => Instance.ToString(format);
+
         public override string ToString() => Instance.ToString();
+        public string ToString(string format) => Instance.ToString(format);
+        public string ToString(string format, IFormatProvider formatProvider) => Instance.ToString(format, formatProvider);
     }    
 }        

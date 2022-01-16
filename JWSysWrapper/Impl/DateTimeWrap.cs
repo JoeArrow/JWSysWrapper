@@ -57,14 +57,34 @@ namespace JWSysWrapper.Impl
         public string ToString(IFormatProvider provider) => Instance.ToString(provider);
         public string ToString(string format) => Instance.ToString(format);
         public IDateTime ToUniversalTime() => new DateTimeWrap(Instance.ToUniversalTime());
-        //IDateTime operator +(IDateTime d, TimeSpan t);
-        //TimeSpan operator -(IDateTime d1, IDateTime d2);
-        //DateTime operator -(IDateTime d, TimeSpan t);
-        //bool operator ==(IDateTime d1, IDateTime d2);
-        //bool operator !=(IDateTime d1, IDateTime d2);
-        //bool operator <(IDateTime t1, IDateTime t2);
-        //bool operator >(IDateTime t1, IDateTime t2);
-        //bool operator <=(IDateTime t1, IDateTime t2);
-        //bool operator >=(IDateTime t1, IDateTime t2);
+
+        // ------------------------------------------------
+
+        public static IDateTime operator +(DateTimeWrap d, TimeSpan t) => new DateTimeWrap(d.Instance + t);
+        public static IDateTime operator +(DateTimeWrap d, ITimeSpan t) => new DateTimeWrap(d.Instance + t.Instance);
+
+        public static ITimeSpan operator -(DateTimeWrap d, DateTime d2) => new TimeSpanWrap(d.Instance - d2);
+        public static ITimeSpan operator -(DateTimeWrap d, IDateTime d2) => new TimeSpanWrap(d.Instance - d2.Instance);
+
+        public static IDateTime operator -(DateTimeWrap d, TimeSpan t) => new DateTimeWrap(d.Instance - t);
+        public static IDateTime operator -(DateTimeWrap d, ITimeSpan t) => new DateTimeWrap(d.Instance - t.Instance);
+        
+        public static bool operator ==(DateTimeWrap d, DateTime t) => d == t;
+        public static bool operator ==(DateTimeWrap d, IDateTime t) => d.Instance == t.Instance;
+
+        public static bool operator !=(DateTimeWrap d, DateTime t) => d != t;
+        public static bool operator !=(DateTimeWrap d, IDateTime t) => d.Instance != t.Instance;
+
+        public static bool operator <(DateTimeWrap d, DateTime t) => d < t;
+        public static bool operator <(DateTimeWrap d, IDateTime t) => d.Instance < t.Instance;
+
+        public static bool operator >(DateTimeWrap d, DateTime t) => d > t;
+        public static bool operator >(DateTimeWrap d, IDateTime t) => d.Instance > t.Instance;
+
+        public static bool operator <=(DateTimeWrap d, DateTime t) => d <= t;
+        public static bool operator <=(DateTimeWrap d, IDateTime t) => d.Instance <= t.Instance;
+
+        public static bool operator >=(DateTimeWrap d, DateTime t) => d >= t;
+        public static bool operator >=(DateTimeWrap d, IDateTime t) => d.Instance >= t.Instance;
     }
 }

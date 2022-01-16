@@ -8,8 +8,6 @@
 
 using System;
 using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Security.AccessControl;
 
 using Microsoft.Win32.SafeHandles;
@@ -23,6 +21,8 @@ namespace JWSysWrapper.Interface.IO
 
     public interface IFileStream : IStream, IDisposable
     {
+        new FileStream Instance { get; }
+
         string Name { get; }
         bool IsAsync { get; }
         SafeFileHandle SafeFileHandle { get; }

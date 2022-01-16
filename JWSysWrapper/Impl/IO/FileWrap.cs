@@ -11,8 +11,8 @@ using System.Text;
 using System.Collections.Generic;
 using System.Security.AccessControl;
 
-using JWSysWrapper.Interface.IO;
 using JWSysWrapper.Interface;
+using JWSysWrapper.Interface.IO;
 
 namespace JWSysWrapper.Impl.IO
 {
@@ -20,9 +20,12 @@ namespace JWSysWrapper.Impl.IO
     /// <summary>
     ///     Wraps the functionality of File with a 
     ///     interface implementation.
+    ///     
+    ///     No Instance is necessary, 
+    ///     all methods being wrapped are static
     /// </summary>
 
-    public class FileWrap : IFile
+    public class FileWrapStream : IFile
     {
         public void AppendAllLines(string path, IEnumerable<string> contents) => File.AppendAllLines(path, contents);
         public void AppendAllLines(string path, IEnumerable<string> contents, Encoding encoding) => File.AppendAllLines(path, contents, encoding); 

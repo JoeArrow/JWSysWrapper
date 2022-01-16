@@ -22,15 +22,15 @@ namespace JWSysWrapper.Impl.IO.Compression
 
     public class GZipStreamWrap : IGZipStream
     {
-        private GZipStream Instance;
+        public GZipStream Instance { private set; get; }
 
         // ------------------------------------------------
 
-        public GZipStreamWrap(IStream stream, CompressionMode mode) { Instance = new GZipStream(stream.Instance, mode); }
-        public GZipStreamWrap(IStream stream, CompressionLevel compressionLevel) { Instance = new GZipStream(stream.Instance, compressionLevel); }
-        public GZipStreamWrap(IStream stream, CompressionMode mode, bool leaveOpen) { Instance = new GZipStream(stream.Instance, mode, leaveOpen); }
-        public GZipStreamWrap(IStream stream, CompressionLevel compressionLevel, bool leaveOpen) 
-        { Instance = new GZipStream(stream.Instance, compressionLevel, leaveOpen); }
+        public GZipStreamWrap(IStream stream, CompressionMode mode) => Instance = new GZipStream(stream.Instance, mode);
+        public GZipStreamWrap(IStream stream, CompressionLevel compressionLevel) => Instance = new GZipStream(stream.Instance, compressionLevel); 
+        public GZipStreamWrap(IStream stream, CompressionMode mode, bool leaveOpen) => Instance = new GZipStream(stream.Instance, mode, leaveOpen); 
+        public GZipStreamWrap(IStream stream, CompressionLevel compressionLevel, bool leaveOpen)  =>
+        Instance = new GZipStream(stream.Instance, compressionLevel, leaveOpen); 
 
         // ------------------------------------------------
 
@@ -46,11 +46,11 @@ namespace JWSysWrapper.Impl.IO.Compression
 
         public Stream BaseStream => Instance.BaseStream;
 
-        public IAsyncResult BeginRead(byte[] array, int offset, int count, AsyncCallback asyncCallback, object asyncState)
-        { return Instance.BeginRead(array, offset, count, asyncCallback, asyncState); }
+        public IAsyncResult BeginRead(byte[] array, int offset, int count, AsyncCallback asyncCallback, object asyncState) =>
+        Instance.BeginRead(array, offset, count, asyncCallback, asyncState);
 
-        public IAsyncResult BeginWrite(byte[] array, int offset, int count, AsyncCallback asyncCallback, object asyncState)
-        { return Instance.BeginWrite(array, offset, count, asyncCallback, asyncState); }
+        public IAsyncResult BeginWrite(byte[] array, int offset, int count, AsyncCallback asyncCallback, object asyncState) =>
+        Instance.BeginWrite(array, offset, count, asyncCallback, asyncState);
 
         public void Dispose() => Instance.Dispose();
 
