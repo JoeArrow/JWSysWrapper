@@ -1,0 +1,2 @@
+﻿This is a text file used for testing Wrapped objects.
+This line is simply so the file will have more than one line.
