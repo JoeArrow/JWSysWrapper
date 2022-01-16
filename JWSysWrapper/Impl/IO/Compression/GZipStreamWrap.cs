@@ -29,6 +29,7 @@ namespace JWSysWrap.Impl.IO.Compression
         public GZipStreamWrap(IStream stream, CompressionMode mode) => Instance = new GZipStream(stream.Instance, mode);
         public GZipStreamWrap(IStream stream, CompressionLevel compressionLevel) => Instance = new GZipStream(stream.Instance, compressionLevel); 
         public GZipStreamWrap(IStream stream, CompressionMode mode, bool leaveOpen) => Instance = new GZipStream(stream.Instance, mode, leaveOpen); 
+
         public GZipStreamWrap(IStream stream, CompressionLevel compressionLevel, bool leaveOpen)  =>
         Instance = new GZipStream(stream.Instance, compressionLevel, leaveOpen); 
 
@@ -42,9 +43,9 @@ namespace JWSysWrap.Impl.IO.Compression
 
         public bool CanRead => Instance.CanRead;
 
-        public long Position { get => Instance.Position; set => Instance.Position = value; }
-
         public Stream BaseStream => Instance.BaseStream;
+
+        public long Position { get => Instance.Position; set => Instance.Position = value; }
 
         public IAsyncResult BeginRead(byte[] array, int offset, int count, AsyncCallback asyncCallback, object asyncState) =>
         Instance.BeginRead(array, offset, count, asyncCallback, asyncState);
@@ -52,19 +53,19 @@ namespace JWSysWrap.Impl.IO.Compression
         public IAsyncResult BeginWrite(byte[] array, int offset, int count, AsyncCallback asyncCallback, object asyncState) =>
         Instance.BeginWrite(array, offset, count, asyncCallback, asyncState);
 
+        public void Flush() => Instance.Flush(); 
+
         public void Dispose() => Instance.Dispose();
+
+        public void SetLength(long value) => Instance.SetLength(value); 
 
         public int EndRead(IAsyncResult asyncResult) => Instance.EndRead(asyncResult); 
 
         public void EndWrite(IAsyncResult asyncResult) => Instance.EndWrite(asyncResult); 
 
-        public void Flush() => Instance.Flush(); 
-
-        public int Read(byte[] array, int offset, int count) => Instance.Read(array, offset, count); 
-
         public long Seek(long offset, SeekOrigin origin) => Instance.Seek(offset, origin); 
 
-        public void SetLength(long value) => Instance.SetLength(value); 
+        public int Read(byte[] array, int offset, int count) => Instance.Read(array, offset, count); 
 
         public void Write(byte[] array, int offset, int count) => Instance.Write(array, offset, count); 
     }

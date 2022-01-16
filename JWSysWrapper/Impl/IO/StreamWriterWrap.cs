@@ -31,16 +31,19 @@ namespace JWSysWrap.Impl.IO
 
         // ------------------------------------------------
 
+        public StreamWriterWrap(string path) => Instance = new StreamWriter(path); 
         public StreamWriterWrap(StreamWriter streamWriter) => Instance = streamWriter; 
         public StreamWriterWrap(Stream stream) => Instance = new StreamWriter(stream); 
-        public StreamWriterWrap(string path) => Instance = new StreamWriter(path); 
-        public StreamWriterWrap(Stream stream, Encoding encoding) => Instance = new StreamWriter(stream, encoding); 
         public StreamWriterWrap(string path, bool append) => Instance = new StreamWriter(path, append); 
+        public StreamWriterWrap(Stream stream, Encoding encoding) => Instance = new StreamWriter(stream, encoding); 
+        public StreamWriterWrap(string path, bool append, Encoding encoding) => Instance = new StreamWriter(path, append, encoding); 
+
         public StreamWriterWrap(Stream stream, Encoding encoding, int bufferSize) => 
             Instance = new StreamWriter(stream, encoding, bufferSize); 
-        public StreamWriterWrap(string path, bool append, Encoding encoding) => Instance = new StreamWriter(path, append, encoding); 
+
         public StreamWriterWrap(Stream stream, Encoding encoding, int bufferSize, bool leaveOpen) => 
             Instance = new StreamWriter(stream, encoding, bufferSize, leaveOpen); 
+
         public StreamWriterWrap(string path, bool append, Encoding encoding, int bufferSize) => 
             Instance = new StreamWriter(path, append, encoding, bufferSize); 
 
