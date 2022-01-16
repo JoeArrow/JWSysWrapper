@@ -51,8 +51,11 @@
     <Compile Include="Impl\DirectoryServices\DirectoryEntryWrap.cs" />
     <Compile Include="Impl\DirectoryServices\DirectorySearcherFactory.cs" />
     <Compile Include="Impl\DirectoryServices\DirectorySearcherWrap.cs" />
+    <Compile Include="Impl\DirectoryServices\GroupPrincipalWrap.cs" />
     <Compile Include="Impl\DirectoryServices\LdapConnectionFactory.cs" />
     <Compile Include="Impl\DirectoryServices\LdapConnectionWrap.cs" />
+    <Compile Include="Impl\DirectoryServices\PrincipalCollectionWrap.cs" />
+    <Compile Include="Impl\DirectoryServices\PrincipalContextFactory.cs" />
     <Compile Include="Impl\DirectoryServices\PrincipalContextWrap.cs" />
     <Compile Include="Impl\DirectoryServices\PropertyCollectionWrap.cs" />
     <Compile Include="Impl\DirectoryServices\PropertyValueCollectionWrap.cs" />
@@ -73,9 +76,12 @@
     <Compile Include="Interface\DirectoryServices\IDirectoryEntryFactory.cs" />
     <Compile Include="Interface\DirectoryServices\IDirectorySearcher.cs" />
     <Compile Include="Interface\DirectoryServices\IDirectorySearcherFactory.cs" />
+    <Compile Include="Interface\DirectoryServices\IGroupPrincipal.cs" />
     <Compile Include="Interface\DirectoryServices\ILdapConnection.cs" />
     <Compile Include="Interface\DirectoryServices\ILdapConnectionFactory.cs" />
+    <Compile Include="Interface\DirectoryServices\IPrincipalCollection.cs" />
     <Compile Include="Interface\DirectoryServices\IPrincipalContext.cs" />
+    <Compile Include="Interface\DirectoryServices\IPrincipalContextFactory.cs" />
     <Compile Include="Interface\DirectoryServices\IPropertyCollection.cs" />
     <Compile Include="Interface\DirectoryServices\IPropertyValueCollection.cs" />
     <Compile Include="Interface\DirectoryServices\IResultPropertyCollection.cs" />
