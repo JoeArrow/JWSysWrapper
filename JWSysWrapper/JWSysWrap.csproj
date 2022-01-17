@@ -76,10 +76,17 @@
     <Compile Include="Impl\DirectoryServices\SearchResultCollectionWrap.cs" />
     <Compile Include="Impl\DirectoryServices\SearchResultWrap.cs" />
     <Compile Include="Impl\IO\Compression\GZipStreamWrap.cs" />
+    <Compile Include="Impl\IO\DirectoryInfoWrap.cs" />
+    <Compile Include="Impl\IO\DirectoryWrap.cs" />
+    <Compile Include="Impl\IO\FileInfoWrap.cs" />
     <Compile Include="Impl\IO\FileStreamWrap.cs" />
     <Compile Include="Impl\IO\FileWrap.cs" />
+    <Compile Include="Impl\IO\StreamReaderWrap.cs" />
     <Compile Include="Impl\IO\StreamWrap.cs" />
     <Compile Include="Impl\IO\StreamWriterWrap.cs" />
+    <Compile Include="Impl\Net\Sockets\NetworkStreamWrap.cs" />
+    <Compile Include="Impl\Security\DirectorySecurityWrap.cs" />
+    <Compile Include="Impl\Security\FileSecurityWrap.cs" />
     <Compile Include="Impl\TimeSpanWrap.cs" />
     <Compile Include="Interface\Data\IDataTable.cs" />
     <Compile Include="Interface\Data\SqlClient\ISqlCommand.cs" />
@@ -112,11 +119,19 @@
     <Compile Include="Interface\DirectoryServices\ISearchResultCollection.cs" />
     <Compile Include="Interface\IDateTime.cs" />
     <Compile Include="Interface\IO\Compression\IGZipStream.cs" />
+    <Compile Include="Interface\IO\IDirectory.cs" />
+    <Compile Include="Interface\IO\IDirectoryInfo.cs" />
     <Compile Include="Interface\IO\IFile.cs" />
+    <Compile Include="Interface\IO\IFileInfo.cs" />
     <Compile Include="Interface\IO\IFileStream.cs" />
     <Compile Include="Interface\IO\IStream.cs" />
+    <Compile Include="Interface\IO\IStreamReader.cs" />
     <Compile Include="Interface\IO\IStreamWriter.cs" />
+    <Compile Include="Interface\IO\ITextReader.cs" />
     <Compile Include="Interface\ITimeSpan.cs" />
+    <Compile Include="Interface\Net\Sockets\INetworkStream.cs" />
+    <Compile Include="Interface\Security\IDirectorySecurity.cs" />
+    <Compile Include="Interface\Security\IFileSecurity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

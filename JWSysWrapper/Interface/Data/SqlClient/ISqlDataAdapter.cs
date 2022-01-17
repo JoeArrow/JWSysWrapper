@@ -41,7 +41,6 @@ namespace JWSysWrap.Interface.Data.SqlClient
         // event SqlRowUpdatedEventHandler RowUpdated
         // event SqlRowUpdatingEventHandler RowUpdating
         ObjRef CreateObjRef(Type requestedType);
-        void Dispose();
         bool Equals(Object obj);
         int Fill(DataSet dataSet);
         int Fill(DataSet dataSet, string srcTable);

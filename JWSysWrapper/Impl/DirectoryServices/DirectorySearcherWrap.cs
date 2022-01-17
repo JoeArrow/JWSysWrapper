@@ -6,14 +6,11 @@
 //
 #endregion
 
-using JWSysWrap.Interface.DirectoryServices;
-
 using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.DirectoryServices;
-using System.Linq;
-using System.Text;
+using System.Collections.Specialized;
+
+using JWSysWrap.Interface.DirectoryServices;
 
 namespace JWSysWrap.Impl.DirectoryServices
 {

@@ -7,8 +7,8 @@
 #endregion
 
 using System;
-using System.Collections;
 using System.Data;
+using System.Collections;
 using System.Data.SqlClient;
 
 using JWSysWrap.Interface.Data.SqlClient;
