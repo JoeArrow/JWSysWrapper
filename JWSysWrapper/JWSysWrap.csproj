@@ -44,6 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\Data\DataReaderWrap.cs" />
+    <Compile Include="Impl\Data\SqlClient\SqlCommandFactory.cs" />
+    <Compile Include="Impl\Data\SqlClient\SqlCommandWrap.cs" />
+    <Compile Include="Impl\Data\SqlClient\SqlConnectionFactory.cs" />
+    <Compile Include="Impl\Data\SqlClient\SqlConnectionWrap.cs" />
+    <Compile Include="Impl\Data\SqlClient\SqlDataAdapterFactory.cs" />
+    <Compile Include="Impl\Data\SqlClient\SqlDataAdapterWrap.cs" />
+    <Compile Include="Impl\Data\SqlClient\SqlDataReaderWrap.cs" />
+    <Compile Include="Impl\Data\SqlClient\SqlParameterCollectionWrap.cs" />
+    <Compile Include="Impl\Data\SqlClient\SqlTransactionWrap.cs" />
     <Compile Include="Impl\DateTimeWrap.cs" />
     <Compile Include="Impl\DirectoryServices\DirectoryEntriesWrap.cs" />
     <Compile Include="Impl\DirectoryServices\DirectoryEntryConfigurationWrap.cs" />
@@ -70,6 +80,15 @@
     <Compile Include="Impl\IO\StreamWrap.cs" />
     <Compile Include="Impl\IO\StreamWriterWrap.cs" />
     <Compile Include="Impl\TimeSpanWrap.cs" />
+    <Compile Include="Interface\Data\SqlClient\ISqlCommand.cs" />
+    <Compile Include="Interface\Data\SqlClient\ISqlCommandFactory.cs" />
+    <Compile Include="Interface\Data\SqlClient\ISqlConnection.cs" />
+    <Compile Include="Interface\Data\SqlClient\ISqlConnectionFactory.cs" />
+    <Compile Include="Interface\Data\SqlClient\ISqlDataAdapter.cs" />
+    <Compile Include="Interface\Data\SqlClient\ISqlDataAdapterFactory.cs" />
+    <Compile Include="Interface\Data\SqlClient\ISqlDataReader.cs" />
+    <Compile Include="Interface\Data\SqlClient\ISqlParameterCollection.cs" />
+    <Compile Include="Interface\Data\SqlClient\ISqlTransaction.cs" />
     <Compile Include="Interface\DirectoryServices\IDirectoryEntries.cs" />
     <Compile Include="Interface\DirectoryServices\IDirectoryEntry.cs" />
     <Compile Include="Interface\DirectoryServices\IDirectoryEntryConfiguration.cs" />
@@ -109,10 +128,8 @@
   <ItemGroup>
     <Folder Include="Impl\Collections\Generic\" />
     <Folder Include="Impl\Collections\Specialized\" />
-    <Folder Include="Impl\Data\" />
     <Folder Include="Interface\Collections\Generic\" />
     <Folder Include="Interface\Collections\Specialized\" />
-    <Folder Include="Interface\Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
