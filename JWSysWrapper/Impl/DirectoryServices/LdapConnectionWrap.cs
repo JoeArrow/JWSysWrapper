@@ -7,8 +7,8 @@
 #endregion
 
 using System;
-using System.DirectoryServices.Protocols;
 using System.Net;
+using System.DirectoryServices.Protocols;
 
 using JWSysWrap.Interface.DirectoryServices;
 

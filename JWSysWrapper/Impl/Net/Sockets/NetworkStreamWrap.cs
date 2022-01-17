@@ -6,16 +6,13 @@
 //
 #endregion
 
-using JWSysWrap.Interface.Net.Sockets;
-
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net.Sockets;
-using System.Text;
 using System.Threading;
+using System.Net.Sockets;
 using System.Threading.Tasks;
+
+using JWSysWrap.Interface.Net.Sockets;
 
 namespace JWSysWrap.Impl.Net.Sockets
 {

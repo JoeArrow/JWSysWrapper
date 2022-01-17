@@ -6,12 +6,12 @@
 //
 #endregion
 
-using JWSysWrap.Interface.IO;
-
 using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+
+using JWSysWrap.Interface.IO;
 
 namespace JWSysWrap.Impl.IO
 {
