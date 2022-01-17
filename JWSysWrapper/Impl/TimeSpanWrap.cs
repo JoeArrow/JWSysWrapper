@@ -22,14 +22,16 @@ namespace JWSysWrap.Impl
     {
         public TimeSpan Instance { get; }
 
-        public const long TicksPerMillisecond = 10000;
+        public readonly TimeSpan Zero;
+        public readonly TimeSpan MaxValue;
+        public readonly TimeSpan MinValue;
+
         public const long TicksPerSecond = 10000000;
         public const long TicksPerMinute = 600000000;
         public const long TicksPerHour = 36000000000;
         public const long TicksPerDay = 864000000000;
-        public readonly TimeSpan Zero;
-        public readonly TimeSpan MaxValue;
-        public readonly TimeSpan MinValue;
+
+        public const long TicksPerMillisecond = 10000;
 
         // ------------------------------------------------
 
