@@ -94,6 +94,13 @@ namespace JWSysWrap.Impl.IO
         public void SetLastAccessTime(string path, IDateTime lastAccessTime) => Directory.SetLastAccessTime(path, lastAccessTime.Instance);
         public void SetLastAccessTimeUtc(string path, IDateTime lastAccessTimeUtc) => Directory.SetLastAccessTimeUtc(path, lastAccessTimeUtc.Instance);
         public void SetLastWriteTime(string path, IDateTime lastWriteTime) => Directory.SetLastWriteTime(path, lastWriteTime.Instance);
-        public void SetLastWriteTimeUtc(string path, IDateTime lastWriteTimeUtc) =>  Directory.SetLastWriteTimeUtc(path, lastWriteTimeUtc.Instance);
+        public void SetLastWriteTimeUtc(string path, IDateTime lastWriteTimeUtc) => Directory.SetLastWriteTimeUtc(path, lastWriteTimeUtc.Instance);
+
+        #if NET45
+            public IEnumerable<string> EnumerateFiles(string path) => Directory.EnumerateFiles(path);
+            public IEnumerable<string> EnumerateFiles(string path, string searchPattern) => Directory.EnumerateFiles(path, searchPattern);
+            public IEnumerable<string> EnumerateFiles(string path, string searchPattern, SearchOption searchOption) => 
+                Directory.EnumerateFiles(path, searchPattern, searchOption);
+        #endif
     }
 }
