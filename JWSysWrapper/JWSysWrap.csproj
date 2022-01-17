@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Impl\Data\DataReaderWrap.cs" />
+    <Compile Include="Impl\Data\DataTableWrap.cs" />
     <Compile Include="Impl\Data\SqlClient\SqlCommandFactory.cs" />
     <Compile Include="Impl\Data\SqlClient\SqlCommandWrap.cs" />
     <Compile Include="Impl\Data\SqlClient\SqlConnectionFactory.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Impl\IO\StreamWrap.cs" />
     <Compile Include="Impl\IO\StreamWriterWrap.cs" />
     <Compile Include="Impl\TimeSpanWrap.cs" />
+    <Compile Include="Interface\Data\IDataTable.cs" />
     <Compile Include="Interface\Data\SqlClient\ISqlCommand.cs" />
     <Compile Include="Interface\Data\SqlClient\ISqlCommandFactory.cs" />
     <Compile Include="Interface\Data\SqlClient\ISqlConnection.cs" />

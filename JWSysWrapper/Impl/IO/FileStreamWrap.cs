@@ -32,12 +32,16 @@ namespace JWSysWrap.Impl.IO
         public FileStreamWrap(IFileStream fileStream) => Instance = fileStream.Instance;
         public FileStreamWrap(string path, FileMode mode) => Instance = new FileStream(path, mode);
         public FileStreamWrap(SafeFileHandle handle, FileAccess access) => Instance = new FileStream(handle, access);
+
+        [Obsolete]
         public FileStreamWrap(IntPtr handle, FileAccess access) => Instance = new FileStream(handle, access);
+
         public FileStreamWrap(string path, FileMode mode, FileAccess access) => Instance = new FileStream(path, mode, access);
 
         public FileStreamWrap(SafeFileHandle handle, FileAccess access, int bufferSize) => 
             Instance = new FileStream(handle, access, bufferSize);
 
+        [Obsolete]
         public FileStreamWrap(IntPtr handle, FileAccess access, bool ownsHandle) => Instance = new FileStream(handle, access, ownsHandle);
 
         public FileStreamWrap(string path, FileMode mode, FileAccess access, FileShare share) => 
@@ -46,9 +50,11 @@ namespace JWSysWrap.Impl.IO
         public FileStreamWrap(SafeFileHandle handle, FileAccess access, int bufferSize, bool isAsync) => 
             Instance = new FileStream(handle, access, bufferSize, isAsync);
 
+        [Obsolete]
         public FileStreamWrap(IntPtr handle, FileAccess access, bool ownsHandle, int bufferSize) => 
             Instance = new FileStream(handle, access, ownsHandle, bufferSize);
 
+        [Obsolete]
         public FileStreamWrap(IntPtr handle, FileAccess access, bool ownsHandle, int bufferSize, bool isAsync) => 
             Instance = new FileStream(handle, access, ownsHandle, bufferSize, isAsync);
 
@@ -79,6 +85,8 @@ namespace JWSysWrap.Impl.IO
         public bool CanSeek => Instance.CanSeek;
         public bool CanRead => Instance.CanRead;
         public SafeFileHandle SafeFileHandle => Instance.SafeFileHandle;
+
+        [Obsolete]
         public IntPtr Handle => Instance.Handle;
 
         public bool CanTimeout => Instance.CanTimeout;
