@@ -6,14 +6,10 @@
 //
 #endregion
 
-using JWSysWrap.Interface.Data.SqlClient;
-
-using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
+
+using JWSysWrap.Interface.Data.SqlClient;
 
 namespace JWSysWrap.Impl.Data.SqlClient
 {
