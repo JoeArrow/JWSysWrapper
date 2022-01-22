@@ -27,25 +27,19 @@ namespace JWSysWrap.Impl.DirectoryServices
 
         public ResultPropertyCollectionWrap() { }
 
-        public ResultPropertyCollectionWrap(ResultPropertyCollection resultPropertyCollection)
-        {
-            Instance = resultPropertyCollection;
-
-            Values = Instance.Values;
-            PropertyNames = Instance.PropertyNames;
-        }
+        public ResultPropertyCollectionWrap(ResultPropertyCollection instance) => Instance = instance;
 
         // ------------------------------------------------
 
         public int Count { get => Instance.Count; }
-        public ICollection PropertyNames { get; private set; }
-        public ICollection Values { get; private set; }
+        public ICollection PropertyNames { get => Instance.PropertyNames; }
+        public ICollection Values { get => Instance.Values; }
         public IResultPropertyValueCollection this[string name] { get => new ResultPropertyValueCollectionWrap(Instance[name]); }
         public bool Contains(string propertyName) => Instance.Contains(propertyName);
         public void CopyTo(Array array, int index) => Instance.CopyTo(array, index);
         public IEnumerator GetEnumerator() => Instance.GetEnumerator();
 
         public object SyncRoot { get => ((ICollection) Instance).SyncRoot; }
-        public bool IsSynchronized { get => ((ICollection)Instance).IsSynchronized; }
+        public bool IsSynchronized { get => ((ICollection) Instance).IsSynchronized; }
     }
 }
