@@ -10,7 +10,6 @@ using System;
 using System.IO;
 using System.Security.AccessControl;
 using System.Runtime.InteropServices;
-using System.Diagnostics.CodeAnalysis;
 
 using JWSysWrap.Interface;
 using JWSysWrap.Interface.IO;
@@ -36,348 +35,67 @@ namespace JWSysWrap.Impl.IO
         public FileInfoWrap(FileInfo fileInfo) => Initialize(fileInfo);
 
         // ------------------------------------------------
-        /// <summary>
-        ///     Initializes a new instance of the 
-        ///     <see cref="T:SystemWrapper.IO.FileInfoWrap"/> 
-        ///     class on the specified path.
-        /// </summary>
-        /// <param name="fileInfo">A <see cref="T:System.IO.FileInfo"/> object.</param>
 
-        public void Initialize(FileInfo fileInfo)
-        {
-            Instance = fileInfo;
-        }
+        public void Initialize(FileInfo fileInfo) => Instance = fileInfo;
+        public void Initialize(string fileName) => Instance = new FileInfo(fileName);
 
-        // ------------------------------------------------
-        /// <summary>
-        ///     Initializes a new instance of the 
-        ///     <see cref="T:SystemWrapper.IO.FileInfoWrap"/> 
-        ///     class on the specified path.
-        /// </summary>
-        /// <param name="fileName">
-        ///     The fully qualified name of the new file, 
-        ///     or the relative file name.
-        /// </param>
+        public FileAttributes Attributes { get => Instance.Attributes; set => Instance.Attributes = value; }
+        public IDateTime CreationTime { get => new DateTimeWrap(Instance.CreationTime); set => Instance.CreationTime = value.Instance; }
+        public IDateTime CreationTimeUtc { get => new DateTimeWrap(Instance.CreationTimeUtc); set => Instance.CreationTimeUtc = value.Instance; } 
+        public IDirectoryInfo Directory { get => new DirectoryInfoWrap(Instance.Directory); }
+        public string DirectoryName { get => Instance.DirectoryName; }
+        public bool Exists { get => Instance.Exists; }
+        public string Extension { get => Instance.Extension; }
+        public string FullName { get => Instance.FullName; }
+        public bool IsReadOnly { get => Instance.IsReadOnly; set => Instance.IsReadOnly = value; }
+        public IDateTime LastAccessTime { get => new DateTimeWrap(Instance.LastAccessTime); set => Instance.LastAccessTime = value.Instance; }
+        public IDateTime LastAccessTimeUtc { get => new DateTimeWrap(Instance.LastAccessTimeUtc); set => Instance.LastAccessTimeUtc = value.Instance; }
+        public IDateTime LastWriteTime { get => new DateTimeWrap(Instance.LastWriteTime); set => Instance.LastWriteTime = value.Instance; }
+        public IDateTime LastWriteTimeUtc { get => new DateTimeWrap(Instance.LastWriteTimeUtc); set => Instance.LastWriteTimeUtc = value.Instance; }
+        public long Length { get => Instance.Length; }
+        public string Name { get => Instance.Name; }
 
-        public void Initialize(string fileName)
-        {
-            Instance = new FileInfo(fileName);
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public FileAttributes Attributes
-        {
-            get { return Instance.Attributes; }
-            set { Instance.Attributes = value; }
-        }
+        IDateTime IFileInfo.CreationTime { get => new DateTimeWrap(Instance.CreationTime); set => Instance.CreationTime = value.Instance; }
+        IDateTime IFileInfo.CreationTimeUtc { get => new DateTimeWrap(Instance.CreationTimeUtc); set => Instance.CreationTimeUtc = value.Instance; }
+        IDateTime IFileInfo.LastAccessTime { get => new DateTimeWrap(Instance.LastAccessTime); set => Instance.LastAccessTime = value.Instance; }
+        IDateTime IFileInfo.LastAccessTimeUtc { get => new DateTimeWrap(Instance.LastAccessTimeUtc); set => Instance.LastAccessTimeUtc = value.Instance; }
+        IDateTime IFileInfo.LastWriteTime { get => new DateTimeWrap(Instance.LastWriteTime); set => Instance.LastWriteTime = value.Instance; }
+        IDateTime IFileInfo.LastWriteTimeUtc { get => new DateTimeWrap(Instance.LastWriteTimeUtc); set => Instance.LastWriteTimeUtc = value.Instance; }
 
         // ------------------------------------------------
         /// <inheritdoc />
 
-        public IDateTime CreationTime
-        {
-            get { return new DateTimeWrap(Instance.CreationTime); }
-            set { Instance.CreationTime = value.Instance; }
-        }
+        public IStreamWriter AppendText() => new StreamWriterWrap(Instance.AppendText());
+        public void Decrypt() => Instance.Decrypt();
+        public void Delete() => Instance.Delete();
+        public void Encrypt() => Instance.Encrypt();
+        public IFileInfo CopyTo(string destFileName) => new FileInfoWrap(Instance.CopyTo(destFileName));
+        public IFileInfo CopyTo(string destFileName, bool overwrite) => new FileInfoWrap(Instance.CopyTo(destFileName, overwrite));
+        public IFileStream Create() => new FileStreamWrap(Instance.Create());
+        public IStreamWriter CreateText() => new StreamWriterWrap(Instance.CreateText());
+        public IFileSecurity GetAccessControl() => new FileSecurityWrap(Instance.GetAccessControl());
+        public IFileSecurity GetAccessControl(AccessControlSections includeSections) => new FileSecurityWrap(Instance.GetAccessControl(includeSections));
+        public void MoveTo(string destFileName) => Instance.MoveTo(destFileName);
+        public IFileStream Open(FileMode mode) => new FileStreamWrap(Instance.Open(mode));
+        public IFileStream Open(FileMode mode, FileAccess access) => new FileStreamWrap(Instance.Open(mode, access));
+        public IFileStream Open(FileMode mode, FileAccess access, FileShare share) => new FileStreamWrap(Instance.Open(mode, access, share));
+        public IFileStream OpenRead() => new FileStreamWrap(Instance.OpenRead());
+        public IStreamReader OpenText() => new StreamReaderWrap(Instance.OpenText());
+        public IFileStream OpenWrite() => new FileStreamWrap(Instance.OpenWrite());
+        public void Refresh() => Instance.Refresh();
+        
+        public IFileInfo Replace(string destinationFileName, string destinationBackupFileName) => 
+            new FileInfoWrap(Instance.Replace(destinationFileName, destinationBackupFileName));
+
+        public IFileInfo Replace(string destinationFileName, string destinationBackupFileName, bool ignoreMetadataErrors) => 
+            new FileInfoWrap(Instance.Replace(destinationFileName, destinationBackupFileName, ignoreMetadataErrors));
+
+        public void SetAccessControl(IFileSecurity fileSecurity) => Instance.SetAccessControl(fileSecurity.Instance);
+        public override string ToString() => Instance.ToString();
+        public void Dispose() { /* Nothing to Dispose of */ }
 
         // ------------------------------------------------
-        /// <inheritdoc />
 
-        public IDateTime CreationTimeUtc
-        {
-            get { return new DateTimeWrap(Instance.CreationTimeUtc); }
-            set { Instance.CreationTimeUtc = value.Instance; }
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public IDirectoryInfo Directory
-        {
-            get { return new DirectoryInfoWrap(Instance.Directory); }
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public string DirectoryName
-        {
-            get { return Instance.DirectoryName; }
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public bool Exists
-        {
-            get { return Instance.Exists; }
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public string Extension
-        {
-            get { return Instance.Extension; }
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public string FullName
-        {
-            get { return Instance.FullName; }
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public bool IsReadOnly
-        {
-            get { return Instance.IsReadOnly; }
-            set { Instance.IsReadOnly = value; }
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public IDateTime LastAccessTime
-        {
-            get { return new DateTimeWrap(Instance.LastAccessTime); }
-            set { Instance.LastAccessTime = value.Instance; }
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public IDateTime LastAccessTimeUtc
-        {
-            get { return new DateTimeWrap(Instance.LastAccessTimeUtc); }
-            set { Instance.LastAccessTimeUtc = value.Instance; }
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public IDateTime LastWriteTime
-        {
-            get { return new DateTimeWrap(Instance.LastWriteTime); }
-            set { Instance.LastWriteTime = value.Instance; }
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public IDateTime LastWriteTimeUtc
-        {
-            get { return new DateTimeWrap(Instance.LastWriteTimeUtc); }
-            set { Instance.LastWriteTimeUtc = value.Instance; }
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public long Length
-        {
-            get { return Instance.Length; }
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public string Name
-        {
-            get { return Instance.Name; }
-        }
-
-        IDateTime IFileInfo.CreationTime { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        IDateTime IFileInfo.CreationTimeUtc { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        IDateTime IFileInfo.LastAccessTime { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        IDateTime IFileInfo.LastAccessTimeUtc { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        IDateTime IFileInfo.LastWriteTime { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        IDateTime IFileInfo.LastWriteTimeUtc { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public IStreamWriter AppendText()
-        {
-            return new StreamWriterWrap(Instance.AppendText());
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public void Decrypt()
-        {
-            Instance.Decrypt();
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public void Delete()
-        {
-            Instance.Delete();
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public void Encrypt()
-        {
-            Instance.Encrypt();
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public IFileInfo CopyTo(string destFileName)
-        {
-            return new FileInfoWrap(Instance.CopyTo(destFileName));
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public IFileInfo CopyTo(string destFileName, bool overwrite)
-        {
-            return new FileInfoWrap(Instance.CopyTo(destFileName, overwrite));
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public IFileStream Create()
-        {
-            return new FileStreamWrap(Instance.Create());
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public IStreamWriter CreateText()
-        {
-            return new StreamWriterWrap(Instance.CreateText());
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public IFileSecurity GetAccessControl()
-        {
-            return new FileSecurityWrap(Instance.GetAccessControl());
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public IFileSecurity GetAccessControl(AccessControlSections includeSections)
-        {
-            return new FileSecurityWrap(Instance.GetAccessControl(includeSections));
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public void MoveTo(string destFileName)
-        {
-            Instance.MoveTo(destFileName);
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public IFileStream Open(FileMode mode)
-        {
-            return new FileStreamWrap(Instance.Open(mode));
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public IFileStream Open(FileMode mode, FileAccess access)
-        {
-            return new FileStreamWrap(Instance.Open(mode, access));
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public IFileStream Open(FileMode mode, FileAccess access, FileShare share)
-        {
-            return new FileStreamWrap(Instance.Open(mode, access, share));
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public IFileStream OpenRead()
-        {
-            return new FileStreamWrap(Instance.OpenRead());
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public IStreamReader OpenText()
-        {
-            return new StreamReaderWrap(Instance.OpenText());
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public IFileStream OpenWrite()
-        {
-            return new FileStreamWrap(Instance.OpenWrite());
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public void Refresh()
-        {
-            Instance.Refresh();
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public IFileInfo Replace(string destinationFileName, string destinationBackupFileName)
-        {
-            return new FileInfoWrap(Instance.Replace(destinationFileName, destinationBackupFileName));
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public IFileInfo Replace(string destinationFileName, string destinationBackupFileName, bool ignoreMetadataErrors)
-        {
-            return new FileInfoWrap(Instance.Replace(destinationFileName, destinationBackupFileName, ignoreMetadataErrors));
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public void SetAccessControl(IFileSecurity fileSecurity)
-        {
-            Instance.SetAccessControl(fileSecurity.Instance);
-        }
-
-        // ------------------------------------------------
-        /// <inheritdoc />
-
-        public override string ToString()
-        {
-            return Instance.ToString();
-        }
-
-        // ------------------------------------------------
-
-        [SuppressMessage("StyleCopPlus.StyleCopPlusRules", "SP0100:AdvancedNamingRules", Justification = "Reviewed. Suppression is OK here.")]
         internal static IFileInfo[] GetIFileInfoArray(FileInfo[] fileInfos)
         {
             var fileInfoWraps = new FileInfoWrap[fileInfos.Length];
@@ -389,7 +107,5 @@ namespace JWSysWrap.Impl.IO
 
             return fileInfoWraps;
         }
-
-        public void Dispose() { /* Nothing to Dispose of */ }
     }
 }

@@ -24,7 +24,11 @@ namespace JWSysWrap.Impl.IO
     {
         public Stream Instance { private set; get; }
 
-        public StreamWrap(Stream instance) => Instance = instance; 
+        // ------------------------------------------------
+
+        public StreamWrap(Stream instance) => Instance = instance;
+
+        // ------------------------------------------------
 
         ~StreamWrap() => Instance.Dispose();
 

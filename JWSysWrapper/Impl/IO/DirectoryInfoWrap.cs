@@ -30,6 +30,7 @@ namespace JWSysWrap.Impl.IO
     {
         public DirectoryInfo Instance { get; private set; }
 
+        // ------------------------------------------------
 
         public DirectoryInfoWrap(DirectoryInfo directoryInfo) => Initialize(directoryInfo);
         public DirectoryInfoWrap(string path) => Initialize(path);
@@ -68,19 +69,19 @@ namespace JWSysWrap.Impl.IO
         public IDirectoryInfo[] GetDirectories()
         {
             DirectoryInfo[] directoryInfos = Instance.GetDirectories();
-            return ConvertDirectoryInfoArrayIntoIDirectoryInfoWrapArray(directoryInfos);
+            return GetIDirectoryInfoArray(directoryInfos);
         }
 
         public IDirectoryInfo[] GetDirectories(string searchPattern)
         {
             DirectoryInfo[] directoryInfos = Instance.GetDirectories(searchPattern);
-            return ConvertDirectoryInfoArrayIntoIDirectoryInfoWrapArray(directoryInfos);
+            return GetIDirectoryInfoArray(directoryInfos);
         }
 
         public IDirectoryInfo[] GetDirectories(string searchPattern, SearchOption searchOption)
         {
             DirectoryInfo[] directoryInfos = Instance.GetDirectories(searchPattern, searchOption);
-            return ConvertDirectoryInfoArrayIntoIDirectoryInfoWrapArray(directoryInfos);
+            return GetIDirectoryInfoArray(directoryInfos);
         }
 
         public IFileInfo[] GetFiles()
@@ -111,7 +112,7 @@ namespace JWSysWrap.Impl.IO
         public override string ToString() => Instance.ToString();
 
         [SuppressMessage("StyleCopPlus.StyleCopPlusRules", "SP0100:AdvancedNamingRules", Justification = "Reviewed. Suppression is OK here.")]
-        private static IDirectoryInfo[] ConvertDirectoryInfoArrayIntoIDirectoryInfoWrapArray(DirectoryInfo[] directoryInfos)
+        private static IDirectoryInfo[] GetIDirectoryInfoArray(DirectoryInfo[] directoryInfos)
         {
             IDirectoryInfo[] directoryInfoWraps = new DirectoryInfoWrap[directoryInfos.Length];
 

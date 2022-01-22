@@ -23,11 +23,9 @@ namespace JWSysWrap.Impl.IO
     {
         private StreamWriter Instance;
 
+        // ------------------------------------------------
+
         public bool AutoFlush { get => Instance.AutoFlush; set => Instance.AutoFlush = value; }
-
-        public Stream BaseStream => Instance.BaseStream;
-
-        public Encoding Encoding => Instance.Encoding;
 
         // ------------------------------------------------
 
@@ -36,7 +34,13 @@ namespace JWSysWrap.Impl.IO
         public StreamWriterWrap(Stream stream) => Instance = new StreamWriter(stream); 
         public StreamWriterWrap(string path, bool append) => Instance = new StreamWriter(path, append); 
         public StreamWriterWrap(Stream stream, Encoding encoding) => Instance = new StreamWriter(stream, encoding); 
-        public StreamWriterWrap(string path, bool append, Encoding encoding) => Instance = new StreamWriter(path, append, encoding); 
+        public StreamWriterWrap(string path, bool append, Encoding encoding) => Instance = new StreamWriter(path, append, encoding);
+
+        // ------------------------------------------------
+
+        public Stream BaseStream => Instance.BaseStream;
+
+        public Encoding Encoding => Instance.Encoding;
 
         public StreamWriterWrap(Stream stream, Encoding encoding, int bufferSize) => 
             Instance = new StreamWriter(stream, encoding, bufferSize); 

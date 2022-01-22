@@ -21,8 +21,12 @@ namespace JWSysWrap.Impl.Security
     {
         public FileSecurity Instance { get => Instance; private set => Instance = value; }
 
+        // ------------------------------------------------
+
         public FileSecurityWrap() => Initialize(); 
         public FileSecurityWrap(FileSecurity instance) => Instance = instance;
+
+        // ------------------------------------------------
 
         public void Dispose() { /* Nothing to Dispose of */ }
 

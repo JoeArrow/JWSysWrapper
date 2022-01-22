@@ -21,8 +21,12 @@ namespace JWSysWrap.Impl
     {
         public DateTime Instance { get; private set; }
 
+        // ------------------------------------------------
+
         public DateTimeWrap() => Instance = new DateTime();
         public DateTimeWrap(DateTime dateTime) => Instance = dateTime;
+
+        // ------------------------------------------------
 
         public IDateTime Add(TimeSpan value) => new DateTimeWrap(Instance.Add(value));
         public IDateTime AddDays(double value) => new DateTimeWrap(Instance.AddDays(value));
@@ -86,5 +90,22 @@ namespace JWSysWrap.Impl
 
         public static bool operator >=(DateTimeWrap d, DateTime t) => d >= t;
         public static bool operator >=(DateTimeWrap d, IDateTime t) => d.Instance >= t.Instance;
+
+        public override bool Equals(object obj)
+        {
+            var retVal = false;
+            
+            if(obj is DateTime)
+            {
+                retVal = Instance.Equals((DateTime) obj);
+            }
+
+            return retVal;
+        }
+
+        public override int GetHashCode()
+        {
+            return Instance.GetHashCode();
+        }
     }
 }
