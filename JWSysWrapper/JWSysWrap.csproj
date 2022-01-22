@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>JWSysWrap</RootNamespace>
     <AssemblyName>JWSysWrap</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>false</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -89,6 +90,7 @@
     <Compile Include="Impl\Security\DirectorySecurityWrap.cs" />
     <Compile Include="Impl\Security\FileSecurityWrap.cs" />
     <Compile Include="Impl\TimeSpanWrap.cs" />
+    <Compile Include="Impl\Win32\RegistryWrap.cs" />
     <Compile Include="Interface\Data\IDataTable.cs" />
     <Compile Include="Interface\Data\SqlClient\ISqlCommand.cs" />
     <Compile Include="Interface\Data\SqlClient\ISqlCommandFactory.cs" />
@@ -134,6 +136,7 @@
     <Compile Include="Interface\Net\Sockets\INetworkStream.cs" />
     <Compile Include="Interface\Security\IDirectorySecurity.cs" />
     <Compile Include="Interface\Security\IFileSecurity.cs" />
+    <Compile Include="Interface\Win32\IRegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
