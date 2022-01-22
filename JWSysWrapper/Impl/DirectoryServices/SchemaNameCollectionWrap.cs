@@ -30,7 +30,7 @@ namespace JWSysWrap.Impl.DirectoryServices
 
         // ------------------------------------------------
 
-        public string this[int index] { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string this[int index] { get => Instance[index]; set => Instance[index] = value; }
 
         public int Count => Instance.Count;
 
