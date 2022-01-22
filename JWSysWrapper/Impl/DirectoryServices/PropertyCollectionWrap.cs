@@ -26,7 +26,7 @@ namespace JWSysWrap.Impl.DirectoryServices
 
         public PropertyCollectionWrap() { }
 
-        public PropertyCollectionWrap(PropertyCollection propCollection) { Instance = propCollection; }
+        public PropertyCollectionWrap(PropertyCollection propCollection) => Instance = propCollection;
 
         // ------------------------------------------------
 
