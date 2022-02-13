@@ -29,8 +29,7 @@ namespace JWSysWrap.Impl.Net.Mail
 
         // ------------------------------------------------
 
-        public SmtpClientWrap() { }
-
+        public SmtpClientWrap() { Instance = new SmtpClient(); }
         public SmtpClientWrap(SmtpClient smtpClient) => Instance = smtpClient;
         public SmtpClientWrap(string host) => Instance = new SmtpClient(host);
         public SmtpClientWrap(string host, int port) => Instance = new SmtpClient(host, port);

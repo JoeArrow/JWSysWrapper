@@ -85,6 +85,9 @@
     <Compile Include="Impl\IO\StreamReaderWrap.cs" />
     <Compile Include="Impl\IO\StreamWrap.cs" />
     <Compile Include="Impl\IO\StreamWriterWrap.cs" />
+    <Compile Include="Impl\Net\Http\Headers\HttpRequestHeadersWrap.cs" />
+    <Compile Include="Impl\Net\Http\HttpClientWrap.cs" />
+    <Compile Include="Impl\Net\Http\HttpResponseMessageWrap.cs" />
     <Compile Include="Impl\Net\Mail\SmtpClientWrap.cs" />
     <Compile Include="Impl\Net\Sockets\NetworkStreamWrap.cs" />
     <Compile Include="Impl\Security\DirectorySecurityWrap.cs" />
@@ -132,6 +135,9 @@
     <Compile Include="Interface\IO\IStreamWriter.cs" />
     <Compile Include="Interface\IO\ITextReader.cs" />
     <Compile Include="Interface\ITimeSpan.cs" />
+    <Compile Include="Interface\Net\Http\Headers\IHttpRequestHeaders.cs" />
+    <Compile Include="Interface\Net\Http\IHttpResponseMessage.cs" />
+    <Compile Include="Interface\Net\Http\IHttpClient.cs" />
     <Compile Include="Interface\Net\Mail\ISmtpClient.cs" />
     <Compile Include="Interface\Net\Sockets\INetworkStream.cs" />
     <Compile Include="Interface\Security\IDirectorySecurity.cs" />
