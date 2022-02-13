@@ -38,10 +38,6 @@ namespace JWSysWrap.Impl.IO
 
         // ------------------------------------------------
 
-        public Stream BaseStream => Instance.BaseStream;
-
-        public Encoding Encoding => Instance.Encoding;
-
         public StreamWriterWrap(Stream stream, Encoding encoding, int bufferSize) => 
             Instance = new StreamWriter(stream, encoding, bufferSize); 
 
@@ -49,9 +45,12 @@ namespace JWSysWrap.Impl.IO
             Instance = new StreamWriter(stream, encoding, bufferSize, leaveOpen); 
 
         public StreamWriterWrap(string path, bool append, Encoding encoding, int bufferSize) => 
-            Instance = new StreamWriter(path, append, encoding, bufferSize); 
+            Instance = new StreamWriter(path, append, encoding, bufferSize);
 
         // ------------------------------------------------
+
+        public Stream BaseStream => Instance.BaseStream;
+        public Encoding Encoding => Instance.Encoding;
 
         public void Close() => Instance.Close();
         public void Flush() => Instance.Flush();

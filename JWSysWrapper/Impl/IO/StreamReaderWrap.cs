@@ -29,34 +29,34 @@ namespace JWSysWrap.Impl.IO
         public StreamReaderWrap(TextReader textReader) => Initialize(textReader);
         public StreamReaderWrap(INetworkStream networkStream) => Initialize(networkStream);
         public StreamReaderWrap(StreamReader streamReader) => Initialize(streamReader);
-        public void Initialize(StreamReader streamReader) => Instance = streamReader;
         public StreamReaderWrap(Stream stream) => Initialize(stream);
-        public void Initialize(Stream stream) => Instance = new StreamReader(stream);
         public StreamReaderWrap(IStream stream) => Initialize(stream);
-        public void Initialize(IStream stream) => Instance = new StreamReader(stream.Instance);
-        public StreamReaderWrap(string path) => Initialize(path);
-        public void Initialize(string path) => Instance = new StreamReader(path);
-        public StreamReaderWrap(Stream stream, bool detectEncodingFromByteOrderMarks) => Initialize(stream, detectEncodingFromByteOrderMarks);
-        public void Initialize(Stream stream, bool detectEncodingFromByteOrderMarks) => Instance = new StreamReader(stream, detectEncodingFromByteOrderMarks);
-        public StreamReaderWrap(Stream stream, Encoding encoding) => Initialize(stream, encoding);
-        public void Initialize(Stream stream, Encoding encoding) => Instance = new StreamReader(stream, encoding);
-        public StreamReaderWrap(string path, bool detectEncodingFromByteOrderMarks) => Initialize(path, detectEncodingFromByteOrderMarks);
-        public void Initialize(string path, bool detectEncodingFromByteOrderMarks) => Instance = new StreamReader(path, detectEncodingFromByteOrderMarks);
-        public StreamReaderWrap(string path, Encoding encoding) => Initialize(path, encoding);
-        public void Initialize(string path, Encoding encoding) => Instance = new StreamReader(path, encoding);
-        public StreamReaderWrap(Stream stream, Encoding encoding, bool detectEncodingFromByteOrderMarks) => 
+        public StreamReaderWrap(Stream stream, Encoding encoding, bool detectEncodingFromByteOrderMarks) =>
             Initialize(stream, encoding, detectEncodingFromByteOrderMarks);
-        public void Initialize(Stream stream, Encoding encoding, bool detectEncodingFromByteOrderMarks) => 
+        public void Initialize(Stream stream, Encoding encoding, bool detectEncodingFromByteOrderMarks) =>
             Instance = new StreamReader(stream, encoding, detectEncodingFromByteOrderMarks);
-        public StreamReaderWrap(string path, Encoding encoding, bool detectEncodingFromByteOrderMarks) => 
+        public StreamReaderWrap(string path) => Initialize(path);
+        public StreamReaderWrap(Stream stream, bool detectEncodingFromByteOrderMarks) => Initialize(stream, detectEncodingFromByteOrderMarks);
+        public StreamReaderWrap(Stream stream, Encoding encoding) => Initialize(stream, encoding);
+        public StreamReaderWrap(string path, bool detectEncodingFromByteOrderMarks) => Initialize(path, detectEncodingFromByteOrderMarks);
+        public StreamReaderWrap(string path, Encoding encoding) => Initialize(path, encoding);
+        public StreamReaderWrap(string path, Encoding encoding, bool detectEncodingFromByteOrderMarks) =>
             Initialize(path, encoding, detectEncodingFromByteOrderMarks);
-        public StreamReaderWrap(Stream stream, Encoding encoding, bool detectEncodingFromByteOrderMarks, int bufferSize) => 
+        public StreamReaderWrap(Stream stream, Encoding encoding, bool detectEncodingFromByteOrderMarks, int bufferSize) =>
             Initialize(stream, encoding, detectEncodingFromByteOrderMarks, bufferSize);
         public StreamReaderWrap(string path, Encoding encoding, bool detectEncodingFromByteOrderMarks, int bufferSize) =>
             Initialize(path, encoding, detectEncodingFromByteOrderMarks, bufferSize);
 
         // ------------------------------------------------
 
+        public void Initialize(string path) => Instance = new StreamReader(path);
+        public void Initialize(Stream stream) => Instance = new StreamReader(stream);
+        public void Initialize(StreamReader streamReader) => Instance = streamReader;
+        public void Initialize(IStream stream) => Instance = new StreamReader(stream.Instance);
+        public void Initialize(string path, Encoding encoding) => Instance = new StreamReader(path, encoding);
+        public void Initialize(Stream stream, Encoding encoding) => Instance = new StreamReader(stream, encoding);
+        public void Initialize(Stream stream, bool detectEncodingFromByteOrderMarks) => Instance = new StreamReader(stream, detectEncodingFromByteOrderMarks);
+        public void Initialize(string path, bool detectEncodingFromByteOrderMarks) => Instance = new StreamReader(path, detectEncodingFromByteOrderMarks);
         public void Initialize(string path, Encoding encoding, bool detectEncodingFromByteOrderMarks)
         {
             Instance = new StreamReader(path, encoding, detectEncodingFromByteOrderMarks);
