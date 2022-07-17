@@ -25,7 +25,7 @@ namespace JWSysWrap.Impl.IO
     ///     all methods being wrapped are static
     /// </summary>
 
-    public class FileWrapStream : IFile
+    public class FileWrap : IFile
     {
         public void AppendAllLines(string path, IEnumerable<string> contents) => File.AppendAllLines(path, contents);
         public void AppendAllLines(string path, IEnumerable<string> contents, Encoding encoding) => File.AppendAllLines(path, contents, encoding); 

@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,8 +31,15 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="amqmdnet">
+      <HintPath>..\Lib\amqmdnet.dll</HintPath>
+    </Reference>
+    <Reference Include="amqmdxcs">
+      <HintPath>..\Lib\amqmdxcs.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
@@ -76,6 +84,9 @@
     <Compile Include="Impl\DirectoryServices\SchemaNameCollectionWrap.cs" />
     <Compile Include="Impl\DirectoryServices\SearchResultCollectionWrap.cs" />
     <Compile Include="Impl\DirectoryServices\SearchResultWrap.cs" />
+    <Compile Include="Impl\IBM\WMQ\MQMessageWrap.cs" />
+    <Compile Include="Impl\IBM\WMQ\MQQueueManagerWrap.cs" />
+    <Compile Include="Impl\IBM\WMQ\MQQueueWrap.cs" />
     <Compile Include="Impl\IO\Compression\GZipStreamWrap.cs" />
     <Compile Include="Impl\IO\DirectoryInfoWrap.cs" />
     <Compile Include="Impl\IO\DirectoryWrap.cs" />
@@ -94,6 +105,10 @@
     <Compile Include="Impl\Security\FileSecurityWrap.cs" />
     <Compile Include="Impl\TimeSpanWrap.cs" />
     <Compile Include="Impl\Win32\RegistryWrap.cs" />
+    <Compile Include="Impl\Xml\XmlWriterWrap.cs" />
+    <Compile Include="Impl\Xml\XPath\XPathDocumentWrap.cs" />
+    <Compile Include="Impl\Xml\XPath\XPathNavigatorWrap.cs" />
+    <Compile Include="Impl\Xml\XPath\XPathNodeIteratorWrap.cs" />
     <Compile Include="Interface\Data\IDataTable.cs" />
     <Compile Include="Interface\Data\SqlClient\ISqlCommand.cs" />
     <Compile Include="Interface\Data\SqlClient\ISqlCommandFactory.cs" />
@@ -123,6 +138,9 @@
     <Compile Include="Interface\DirectoryServices\ISchemaNameCollection.cs" />
     <Compile Include="Interface\DirectoryServices\ISearchResult.cs" />
     <Compile Include="Interface\DirectoryServices\ISearchResultCollection.cs" />
+    <Compile Include="Interface\IBM\WMQ\IMQMessage.cs" />
+    <Compile Include="Interface\IBM\WMQ\IMQQueue.cs" />
+    <Compile Include="Interface\IBM\WMQ\IMQQueueManager.cs" />
     <Compile Include="Interface\IDateTime.cs" />
     <Compile Include="Interface\IO\Compression\IGZipStream.cs" />
     <Compile Include="Interface\IO\IDirectory.cs" />
@@ -143,6 +161,10 @@
     <Compile Include="Interface\Security\IDirectorySecurity.cs" />
     <Compile Include="Interface\Security\IFileSecurity.cs" />
     <Compile Include="Interface\Win32\IRegistry.cs" />
+    <Compile Include="Interface\Xml\IXmlWriter.cs" />
+    <Compile Include="Interface\Xml\XPath\IXPathDocument.cs" />
+    <Compile Include="Interface\Xml\XPath\IXPathNavigator.cs" />
+    <Compile Include="Interface\Xml\XPath\IXPathNodeIterator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

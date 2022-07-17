@@ -205,10 +205,10 @@ namespace JWSysWrap.IntgTests
 
         // ------------------------------------------------
 
+        [Obsolete]
         [TestMethod]
         [DataRow("./TestData/Target.txt", FileMode.Open, FileAccess.Read, true)]
         [DataRow("./TestData/NonExistant.txt", FileMode.Open, FileAccess.Read, false)]
-        [Obsolete]
         public void Constructor_IntPtr_FileStreamWrap(string filePath, FileMode fileMode, FileAccess fileAccess, bool expected)
         {
             // -------
@@ -467,10 +467,10 @@ namespace JWSysWrap.IntgTests
 
         // ------------------------------------------------
 
+        [Obsolete]
         [TestMethod]
         [DataRow("./TestData/Target.txt", FileMode.Open, FileAccess.Read, true, 2048, true)]
         [DataRow("./TestData/NonExistant.txt", FileMode.Open, FileAccess.Read, true, 2048, false)]
-        [Obsolete]
         public void Constructor4_IntPtr_FileStreamWrap(string filePath, FileMode fileMode, FileAccess fileAccess, bool ownsHandle, 
                                                        int bufferSize, bool expected)
         {
@@ -517,10 +517,10 @@ namespace JWSysWrap.IntgTests
 
         // ------------------------------------------------
 
+        [Obsolete]
         [TestMethod]
         [DataRow("./TestData/Target.txt", FileMode.Open, FileAccess.Read, true, 2048, false, true)]
         [DataRow("./TestData/NonExistant.txt", FileMode.Open, FileAccess.Read, true, 2048, false, false)]
-        [Obsolete]
         public void Constructor5_IntPtr_FileStreamWrap(string filePath, FileMode fileMode, FileAccess fileAccess, bool ownsHandle, 
                                                        int bufferSize, bool isAsync, bool expected)
         {
