@@ -18,6 +18,7 @@ namespace JWSysWrap.Interface
     public interface IDateTime
     {
         DateTime Instance { get; }
+
         IDateTime Add(TimeSpan value);
         IDateTime AddDays(double value);
         IDateTime AddHours(double value);

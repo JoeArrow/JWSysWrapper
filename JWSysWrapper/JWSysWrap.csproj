@@ -103,6 +103,7 @@
     <Compile Include="Impl\Net\Sockets\NetworkStreamWrap.cs" />
     <Compile Include="Impl\Security\DirectorySecurityWrap.cs" />
     <Compile Include="Impl\Security\FileSecurityWrap.cs" />
+    <Compile Include="Impl\Timers\TimerWrap.cs" />
     <Compile Include="Impl\TimeSpanWrap.cs" />
     <Compile Include="Impl\Win32\RegistryWrap.cs" />
     <Compile Include="Impl\Xml\XmlWriterWrap.cs" />
@@ -160,6 +161,7 @@
     <Compile Include="Interface\Net\Sockets\INetworkStream.cs" />
     <Compile Include="Interface\Security\IDirectorySecurity.cs" />
     <Compile Include="Interface\Security\IFileSecurity.cs" />
+    <Compile Include="Interface\Timers\ITimer.cs" />
     <Compile Include="Interface\Win32\IRegistry.cs" />
     <Compile Include="Interface\Xml\IXmlWriter.cs" />
     <Compile Include="Interface\Xml\XPath\IXPathDocument.cs" />
