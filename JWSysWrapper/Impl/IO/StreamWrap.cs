@@ -42,11 +42,11 @@ namespace JWSysWrap.Impl.IO
         public int ReadTimeout { get => Instance.ReadTimeout; set => Instance.ReadTimeout = value; }
         public int WriteTimeout { get => Instance.WriteTimeout; set => Instance.WriteTimeout = value; }
 
-        public IAsyncResult BeginRead(byte[] array, int offset, int numBytes, AsyncCallback userCallback, object stateObject) =>
-            Instance.BeginRead(array, offset, numBytes, userCallback, stateObject);
+        public IAsyncResult BeginRead(byte[] buffer, int offset, int count, AsyncCallback callback, object state) =>
+            Instance.BeginRead(buffer, offset, count, callback, state);
 
-        public IAsyncResult BeginWrite(byte[] array, int offset, int numBytes, AsyncCallback userCallback, object stateObject) =>
-            Instance.BeginWrite(array, offset, numBytes, userCallback, stateObject);
+        public IAsyncResult BeginWrite(byte[] buffer, int offset, int count, AsyncCallback callback, object state) =>
+            Instance.BeginWrite(buffer, offset, count, callback, state);
 
         public void Close() => Instance.Close(); 
 
@@ -69,7 +69,7 @@ namespace JWSysWrap.Impl.IO
         public Task FlushAsync(CancellationToken cancellationToken) => Instance.FlushAsync(cancellationToken);
 
         public Task FlushAsync() => Instance.FlushAsync(); 
-        public int Read(byte[] array, int offset, int count) => Instance.Read(array, offset, count);
+        public int Read(byte[] buffer, int offset, int count) => Instance.Read(buffer, offset, count);
         public Task<int> ReadAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken) =>
             Instance.ReadAsync(buffer, offset, count, cancellationToken);
 
@@ -80,7 +80,7 @@ namespace JWSysWrap.Impl.IO
         public void SetLength(long value) => Instance.SetLength(value);
 
         public IStream Synchronized(IStream stream) => new StreamWrap(Stream.Synchronized(stream.Instance)); 
-        public void Write(byte[] array, int offset, int count) => Instance.Write(array, offset, count);
+        public void Write(byte[] buffer, int offset, int count) => Instance.Write(buffer, offset, count);
         public Task WriteAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken) => Instance.WriteAsync(buffer, offset, count, cancellationToken);
 
         public Task WriteAsync(byte[] buffer, int offset, int count) => Instance.WriteAsync(buffer, offset, count); 
