@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\ActiveDirectory\DirectoryEntryWrap.cs" />
     <Compile Include="Impl\Data\DataReaderWrap.cs" />
     <Compile Include="Impl\Data\DataTableWrap.cs" />
     <Compile Include="Impl\Data\SqlClient\SqlCommandFactory.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Impl\Xml\XPath\XPathDocumentWrap.cs" />
     <Compile Include="Impl\Xml\XPath\XPathNavigatorWrap.cs" />
     <Compile Include="Impl\Xml\XPath\XPathNodeIteratorWrap.cs" />
+    <Compile Include="Interface\ActiveDirectory\IDirectoryEntry.cs" />
     <Compile Include="Interface\Data\IDataTable.cs" />
     <Compile Include="Interface\Data\SqlClient\ISqlCommand.cs" />
     <Compile Include="Interface\Data\SqlClient\ISqlCommandFactory.cs" />
