@@ -24,18 +24,9 @@ namespace JWSysWrap.Impl.Data.SqlClient
 
         // ------------------------------------------------
         public SqlCommandWrap() => Initialize();
-        public SqlCommandWrap(SqlCommand command) => Initialize(command);
         public SqlCommandWrap(string cmdText) => Initialize(cmdText);
+        public SqlCommandWrap(SqlCommand command) => Initialize(command);
         public SqlCommandWrap(string cmdText, ISqlConnection connection) => Initialize(cmdText, connection);
-
-        // ------------------------------------------------
-
-        public ISqlParameterCollection Parameters { get => new SqlParameterCollectionWrap(Instance.Parameters); }
-        public CommandType CommandType { set => Instance.CommandType = value; get => Instance.CommandType; }
-        public int CommandTimeout { set => Instance.CommandTimeout = value; get => Instance.CommandTimeout; }
-        public ISqlTransaction Transaction { set => Instance.Transaction = value.Instance; get => new SqlTransactionWrap(Instance.Transaction); }
-        public ISqlConnection Connection { set => Instance.Connection = value.Instance; get => new SqlConnectionWrap(Instance.Connection); }
-        public string CommandText { set => Instance.CommandText = value; get => Instance.CommandText; }
 
         // ------------------------------------------------
 
@@ -63,8 +54,16 @@ namespace JWSysWrap.Impl.Data.SqlClient
             Transaction = new SqlTransactionWrap(Instance.Transaction);
         }
 
+        // ------------------------------------------------
+
+        public void Dispose() => Instance.Dispose();
         public int ExecuteNonQuery() => Instance.ExecuteNonQuery();
         public ISqlDataReader ExecuteReader() => new SqlDataReaderWrap(Instance.ExecuteReader());
-        public void Dispose() => Instance.Dispose();
+        public string CommandText { set => Instance.CommandText = value; get => Instance.CommandText; }
+        public CommandType CommandType { set => Instance.CommandType = value; get => Instance.CommandType; }
+        public int CommandTimeout { set => Instance.CommandTimeout = value; get => Instance.CommandTimeout; }
+        public ISqlParameterCollection Parameters { get => new SqlParameterCollectionWrap(Instance.Parameters); }
+        public ISqlConnection Connection { set => Instance.Connection = value.Instance; get => new SqlConnectionWrap(Instance.Connection); }
+        public ISqlTransaction Transaction { set => Instance.Transaction = value.Instance; get => new SqlTransactionWrap(Instance.Transaction); }
     }
 }

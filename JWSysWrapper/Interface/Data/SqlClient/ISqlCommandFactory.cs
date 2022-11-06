@@ -14,8 +14,8 @@ namespace JWSysWrap.Interface.Data.SqlClient
     public interface ISqlCommandFactory : IDisposable
     {
         ISqlCommand Create();
-        ISqlCommand Create(SqlCommand command);
         ISqlCommand Create(string cmdText);
+        ISqlCommand Create(SqlCommand command);
         ISqlCommand Create(string cmdText, ISqlConnection connection);
     }
 }

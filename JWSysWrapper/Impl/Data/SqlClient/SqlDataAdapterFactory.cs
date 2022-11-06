@@ -19,10 +19,10 @@ namespace JWSysWrap.Impl.Data.SqlClient
 
     public class SqlDataAdapterFactory : ISqlDataAdapterFactory
     {
+        public void Dispose() { }
         public ISqlDataAdapter Create() => new SqlDataAdapterWrap();
         public ISqlDataAdapter Create(SqlCommand sqlCommand) => new SqlDataAdapterWrap(sqlCommand);
         public ISqlDataAdapter Create(string selectCommandText, SqlConnection selectConnection) => new SqlDataAdapterWrap(selectCommandText, selectConnection);
         public ISqlDataAdapter Create(string selectCommandText, string selectConnectionString) => new SqlDataAdapterWrap(selectCommandText, selectConnectionString);
-        public void Dispose() { }
     }
 }

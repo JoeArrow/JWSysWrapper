@@ -30,14 +30,17 @@ namespace JWSysWrap.Impl.Data.SqlClient
 
         // ------------------------------------------------
 
-        public SqlConnection Connection { get => Instance.Connection; }
-        public IsolationLevel IsolationLevel { get => Instance.IsolationLevel; }
+        public void Initialize(SqlTransaction instance) => Instance = instance;
+
+        // ------------------------------------------------
 
         public void Commit() => Instance.Commit();
         public void Rollback() => Instance.Rollback();
-        public void Rollback(string transactionName) => Instance.Rollback(transactionName);
-        public void Save(string savePointName) => Instance.Save(savePointName);
         public void Dispose(bool disposing) => Instance.Dispose();
+        public SqlConnection Connection { get => Instance.Connection; }
+        public void Save(string savePointName) => Instance.Save(savePointName);
+        public IsolationLevel IsolationLevel { get => Instance.IsolationLevel; }
+        public void Rollback(string transactionName) => Instance.Rollback(transactionName);
 
         public void Dispose()
         {
@@ -46,9 +49,5 @@ namespace JWSysWrap.Impl.Data.SqlClient
                 Instance.Dispose();
             }
         }
-
-        // ------------------------------------------------
-
-        public void Initialize(SqlTransaction instance) => Instance = instance;
     }
 }

@@ -1,4 +1,4 @@
-﻿#region © 2022 Aflac.
+﻿#region © 2022 JoeWare.
 //
 // All rights reserved. Reproduction or transmission in whole or in part, in
 // any form or by any means, electronic, mechanical, or otherwise, is prohibited

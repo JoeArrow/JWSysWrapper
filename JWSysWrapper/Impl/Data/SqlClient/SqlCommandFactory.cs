@@ -20,9 +20,9 @@ namespace JWSysWrap.Impl.Data.SqlClient
     public class SqlCommandFactory : ISqlCommandFactory
     {
         public ISqlCommand Create() => new SqlCommandWrap();
-        public ISqlCommand Create(SqlCommand command) => new SqlCommandWrap(command);
-        public ISqlCommand Create(string cmdText) => new SqlCommandWrap(cmdText);
-        public ISqlCommand Create(string cmdText, ISqlConnection connection) => new SqlCommandWrap(cmdText, connection);
         public void Dispose() { /* Nothing to dispose of */ }
+        public ISqlCommand Create(string cmdText) => new SqlCommandWrap(cmdText);
+        public ISqlCommand Create(SqlCommand command) => new SqlCommandWrap(command);
+        public ISqlCommand Create(string cmdText, ISqlConnection connection) => new SqlCommandWrap(cmdText, connection);
     }
 }

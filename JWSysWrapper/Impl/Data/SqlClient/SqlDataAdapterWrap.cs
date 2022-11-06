@@ -27,56 +27,68 @@ namespace JWSysWrap.Impl.Data.SqlClient
         public SqlDataAdapter Instance { private set; get; }
 
         public SqlDataAdapterWrap() => Initialize();
+
         public SqlDataAdapterWrap(SqlCommand sqlCommand) => Initialize(sqlCommand);
         public SqlDataAdapterWrap(string selectCommandText, SqlConnection selectConnection) => Initialize(selectCommandText, selectConnection);
         public SqlDataAdapterWrap(string selectCommandText, string selectConnectionString) => Initialize(selectCommandText, selectConnectionString);
+
+        // ------------------------------------------------
+
+        public IContainer Container { get => Instance.Container; }
+        public ISite Site { get => Instance.Site;  set => Instance.Site = value; }
+        public DataTableMappingCollection TableMappings { get => Instance.TableMappings; }
+        public int UpdateBatchSize { get => Instance.UpdateBatchSize;  set => Instance.UpdateBatchSize = value; }
+        public LoadOption FillLoadOption { get => Instance.FillLoadOption; set => Instance.FillLoadOption = value; }
+        public bool ContinueUpdateOnError { get => Instance.ContinueUpdateOnError; set => Instance.ContinueUpdateOnError = value; }
+        public bool AcceptChangesDuringFill { get => Instance.AcceptChangesDuringFill;  set => Instance.AcceptChangesDuringFill = value; }
+        public MissingSchemaAction MissingSchemaAction { get => Instance.MissingSchemaAction; set => Instance.MissingSchemaAction = value; }
+        public ISqlCommand SelectCommand { get => new SqlCommandWrap(Instance.SelectCommand); set => Instance.SelectCommand = value.Instance; }
+        public ISqlCommand UpdateCommand { get => new SqlCommandWrap(Instance.UpdateCommand); set => Instance.UpdateCommand = value.Instance; }
+        public ISqlCommand DeleteCommand { get => new SqlCommandWrap(Instance.DeleteCommand); set => Instance.DeleteCommand = value.Instance; }
+        public ISqlCommand InsertCommand { get => new SqlCommandWrap(Instance.InsertCommand); set => Instance.InsertCommand = value.Instance; }
+        public bool AcceptChangesDuringUpdate { get => Instance.AcceptChangesDuringUpdate;  set => Instance.AcceptChangesDuringUpdate = value; }
+        public MissingMappingAction MissingMappingAction { get => Instance.MissingMappingAction; set => Instance.MissingMappingAction = value; }
+        public bool ReturnProviderSpecificTypes { get => Instance.ReturnProviderSpecificTypes; set => Instance.ReturnProviderSpecificTypes = value; }
+
+        // ------------------------------------------------
+
         public event EventHandler Disposed { add => Instance.Disposed += value;  remove => Instance.Disposed -= value; }
         public event FillErrorEventHandler FillError { add => Instance.FillError += value;  remove => Instance.FillError -= value; }
         public event SqlRowUpdatedEventHandler RowUpdated { add => Instance.RowUpdated += value;  remove => Instance.RowUpdated -= value; }
         public event SqlRowUpdatingEventHandler RowUpdating { add => Instance.RowUpdating += value;  remove => Instance.RowUpdating -= value; }
-        public bool AcceptChangesDuringFill { get => Instance.AcceptChangesDuringFill;  set => Instance.AcceptChangesDuringFill = value; }
-        public bool AcceptChangesDuringUpdate { get => Instance.AcceptChangesDuringUpdate;  set => Instance.AcceptChangesDuringUpdate = value; }
-        public IContainer Container { get => Instance.Container; }
-        public bool ContinueUpdateOnError { get => Instance.ContinueUpdateOnError;  set => Instance.ContinueUpdateOnError = value; }
-        public ISqlCommand DeleteCommand { get => new SqlCommandWrap(Instance.DeleteCommand);  set => Instance.DeleteCommand = value.Instance; }
-        public LoadOption FillLoadOption { get => Instance.FillLoadOption;  set => Instance.FillLoadOption = value; }
-        public ISqlCommand InsertCommand { get => new SqlCommandWrap(Instance.InsertCommand);  set => Instance.InsertCommand = value.Instance; }
-        public MissingMappingAction MissingMappingAction { get => Instance.MissingMappingAction;  set => Instance.MissingMappingAction = value; }
-        public MissingSchemaAction MissingSchemaAction { get => Instance.MissingSchemaAction;  set => Instance.MissingSchemaAction = value; }
-        public bool ReturnProviderSpecificTypes { get => Instance.ReturnProviderSpecificTypes;  set => Instance.ReturnProviderSpecificTypes = value; }
-        public ISqlCommand SelectCommand { get => new SqlCommandWrap(Instance.SelectCommand);  set => Instance.SelectCommand = value.Instance; }
-        public ISite Site { get => Instance.Site;  set => Instance.Site = value; }
-        public DataTableMappingCollection TableMappings { get => Instance.TableMappings; }
-        public int UpdateBatchSize { get => Instance.UpdateBatchSize;  set => Instance.UpdateBatchSize = value; }
-        public ISqlCommand UpdateCommand { get => new SqlCommandWrap(Instance.UpdateCommand);  set => Instance.UpdateCommand = value.Instance; }
 
-        public ObjRef CreateObjRef(Type requestedType) => Instance.CreateObjRef(requestedType);
-        public void Dispose() => Instance.Dispose();
-        public int Fill(DataSet dataSet) => Instance.Fill(dataSet);
-        public int Fill(DataSet dataSet, string srcTable) => Instance.Fill(dataSet, srcTable);
-        public int Fill(DataSet dataSet, int startRecord, int maxRecords, string srcTable) => Instance.Fill(dataSet, startRecord, maxRecords, srcTable);
-        public int Fill(DataTable dataTable) => Instance.Fill(dataTable);
-        public int Fill(int startRecord, int maxRecords, params DataTable[] dataTables) => Instance.Fill(startRecord, maxRecords, dataTables);
-        public DataTable FillSchema(DataTable dataTable, SchemaType schemaType) => Instance.FillSchema(dataTable, schemaType);
-        public DataTable[] FillSchema(DataSet dataSet, SchemaType schemaType) => Instance.FillSchema(dataSet, schemaType);
-        public DataTable[] FillSchema(DataSet dataSet, SchemaType schemaType, string srcTable) => Instance.FillSchema(dataSet, schemaType, srcTable);
-        public IDataParameter[] GetFillParameters() => Instance.GetFillParameters();
-        public object GetLifetimeService() => Instance.GetLifetimeService();
-        public object InitializeLifetimeService() => Instance.InitializeLifetimeService();
-        public void ResetFillLoadOption() => Instance.ResetFillLoadOption();
-        public bool ShouldSerializeAcceptChangesDuringFill() => Instance.ShouldSerializeAcceptChangesDuringFill();
-        public bool ShouldSerializeFillLoadOption() => Instance.ShouldSerializeFillLoadOption();
-        public int Update(DataSet dataSet) => Instance.Update(dataSet);
-        public int Update(DataRow[] dataRows) => Instance.Update(dataRows);
-        public int Update(DataTable dataTable) => Instance.Update(dataTable);
-        public int Update(DataSet dataSet, string srcTable) => Instance.Update(dataSet, srcTable);
+        // ------------------------------------------------
+
         private void Initialize() => Instance = new SqlDataAdapter();
-        private void Initialize(SqlCommand sqlCommand) => Instance = new SqlDataAdapter(sqlCommand);
-
-        private void Initialize(string selectCommandText, SqlConnection selectConnection) => 
-            Instance = new SqlDataAdapter(selectCommandText, selectConnection);
 
         private void Initialize(string selectCommandText, string selectConnectionString) =>
             Instance = new SqlDataAdapter(selectCommandText, selectConnectionString);
+
+        private void Initialize(string selectCommandText, SqlConnection selectConnection) =>
+            Instance = new SqlDataAdapter(selectCommandText, selectConnection);
+
+        // ------------------------------------------------
+
+        public void Dispose() => Instance.Dispose();
+        public int Fill(DataSet dataSet) => Instance.Fill(dataSet);
+        public int Update(DataSet dataSet) => Instance.Update(dataSet);
+        public int Fill(DataTable dataTable) => Instance.Fill(dataTable);
+        public int Update(DataRow[] dataRows) => Instance.Update(dataRows);
+        public object GetLifetimeService() => Instance.GetLifetimeService();
+        public void ResetFillLoadOption() => Instance.ResetFillLoadOption();
+        public int Update(DataTable dataTable) => Instance.Update(dataTable);
+        public IDataParameter[] GetFillParameters() => Instance.GetFillParameters();
+        public object InitializeLifetimeService() => Instance.InitializeLifetimeService();
+        public int Fill(DataSet dataSet, string srcTable) => Instance.Fill(dataSet, srcTable);
+        public ObjRef CreateObjRef(Type requestedType) => Instance.CreateObjRef(requestedType);
+        public bool ShouldSerializeFillLoadOption() => Instance.ShouldSerializeFillLoadOption();
+        public int Update(DataSet dataSet, string srcTable) => Instance.Update(dataSet, srcTable);
+        private void Initialize(SqlCommand sqlCommand) => Instance = new SqlDataAdapter(sqlCommand);
+        public bool ShouldSerializeAcceptChangesDuringFill() => Instance.ShouldSerializeAcceptChangesDuringFill();
+        public DataTable[] FillSchema(DataSet dataSet, SchemaType schemaType) => Instance.FillSchema(dataSet, schemaType);
+        public DataTable FillSchema(DataTable dataTable, SchemaType schemaType) => Instance.FillSchema(dataTable, schemaType);
+        public int Fill(int startRecord, int maxRecords, params DataTable[] dataTables) => Instance.Fill(startRecord, maxRecords, dataTables);
+        public DataTable[] FillSchema(DataSet dataSet, SchemaType schemaType, string srcTable) => Instance.FillSchema(dataSet, schemaType, srcTable);
+        public int Fill(DataSet dataSet, int startRecord, int maxRecords, string srcTable) => Instance.Fill(dataSet, startRecord, maxRecords, srcTable);
     }
 }

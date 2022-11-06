@@ -21,13 +21,20 @@ namespace JWSysWrap.Impl.Data.SqlClient
     {
         new public IDataReader Instance { get; private set; }
 
+        // ------------------------------------------------
+
         public SqlDataReaderWrap(IDataReader dataReader)
             : base(dataReader)
         {
             Initialize(dataReader);
         }
 
+        // ------------------------------------------------
+
         public void Initialize(IDataReader dataReader) { Instance = dataReader; }
+
+        // ------------------------------------------------
+
         object ISqlDataReader.this[int i] { get { return Instance[i]; } }
         object ISqlDataReader.this[string name] { get { return Instance[name]; } }
     }
