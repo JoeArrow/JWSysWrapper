@@ -12,7 +12,7 @@ using System.Collections.Specialized;
 
 namespace JWSysWrap.Interface.Collections.Specialized
 {
-    internal interface INameValueCollection
+    public interface INameValueCollection
     {
         NameValueCollection Instance { get; }
 
