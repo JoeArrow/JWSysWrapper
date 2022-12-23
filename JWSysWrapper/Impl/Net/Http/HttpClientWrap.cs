@@ -29,10 +29,10 @@ namespace JWSysWrap.Impl.Net.Http
 
         // ------------------------------------------------
 
-        public HttpClientWrap() { Instance = new HttpClient(); }
-        public HttpClientWrap(HttpClient instance) { Instance = instance; }
-        public HttpClientWrap(HttpMessageHandler handler) { Instance = new HttpClient(handler); }
-        public HttpClientWrap(HttpMessageHandler handler, bool disposeHandler) { Instance = new HttpClient(handler, disposeHandler); }
+        public HttpClientWrap() => Instance = new HttpClient();
+        public HttpClientWrap(HttpClient instance) => Instance = instance;
+        public HttpClientWrap(HttpMessageHandler handler) => Instance = new HttpClient(handler);
+        public HttpClientWrap(HttpMessageHandler handler, bool disposeHandler) => Instance = new HttpClient(handler, disposeHandler);
 
         // ------------------------------------------------
 

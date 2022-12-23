@@ -26,8 +26,8 @@ namespace JWSysWrap.Impl.Net.Http
 
         // ------------------------------------------------
 
-        public HttpResponseMessageWrap() { Instance = new HttpResponseMessage(); }
-        public HttpResponseMessageWrap(HttpResponseMessage instance) { Instance = instance; }
+        public HttpResponseMessageWrap() => Instance = new HttpResponseMessage();
+        public HttpResponseMessageWrap(HttpResponseMessage instance) => Instance = instance;
 
         // ------------------------------------------------
 
@@ -38,9 +38,7 @@ namespace JWSysWrap.Impl.Net.Http
         public HttpRequestMessage RequestMessage { get => Instance.RequestMessage; set => Instance.RequestMessage = value; }
 
         public HttpResponseHeaders Headers => Instance.Headers;
-
         public bool IsSuccessStatusCode => Instance.IsSuccessStatusCode;
-
         public HttpResponseMessage EnsureSuccessStatusCode() => Instance.EnsureSuccessStatusCode();
     }
 }
