@@ -4,4 +4,4 @@
 As new requirements pop up, new System Objects will be wrapped.
 
 The overwhelming purpose for JWSysWrap is to facilitate Dependency Injection in support of Unit Testing.
-Allowing the Developer to Mock out items which would otherwise be difficult to Mock.
+Allowing the Developer to Mock items which would otherwise be difficult to Mock.
