@@ -6,21 +6,21 @@
 //
 #endregion
 
+using System;
 using System.IO;
+using System.Security.AccessControl;
+using System.Runtime.InteropServices;
 
+using Microsoft.Win32.SafeHandles;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using JWSysWrap.Impl.IO;
-using System;
-using System.Runtime.InteropServices;
-using Microsoft.Win32.SafeHandles;
-using System.Security.AccessControl;
 
 namespace JWSysWrap.IntgTests
 {
     // ----------------------------------------------------
     /// <summary>
-    ///     Summary description for ArrowUnitTestXML1
+    ///     Summary description for JWSysWrap.IntgTests
     /// </summary>
 
     [TestClass]
@@ -38,7 +38,6 @@ namespace JWSysWrap.IntgTests
         static extern SafeFileHandle CreateFile(string lpFileName, uint dwDesiredAccess, uint dwShareMode, 
                                                 IntPtr lpSecurityAttributes, uint dwCreationDisposition,
                                                 uint dwFlagsAndAttributes, IntPtr hTemplateFile);
-
         public FileStreamWrap_IntgTests() { }
 
         // ------------------------------------------------
