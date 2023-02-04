@@ -82,11 +82,11 @@ namespace JWSysWrap.Impl.Xml
         public void WriteNode(XPathNavigator navigator, bool defattr) => Instance.WriteNode(navigator, defattr);
         public void WriteProcessingInstruction(string name, string text) => Instance.WriteProcessingInstruction(name, text);
         public void WriteQualifiedName(string localName, string ns) => Instance.WriteQualifiedName(localName, ns);
-        public void WriteRaw(char[] buffer, int index, int count) => Instance.WriteRaw(buffer, index, count);
         public void WriteRaw(string data) => Instance.WriteRaw(data);
+        public void WriteRaw(char[] buffer, int index, int count) => Instance.WriteRaw(buffer, index, count);
+        public void WriteStartAttribute(string localName) => Instance.WriteStartAttribute(localName);
         public void WriteStartAttribute(string localName, string ns) => Instance.WriteStartAttribute(localName, ns);
         public void WriteStartAttribute(string prefix, string localName, string ns) => Instance.WriteStartAttribute(prefix, localName, ns);
-        public void WriteStartAttribute(string localName) => Instance.WriteStartAttribute(localName);
         public void WriteStartDocument() => Instance.WriteStartDocument();
         public void WriteStartDocument(bool standalone) => Instance.WriteStartDocument(standalone);
         public void WriteStartElement(string localName, string ns) => Instance.WriteStartElement(localName, ns);

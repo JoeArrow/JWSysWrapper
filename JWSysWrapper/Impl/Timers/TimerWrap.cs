@@ -40,14 +40,10 @@ namespace JWSysWrap.Impl.Timers
 
         // ------------------------------------------------
 
-        public void BeginInit() => Instance.BeginInit();
-
-        public void Close() => Instance.Close();
-
-        public void EndInit() => Instance.EndInit();
-
-        public void Start() => Instance.Start();
-
         public void Stop() => Instance.Stop();
+        public void Close() => Instance.Close();
+        public void Start() => Instance.Start();
+        public void EndInit() => Instance.EndInit();
+        public void BeginInit() => Instance.BeginInit();
     }
 }

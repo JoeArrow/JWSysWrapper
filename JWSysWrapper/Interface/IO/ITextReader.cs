@@ -13,6 +13,9 @@ using System.Runtime.InteropServices;
 
 namespace JWSysWrap.Interface.IO
 {
+    // -------------------------------------
+    // Abstract, no implementation necessary
+
     public interface ITextReader : IDisposable
     {
         TextReader TextReaderInstance { get; }

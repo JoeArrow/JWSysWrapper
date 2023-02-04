@@ -19,7 +19,7 @@ namespace JWSysWrap.Impl.Security
 
     public class FileSecurityWrap : IFileSecurity
     {
-        public FileSecurity Instance { get => Instance; private set => Instance = value; }
+        public FileSecurity Instance { get; private set; }
 
         // ------------------------------------------------
 
