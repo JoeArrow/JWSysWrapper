@@ -19,40 +19,30 @@ namespace JWWrap.Impl.ActiveDirectory
 
     public class PropertyValueCollectionWrap : IPropertyValueCollection
     {
-        private PropertyValueCollection Instance { get; }
+        public PropertyValueCollection Instance { get; }
 
-        public object this[int index] 
-        {
-            set { Instance[index] = value; } 
-            get { return Instance[index]; }
-        }
-
-        public string PropertyName { get { return Instance.PropertyName; } }
-
-        public object Value
-        {
-            set { Instance.Value = value; }
-            get { return Instance.Value; } 
-        }
-
-        public int Count { get { return Instance.Count; } }
+        // ------------------------------------------------
 
         public PropertyValueCollectionWrap() { }
 
-        public PropertyValueCollectionWrap(PropertyValueCollection propValCollection) 
-        {
-            Instance = propValCollection;
-        }
+        public PropertyValueCollectionWrap(PropertyValueCollection propValCollection) => Instance = propValCollection;
 
-        public void Clear() { Instance.Clear(); }
-        public int Add(object value) { return Instance.Add(value); }
-        public void AddRange(object[] value) { Instance.AddRange(value); }
-        public void AddRange(PropertyValueCollection value) { Instance.AddRange(value); }
-        public bool Contains(object value) { return Instance.Contains(value); }
-        public void CopyTo(object[] array, int index) { Instance.CopyTo(array, index); }
-        public int IndexOf(object value) { return Instance.IndexOf(value); }
-        public void Insert(int index, object value) { Instance.Insert(index, value); }
-        public void Remove(object value) { Instance.Remove(value); }
-        public IEnumerator GetEnumerator() { return Instance.GetEnumerator(); }
+        // ------------------------------------------------
+
+        public int Count => Instance.Count;
+        public string PropertyName => Instance.PropertyName;
+        public object Value { set => Instance.Value = value; get => Instance.Value; }
+        public object this[int index] { set => Instance[index] = value; get => Instance [index]; }
+
+        public void Clear() => Instance.Clear();
+        public int Add(object value) => Instance.Add(value);
+        public void Remove(object value) => Instance.Remove(value);
+        public int IndexOf(object value) => Instance.IndexOf(value);
+        public bool Contains(object value) => Instance.Contains(value);
+        public IEnumerator GetEnumerator() => Instance.GetEnumerator();
+        public void AddRange(object[] value) => Instance.AddRange(value);
+        public void Insert(int index, object value) => Instance.Insert(index, value);
+        public void CopyTo(object[] array, int index) => Instance.CopyTo(array, index);
+        public void AddRange(PropertyValueCollection value) => Instance.AddRange(value);
     }
 }

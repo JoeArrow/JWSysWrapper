@@ -6,13 +6,9 @@
 //
 #endregion
 
-using System;
-using System.Linq;
-using System.Text;
-using System.Collections.Generic;
-using JWWrap.Interface.ActiveDirectory;
 using System.Collections;
 using System.DirectoryServices;
+using JWWrap.Interface.ActiveDirectory;
 
 namespace JWWrap.Impl.ActiveDirectory
 {
@@ -26,54 +22,18 @@ namespace JWWrap.Impl.ActiveDirectory
         private readonly PropertyCollection Instance;
         
         // ------------------------------------------------
-
-        public int Count { get { return Instance.Count; } }
-
-        // ------------------------------------------------
-
-        public ICollection Values { get { return Instance.Values; } }
-
-        // ------------------------------------------------
-
-        public ICollection PropertyNames { get { return Instance.PropertyNames; } }
-
-        // ------------------------------------------------
-
-        public IPropertyValueCollection this[string propertyName] 
-        { 
-            get { return new PropertyValueCollectionWrap(Instance[propertyName]); } 
-        }
-
-        // ------------------------------------------------
-
         public PropertyCollectionWrap() { }
 
-        // ------------------------------------------------
-
-        public PropertyCollectionWrap(PropertyCollection propCollection)
-        { 
-            Instance = propCollection; 
-        }
+        public PropertyCollectionWrap(PropertyCollection propCollection) => Instance = propCollection;
 
         // ------------------------------------------------
 
-        public bool Contains(string propertyName) 
-        { 
-            return Instance.Contains(propertyName); 
-        }
-
-        // ------------------------------------------------
-
-        public void CopyTo(PropertyValueCollection[] array, int index) 
-        { 
-            Instance.CopyTo(array, index); 
-        }
-
-        // ------------------------------------------------
-        
-        public IDictionaryEnumerator GetEnumerator() 
-        { 
-            return Instance.GetEnumerator(); 
-        }
+        public int Count => Instance.Count;
+        public ICollection Values => Instance.Values;
+        public ICollection PropertyNames => Instance.PropertyNames;
+        public IDictionaryEnumerator GetEnumerator() => Instance.GetEnumerator(); 
+        public bool Contains(string propertyName) => Instance.Contains(propertyName); 
+        public void CopyTo(PropertyValueCollection[] array, int index) => Instance.CopyTo(array, index); 
+        public IPropertyValueCollection this[string propertyName] => new PropertyValueCollectionWrap(Instance[propertyName]);
     }
 }

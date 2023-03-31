@@ -27,8 +27,10 @@ namespace JWWrap.Impl.Collections.Specialized
         public NameValueCollectionWrap(int capacity, NameValueCollection col) => Instance = new NameValueCollection(capacity, col);
         public NameValueCollectionWrap(int capacity, IEqualityComparer equalityComparer) => Instance = new NameValueCollection(capacity, equalityComparer);
 
+        #pragma warning disable CS0618 // Type or member is obsolete
         public NameValueCollectionWrap(IHashCodeProvider hashProvider, IComparer comparer) => Instance = new NameValueCollection(hashProvider, comparer);
         public NameValueCollectionWrap(int capacity, IHashCodeProvider hashProvider, IComparer comparer) => Instance = new NameValueCollection(capacity, hashProvider, comparer);
+        #pragma warning restore CS0618 // Type or member is obsolete
 
         // ------------------------------------------------
 

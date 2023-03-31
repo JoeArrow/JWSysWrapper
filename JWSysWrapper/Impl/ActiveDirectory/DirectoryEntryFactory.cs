@@ -9,31 +9,11 @@ namespace JWWrap.Impl.ActiveDirectory
     
     public class DirectoryEntryFactory : IDirectoryEntryFactory
     {
-        // ------------------------------------------------
-        /// <summary/>
-
-        public IDirectoryEntry Create() { return new DirectoryEntryWrap(); }
-
-        // ------------------------------------------------
-        /// <summary/>
-
-        public IDirectoryEntry Create(DirectoryEntry entry) { return new DirectoryEntryWrap(entry); }
-
-        // ------------------------------------------------
-        /// <summary/>
-
-        public IDirectoryEntry Create(IDirectoryEntry entry) { return new DirectoryEntryWrap(entry); }
-
-        // ------------------------------------------------
-        /// <summary/>
-        /// <param name="forestGc">global catalog (GC)</param>
-        /// <returns></returns>
-
-        public IDirectoryEntry Create(string forestGc) { return new DirectoryEntryWrap(forestGc); }
-
-        // ------------------------------------------------
-
-        public IDirectoryEntry Create(string path, string username, string password, AuthenticationTypes authenticationType)
-        { return new DirectoryEntryWrap(path, username, password, authenticationType); }
+        public IDirectoryEntry Create() => new DirectoryEntryWrap();
+        public IDirectoryEntry Create(string forestGc) => new DirectoryEntryWrap(forestGc);
+        public IDirectoryEntry Create(DirectoryEntry entry) => new DirectoryEntryWrap(entry);
+        public IDirectoryEntry Create(IDirectoryEntry entry) => new DirectoryEntryWrap(entry); 
+        public IDirectoryEntry Create(string path, string username, string password, AuthenticationTypes authenticationType) =>
+            new DirectoryEntryWrap(path, username, password, authenticationType);
     }
 }

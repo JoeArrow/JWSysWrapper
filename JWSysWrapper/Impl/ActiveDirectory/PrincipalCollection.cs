@@ -1,47 +1,15 @@
+using JWWrap.Impl.ActiveDirectory.Contracts;
+using System.DirectoryServices.AccountManagement;
+
 namespace JWWrap.Impl.ActiveDirectory
 {
-    using System.DirectoryServices.AccountManagement;
-
-    using JWWrap.Impl.ActiveDirectory.Contracts;
-
-    /// <summary>
-    /// 
-    /// </summary>
     public class PrincipalCollectionWrap : IPrincipalCollection
     {
-        #region Fields
+        public PrincipalCollection Instance { private set; get; }
 
-        private readonly PrincipalCollection principalCollection;
+        public PrincipalCollectionWrap(PrincipalCollection principalCollection) => Instance = principalCollection;
 
-        #endregion
-
-        #region Constructors and Destructors
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public PrincipalCollectionWrap(PrincipalCollection principalCollection)
-        {
-            this.principalCollection = principalCollection;
-        }
-
-        #endregion
-
-        #region Public Methods and Operators
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="context"></param>
-        /// <param name="identityType"></param>
-        /// <param name="identityValue"></param>
-        public void Add(IPrincipalContext context,
-                        IdentityType identityType,
-                        string identityValue)
-        {
-            this.principalCollection.Add(context.PrincipalContextInstance, identityType, identityValue);
-        }
-
-        #endregion
+        public void Add(IPrincipalContext context, IdentityType identityType, string identityValue) =>
+            Instance.Add(context.PrincipalContextInstance, identityType, identityValue);
     }
 }

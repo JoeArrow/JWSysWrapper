@@ -25,15 +25,15 @@ namespace JWWrap.Impl.ActiveDirectory
         public DirectoryEntryConfigurationWrap(DirectoryEntryConfiguration instance) { Instance = instance; }
 
         // ------------------------------------------------
-
-        public ReferralChasingOption Referral { set => Instance.Referral = value; get => Instance.Referral; }
-        public SecurityMasks SecurityMasks { set => Instance.SecurityMasks = value; get => Instance.SecurityMasks; }        
+      
         public int PageSize { set => Instance.PageSize = value; get => Instance.PageSize; }        
-        public int PasswordPort { set => Instance.PasswordPort = value; get => Instance.PasswordPort; }        
+        public int PasswordPort { set => Instance.PasswordPort = value; get => Instance.PasswordPort; }      
+        public ReferralChasingOption Referral { set => Instance.Referral = value; get => Instance.Referral; }
+        public SecurityMasks SecurityMasks { set => Instance.SecurityMasks = value; get => Instance.SecurityMasks; }    
         public PasswordEncodingMethod PasswordEncoding { set => Instance.PasswordEncoding = value; get => Instance.PasswordEncoding; }
 
-        public string GetCurrentServerName() { return Instance.GetCurrentServerName(); }
-        public bool IsMutuallyAuthenticated() { return Instance.IsMutuallyAuthenticated(); }
-        public void SetUserNameQueryQuota(string accountName) { Instance.SetUserNameQueryQuota(accountName); }
+        public string GetCurrentServerName() => Instance.GetCurrentServerName();
+        public bool IsMutuallyAuthenticated() => Instance.IsMutuallyAuthenticated();
+        public void SetUserNameQueryQuota(string accountName) => Instance.SetUserNameQueryQuota(accountName);
     }
 }

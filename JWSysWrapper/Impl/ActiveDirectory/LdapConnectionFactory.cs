@@ -18,9 +18,6 @@ namespace JWWrap.Impl.ActiveDirectory
 
     public class LdapConnectionFactory : ILdapConnectionFactory
     {
-        public ILdapConnection Create(LdapDirectoryIdentifier identifier)
-        {
-            return new LdapConnectionWrap(identifier);
-        }
+        public ILdapConnection Create(LdapDirectoryIdentifier identifier) => new LdapConnectionWrap(identifier);
     }
 }
