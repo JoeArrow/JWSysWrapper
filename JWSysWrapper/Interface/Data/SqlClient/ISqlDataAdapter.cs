@@ -13,7 +13,7 @@ using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Runtime.Remoting;
 
-namespace JWSysWrap.Interface.Data.SqlClient
+namespace JWWrap.Interface.Data.SqlClient
 {
     public interface ISqlDataAdapter : IDisposable
     {

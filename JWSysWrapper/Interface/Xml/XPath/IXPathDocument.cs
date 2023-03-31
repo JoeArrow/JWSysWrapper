@@ -8,7 +8,7 @@
 
 using System.Xml.XPath;
 
-namespace JWSysWrap.Interface.Xml.XPath
+namespace JWWrap.Interface.Xml.XPath
 {
     public interface IXPathDocument
     {

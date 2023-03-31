@@ -11,9 +11,9 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 
-using JWSysWrap.Interface.Net.Http;
+using JWWrap.Interface.Net.Http;
 
-namespace JWSysWrap.Impl.Net.Http
+namespace JWWrap.Impl.Net.Http
 {
     // ----------------------------------------------------
     /// <summary>

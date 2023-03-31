@@ -8,7 +8,7 @@
 
 using Microsoft.Win32;
 
-namespace JWSysWrap.Interface.Win32
+namespace JWWrap.Interface.Win32
 {
     public interface IRegistry
     {

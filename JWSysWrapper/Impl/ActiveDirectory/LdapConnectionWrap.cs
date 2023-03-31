@@ -8,10 +8,10 @@
 
 using System;
 using System.Net;
-using JWSysWrap.Interface.ActiveDirectory;
+using JWWrap.Interface.ActiveDirectory;
 using System.DirectoryServices.Protocols;
 
-namespace JWSysWrap.Impl.ActiveDirectory
+namespace JWWrap.Impl.ActiveDirectory
 {
     // ----------------------------------------------------
     /// <summary>

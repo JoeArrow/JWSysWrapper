@@ -1,11 +1,11 @@
-namespace JWSysWrap.Impl.ActiveDirectory
+namespace JWWrap.Impl.ActiveDirectory
 {
     using System;
     using System.Collections;
     using System.DirectoryServices;
     using System.Linq;
 
-    using JWSysWrap.Interface.ActiveDirectory;
+    using JWWrap.Interface.ActiveDirectory;
 
     /// <summary>
     /// 

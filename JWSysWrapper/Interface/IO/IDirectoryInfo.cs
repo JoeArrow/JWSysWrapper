@@ -12,9 +12,9 @@ using System.Runtime.Remoting;
 using System.Security.AccessControl;
 using System.DirectoryServices.Protocols;
 
-using JWSysWrap.Interface.Security;
+using JWWrap.Interface.Security;
 
-namespace JWSysWrap.Interface.IO
+namespace JWWrap.Interface.IO
 {
     public interface IDirectoryInfo : IDisposable
     {

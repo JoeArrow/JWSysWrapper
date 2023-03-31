@@ -9,7 +9,7 @@
 using System.Xml.XPath;
 using System.Collections;
 
-namespace JWSysWrap.Interface.Xml.XPath
+namespace JWWrap.Interface.Xml.XPath
 {
     public interface IXPathNodeIterator
     {

@@ -10,10 +10,10 @@ using System;
 using System.IO;
 using System.IO.Compression;
 
-using JWSysWrap.Interface.IO;
-using JWSysWrap.Interface.IO.Compression;
+using JWWrap.Interface.IO;
+using JWWrap.Interface.IO.Compression;
 
-namespace JWSysWrap.Impl.IO.Compression
+namespace JWWrap.Impl.IO.Compression
 {
     // ----------------------------------------------------
     /// <summary>

@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace JWSysWrap.Interface.ActiveDirectory
+namespace JWWrap.Interface.ActiveDirectory
 {
     /// <summary>
     /// 

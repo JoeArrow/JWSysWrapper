@@ -6,11 +6,11 @@
 //
 #endregion
 
-using JWSysWrap.Interface.Security;
+using JWWrap.Interface.Security;
 
 using System.Security.AccessControl;
 
-namespace JWSysWrap.Impl.Security
+namespace JWWrap.Impl.Security
 {
     // ----------------------------------------------------
     /// <summary>

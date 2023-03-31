@@ -1,6 +1,6 @@
 using System.DirectoryServices.AccountManagement;
 
-namespace JWSysWrap.Impl.ActiveDirectory.Contracts
+namespace JWWrap.Impl.ActiveDirectory.Contracts
 {
     /// <summary/>
     

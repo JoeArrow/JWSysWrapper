@@ -12,10 +12,10 @@ using System.Xml.XPath;
 using System.Xml.Schema;
 using System.Collections;
 
-using JWSysWrap.Interface.Xml;
-using JWSysWrap.Interface.Xml.XPath;
+using JWWrap.Interface.Xml;
+using JWWrap.Interface.Xml.XPath;
 
-namespace JWSysWrap.Impl.Xml.XPath
+namespace JWWrap.Impl.Xml.XPath
 {
     // ----------------------------------------------------
     /// <summary>

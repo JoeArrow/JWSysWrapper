@@ -9,7 +9,7 @@
 using System;
 using System.Data;
 
-namespace JWSysWrap.Impl.Data
+namespace JWWrap.Impl.Data
 {
     // ----------------------------------------------------
     /// <summary>

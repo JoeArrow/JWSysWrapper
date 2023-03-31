@@ -10,9 +10,9 @@ using System;
 using System.Collections;
 using System.Collections.Specialized;
 
-using JWSysWrap.Interface.Collections.Specialized;
+using JWWrap.Interface.Collections.Specialized;
 
-namespace JWSysWrap.Impl.Collections.Specialized
+namespace JWWrap.Impl.Collections.Specialized
 {
     internal class NameValueCollectionWrap : INameValueCollection
     {

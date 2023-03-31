@@ -9,9 +9,9 @@
 using System.ComponentModel;
 using System.Timers;
 
-using JWSysWrap.Interface.Timers;
+using JWWrap.Interface.Timers;
 
-namespace JWSysWrap.Impl.Timers
+namespace JWWrap.Impl.Timers
 {
     // ----------------------------------------------------
     /// <summary>

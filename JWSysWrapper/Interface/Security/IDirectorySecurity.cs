@@ -9,7 +9,7 @@
 using System;
 using System.Security.AccessControl;
 
-namespace JWSysWrap.Interface.Security
+namespace JWWrap.Interface.Security
 {
     public interface IDirectorySecurity : IDisposable
     {

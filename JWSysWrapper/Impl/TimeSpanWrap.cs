@@ -9,9 +9,9 @@
 using System;
 using System.Globalization;
 
-using JWSysWrap.Interface;
+using JWWrap.Interface;
 
-namespace JWSysWrap.Impl
+namespace JWWrap.Impl
 {
     // ----------------------------------------------------
     /// <summary>

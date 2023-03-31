@@ -1,8 +1,8 @@
-namespace JWSysWrap.Impl.ActiveDirectory
+namespace JWWrap.Impl.ActiveDirectory
 {
     using System.DirectoryServices.AccountManagement;
 
-    using JWSysWrap.Impl.ActiveDirectory.Contracts;
+    using JWWrap.Impl.ActiveDirectory.Contracts;
 
     /// <summary>
     /// 

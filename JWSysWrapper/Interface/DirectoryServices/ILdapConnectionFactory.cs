@@ -8,7 +8,7 @@
 
 using System.DirectoryServices.Protocols;
 
-namespace JWSysWrap.Interface.DirectoryServices
+namespace JWWrap.Interface.DirectoryServices
 {
     public interface ILdapConnectionFactory
     {

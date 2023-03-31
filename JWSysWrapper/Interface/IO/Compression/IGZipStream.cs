@@ -9,7 +9,7 @@
 using System;
 using System.IO;
 
-namespace JWSysWrap.Interface.IO.Compression
+namespace JWWrap.Interface.IO.Compression
 {
     public interface IGZipStream : IDisposable
     {

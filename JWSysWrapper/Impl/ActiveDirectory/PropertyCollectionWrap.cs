@@ -10,11 +10,11 @@ using System;
 using System.Linq;
 using System.Text;
 using System.Collections.Generic;
-using JWSysWrap.Interface.ActiveDirectory;
+using JWWrap.Interface.ActiveDirectory;
 using System.Collections;
 using System.DirectoryServices;
 
-namespace JWSysWrap.Impl.ActiveDirectory
+namespace JWWrap.Impl.ActiveDirectory
 {
     // ----------------------------------------------------
     /// <summary>

@@ -11,7 +11,7 @@ using System.Data;
 using System.ComponentModel;
 using System.Data.SqlClient;
 
-namespace JWSysWrap.Interface.Data.SqlClient
+namespace JWWrap.Interface.Data.SqlClient
 {
     public interface ISqlConnection : IDisposable
     {

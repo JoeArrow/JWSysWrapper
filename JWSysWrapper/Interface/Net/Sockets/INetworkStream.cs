@@ -12,7 +12,7 @@ using System.Threading;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 
-namespace JWSysWrap.Interface.Net.Sockets
+namespace JWWrap.Interface.Net.Sockets
 {
     public interface INetworkStream : IDisposable
     {

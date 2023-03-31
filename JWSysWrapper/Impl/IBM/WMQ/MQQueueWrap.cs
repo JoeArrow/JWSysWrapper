@@ -10,9 +10,9 @@ using IBM.WMQ;
 
 using System;
 
-using JWSysWrap.Interface.IBM.WMQ;
+using JWWrap.Interface.IBM.WMQ;
 
-namespace JWSysWrap.Impl.IBM.WMQ
+namespace JWWrap.Impl.IBM.WMQ
 {
     // ----------------------------------------------------
     /// <summary>

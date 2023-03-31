@@ -10,12 +10,12 @@ using System;
 using System.IO;
 using System.Security.AccessControl;
 
-using JWSysWrap.Interface.IO;
-using JWSysWrap.Interface;
-using JWSysWrap.Interface.Security;
-using JWSysWrap.Impl.Security;
+using JWWrap.Interface.IO;
+using JWWrap.Interface;
+using JWWrap.Interface.Security;
+using JWWrap.Impl.Security;
 
-namespace JWSysWrap.Impl.IO
+namespace JWWrap.Impl.IO
 {
     // ----------------------------------------------------
     /// <summary>

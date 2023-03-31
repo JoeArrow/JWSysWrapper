@@ -10,10 +10,10 @@ using System;
 using System.IO;
 using System.Text;
 
-using JWSysWrap.Interface.IO;
-using JWSysWrap.Interface.Net.Sockets;
+using JWWrap.Interface.IO;
+using JWWrap.Interface.Net.Sockets;
 
-namespace JWSysWrap.Impl.IO
+namespace JWWrap.Impl.IO
 {
     // ----------------------------------------------------
     /// <summary>

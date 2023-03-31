@@ -10,9 +10,9 @@ using System.IO;
 using System.Xml;
 using System.Xml.XPath;
 
-using JWSysWrap.Interface.Xml.XPath;
+using JWWrap.Interface.Xml.XPath;
 
-namespace JWSysWrap.Impl.Xml.XPath
+namespace JWWrap.Impl.Xml.XPath
 {
     // ----------------------------------------------------
     /// <summary>

@@ -1,7 +1,7 @@
 
 using System.DirectoryServices;
 
-namespace JWSysWrap.Interface.ActiveDirectory
+namespace JWWrap.Interface.ActiveDirectory
 {
     public interface IDirectoryEntryConfiguration
     {

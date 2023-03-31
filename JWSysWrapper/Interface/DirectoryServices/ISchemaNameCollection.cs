@@ -9,7 +9,7 @@
 using System.Collections;
 using System.DirectoryServices;
 
-namespace JWSysWrap.Interface.DirectoryServices
+namespace JWWrap.Interface.DirectoryServices
 {
     public interface ISchemaNameCollection
     {

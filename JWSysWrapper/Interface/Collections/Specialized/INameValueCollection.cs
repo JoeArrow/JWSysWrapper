@@ -10,7 +10,7 @@ using System;
 using System.Collections;
 using System.Collections.Specialized;
 
-namespace JWSysWrap.Interface.Collections.Specialized
+namespace JWWrap.Interface.Collections.Specialized
 {
     public interface INameValueCollection
     {
