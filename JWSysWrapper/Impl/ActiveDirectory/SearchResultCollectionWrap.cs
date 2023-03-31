@@ -2,8 +2,8 @@ namespace JWWrap.Impl.ActiveDirectory
 {
     using System;
     using System.Collections;
-    using System.Collections.Generic;
     using System.DirectoryServices;
+    using System.Collections.Generic;
 
     using JWWrap.Interface.ActiveDirectory;
 
@@ -41,13 +41,7 @@ namespace JWWrap.Impl.ActiveDirectory
         ///     <see cref="T:System.Collections.Generic.ICollection`1"/>.
         /// </returns>
 
-        public int Count
-        {
-            get
-            {
-                return searchResults.Count;
-            }
-        }
+        public int Count => searchResults.Count;
 
         // ------------------------------------------------
         /// <summary>
@@ -61,13 +55,7 @@ namespace JWWrap.Impl.ActiveDirectory
         ///     is read-only; otherwise, false.
         /// </returns>
 
-        public bool IsReadOnly
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public bool IsReadOnly => true;
 
         // ------------------------------------------------
         /// <summary/>
@@ -107,10 +95,7 @@ namespace JWWrap.Impl.ActiveDirectory
         ///     is read-only.
         /// </exception>
 
-        public void Add(ISearchResult item)
-        {
-            searchResults.Add(item);
-        }
+        public void Add(ISearchResult item) => searchResults.Add(item);
 
         // ------------------------------------------------
         /// <summary>
@@ -121,10 +106,7 @@ namespace JWWrap.Impl.ActiveDirectory
         ///     The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only. 
         /// </exception>
 
-        public void Clear()
-        {
-            searchResults.Clear();
-        }
+        public void Clear() => searchResults.Clear();
 
         // ------------------------------------------------
         /// <summary>
@@ -142,10 +124,7 @@ namespace JWWrap.Impl.ActiveDirectory
         ///     <see cref="T:System.Collections.Generic.ICollection`1"/>.
         /// </param>
 
-        public bool Contains(ISearchResult item)
-        {
-            return searchResults.Contains(item);
-        }
+        public bool Contains(ISearchResult item) => searchResults.Contains(item);
 
         // ------------------------------------------------
         /// <summary>
@@ -156,10 +135,7 @@ namespace JWWrap.Impl.ActiveDirectory
         ///     <see cref="T:System.Array"/> index.
         /// </summary>
 
-        public void CopyTo(ISearchResult[] array, int arrayIndex)
-        {
-            searchResults.CopyTo(array, arrayIndex);
-        }
+        public void CopyTo(ISearchResult[] array, int arrayIndex) => searchResults.CopyTo(array, arrayIndex);
 
         // ------------------------------------------------
         /// <summary>
@@ -184,10 +160,7 @@ namespace JWWrap.Impl.ActiveDirectory
         ///     Indicates whether or not unmanaged resources should be disposed.
         /// </param>
 
-        protected virtual void Dispose(bool disposing)
-        {
-            Instance.Dispose();
-        }
+        protected virtual void Dispose(bool disposing) => Instance.Dispose();
 
         // ------------------------------------------------
         /// <summary>
@@ -199,10 +172,7 @@ namespace JWWrap.Impl.ActiveDirectory
         ///     that can be used to iterate through the collection.
         /// </returns>
 
-        public IEnumerator<ISearchResult> GetEnumerator()
-        {
-            return searchResults.GetEnumerator();
-        }
+        public IEnumerator<ISearchResult> GetEnumerator() => searchResults.GetEnumerator();
 
         // ------------------------------------------------
         /// <summary>
@@ -223,10 +193,7 @@ namespace JWWrap.Impl.ActiveDirectory
         ///     The <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
         /// </exception>
 
-        public bool Remove(ISearchResult item)
-        {
-            return searchResults.Remove(item);
-        }
+        public bool Remove(ISearchResult item) => searchResults.Remove(item);
 
         // ------------------------------------------------
         /// <summary>
@@ -238,9 +205,6 @@ namespace JWWrap.Impl.ActiveDirectory
         ///     object that can be used to iterate through the collection.
         /// </returns>
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }

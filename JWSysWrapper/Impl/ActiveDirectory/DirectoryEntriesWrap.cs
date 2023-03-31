@@ -23,15 +23,13 @@ namespace JWWrap.Impl.ActiveDirectory
         private readonly DirectoryEntries Instance;
 
         // ------------------------------------------------
-        /// <summary/>
-        /// <param name="entries"></param>
 
-        public DirectoryEntriesWrap(DirectoryEntries entries) { Instance = entries; }
+        public IEnumerator GetEnumerator() => Instance.GetEnumerator();
         public SchemaNameCollection SchemaFilter => Instance.SchemaFilter;
-        public IDirectoryEntry Add(string name, string schemaClassName) { return new DirectoryEntryWrap(Instance.Add(name, schemaClassName)); }
-        public IDirectoryEntry Find(string name) { return new DirectoryEntryWrap(Instance.Find(name)); }
-        public IDirectoryEntry Find(string name, string schemaClassName) { return new DirectoryEntryWrap(Instance.Find(name, schemaClassName)); }
-        public IEnumerator GetEnumerator() { return Instance.GetEnumerator(); }
-        public void Remove(IDirectoryEntry entry) { Instance.Remove(entry.Instance); }
+        public DirectoryEntriesWrap(DirectoryEntries entries) => Instance = entries;
+        public void Remove(IDirectoryEntry entry) => Instance.Remove(entry.Instance);
+        public IDirectoryEntry Find(string name) => new DirectoryEntryWrap(Instance.Find(name));
+        public IDirectoryEntry Add(string name, string schemaClassName) => new DirectoryEntryWrap(Instance.Add(name, schemaClassName)); 
+        public IDirectoryEntry Find(string name, string schemaClassName) => new DirectoryEntryWrap(Instance.Find(name, schemaClassName));
     }
 }

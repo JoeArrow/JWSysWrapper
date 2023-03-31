@@ -11,46 +11,11 @@ namespace JWWrap.Impl.ActiveDirectory
         private readonly SearchResult Instance;
 
         // ------------------------------------------------
-        /// <summary/>
-        /// <param name="searchResult"/>
-        
-        public SearchResultWrap(SearchResult searchResult)
-        {
-            Instance = searchResult;
-        }
 
-        // ------------------------------------------------
-        /// <summary/>
-
-        public string Path { get { return Instance.Path; } }
-
-        // ------------------------------------------------
-        /// <summary/>
-
-        public IResultPropertyCollection Properties 
-        { 
-            get 
-            { 
-                return new ResultPropertyCollectionWrap(Instance.Properties); 
-            } 
-        }
-
-        // ------------------------------------------------
-        /// <summary/>
-        /// <returns/>
-
-        public IDirectoryEntry GetDirectoryEntry()
-        {
-            return new DirectoryEntryWrap(Instance.GetDirectoryEntry());
-        }
-
-        // ------------------------------------------------
-        /// <summary/>
-        /// <returns/>
-
-        public SearchResult GetSearchResult()
-        {
-            return Instance;
-        }
+        public string Path => Instance.Path;
+        public SearchResult GetSearchResult() => Instance;
+        public SearchResultWrap(SearchResult searchResult) => Instance = searchResult;
+        public IDirectoryEntry GetDirectoryEntry() => new DirectoryEntryWrap(Instance.GetDirectoryEntry());
+        public IResultPropertyCollection Properties => new ResultPropertyCollectionWrap(Instance.Properties);
     }
 }
