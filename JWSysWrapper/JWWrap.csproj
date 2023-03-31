@@ -41,6 +41,7 @@
       <HintPath>..\Lib\amqmdxcs.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.DirectoryServices.AccountManagement" />
@@ -73,6 +74,8 @@
     <Compile Include="Impl\ActiveDirectory\SearchResultWrap.cs" />
     <Compile Include="Impl\Collections\Specialized\NameValueCollectionFactory.cs" />
     <Compile Include="Impl\Collections\Specialized\NameValueCollectionWrap.cs" />
+    <Compile Include="Impl\Configuration\ConfigurationManagerWrap.cs" />
+    <Compile Include="Impl\Configuration\ConfigurationWrap.cs" />
     <Compile Include="Impl\Data\DataReaderWrap.cs" />
     <Compile Include="Impl\Data\DataTableWrap.cs" />
     <Compile Include="Impl\Data\SqlClient\SqlCommandFactory.cs" />
@@ -85,6 +88,13 @@
     <Compile Include="Impl\Data\SqlClient\SqlParameterCollectionWrap.cs" />
     <Compile Include="Impl\Data\SqlClient\SqlTransactionWrap.cs" />
     <Compile Include="Impl\DateTimeWrap.cs" />
+    <Compile Include="Impl\Diagnostics\FileVersionInfoFactory.cs" />
+    <Compile Include="Impl\Diagnostics\FileVersionInfoWrap.cs" />
+    <Compile Include="Impl\Diagnostics\ProcessStartInfoFactory.cs" />
+    <Compile Include="Impl\Diagnostics\ProcessStartInfoWrap.cs" />
+    <Compile Include="Impl\Diagnostics\ProcessWrap.cs" />
+    <Compile Include="Impl\Diagnostics\StopwatchWrap.cs" />
+    <Compile Include="Impl\Diagnostics\TraceSourceWrap.cs" />
     <Compile Include="Impl\DirectoryServices\DirectoryEntriesWrap.cs" />
     <Compile Include="Impl\DirectoryServices\DirectoryEntryConfigurationWrap.cs" />
     <Compile Include="Impl\DirectoryServices\DirectoryEntryFactory.cs" />
@@ -150,6 +160,8 @@
     <Compile Include="Interface\ActiveDirectory\ISearchResultCollection.cs" />
     <Compile Include="Interface\Collections\Specialized\INameValueCollection.cs" />
     <Compile Include="Interface\Collections\Specialized\INameValueCollectionFactory.cs" />
+    <Compile Include="Interface\Configuration\IConfiguration.cs" />
+    <Compile Include="Interface\Configuration\IConfigurationManager.cs" />
     <Compile Include="Interface\Data\IDataTable.cs" />
     <Compile Include="Interface\Data\SqlClient\ISqlCommand.cs" />
     <Compile Include="Interface\Data\SqlClient\ISqlCommandFactory.cs" />
@@ -160,6 +172,13 @@
     <Compile Include="Interface\Data\SqlClient\ISqlDataReader.cs" />
     <Compile Include="Interface\Data\SqlClient\ISqlParameterCollection.cs" />
     <Compile Include="Interface\Data\SqlClient\ISqlTransaction.cs" />
+    <Compile Include="Interface\Diagnostics\IFileVersionInfo.cs" />
+    <Compile Include="Interface\Diagnostics\IFileVersionInfoFactory.cs" />
+    <Compile Include="Interface\Diagnostics\IProcess.cs" />
+    <Compile Include="Interface\Diagnostics\IProcessStartInfo.cs" />
+    <Compile Include="Interface\Diagnostics\IProcessStartInfoFactory.cs" />
+    <Compile Include="Interface\Diagnostics\IStopwatch.cs" />
+    <Compile Include="Interface\Diagnostics\ITraceSource.cs" />
     <Compile Include="Interface\DirectoryServices\IDirectoryEntries.cs" />
     <Compile Include="Interface\DirectoryServices\IDirectoryEntry.cs" />
     <Compile Include="Interface\DirectoryServices\IDirectoryEntryConfiguration.cs" />
@@ -193,7 +212,9 @@
     <Compile Include="Interface\IO\IStreamReader.cs" />
     <Compile Include="Interface\IO\IStreamWriter.cs" />
     <Compile Include="Interface\IO\ITextReader.cs" />
+    <Compile Include="Interface\IStaticWrapper.cs" />
     <Compile Include="Interface\ITimeSpan.cs" />
+    <Compile Include="Interface\IWrapper.cs" />
     <Compile Include="Interface\Net\Http\Headers\IHttpRequestHeaders.cs" />
     <Compile Include="Interface\Net\Http\IHttpResponseMessage.cs" />
     <Compile Include="Interface\Net\Http\IHttpClient.cs" />

@@ -20,16 +20,17 @@ namespace JWWrap.Interface.Data
     {
         DataTable Instance { get; }
 
-        event DataColumnChangeEventHandler ColumnChanged;
-        event DataColumnChangeEventHandler ColumnChanging;
         event EventHandler Initialized;
         event DataRowChangeEventHandler RowChanged;
-        event DataRowChangeEventHandler RowChanging;
         event DataRowChangeEventHandler RowDeleted;
+        event DataRowChangeEventHandler RowChanging;
         event DataRowChangeEventHandler RowDeleting;
         event DataTableClearEventHandler TableCleared;
-        event DataTableClearEventHandler TableClearing;
         event DataTableNewRowEventHandler TableNewRow;
+        event DataTableClearEventHandler TableClearing;
+        event DataColumnChangeEventHandler ColumnChanged;
+        event DataColumnChangeEventHandler ColumnChanging;
+
         bool CaseSensitive { get; set; }
         DataRelationCollection ChildRelations { get; }
         DataColumnCollection Columns { get; }
