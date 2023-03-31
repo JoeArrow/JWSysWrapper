@@ -12,7 +12,7 @@ using System.Xml.XPath;
 using System.Xml.Schema;
 using System.Collections;
 
-namespace JWSysWrap.Interface.Xml.XPath
+namespace JWWrap.Interface.Xml.XPath
 {
     public interface IXPathNavigator
     {

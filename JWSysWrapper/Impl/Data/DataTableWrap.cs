@@ -14,9 +14,9 @@ using System.Globalization;
 using System.ComponentModel;
 using System.Runtime.Serialization;
 
-using JWSysWrap.Interface.Data;
+using JWWrap.Interface.Data;
 
-namespace JWSysWrap.Impl.Data
+namespace JWWrap.Impl.Data
 {
     // ----------------------------------------------------
     /// <summary>

@@ -11,7 +11,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 
-namespace JWSysWrap.Interface.Net.Http
+namespace JWWrap.Interface.Net.Http
 {
     public interface IHttpResponseMessage
     {

@@ -12,7 +12,7 @@ using System.Security.AccessControl;
 
 using Microsoft.Win32.SafeHandles;
 
-namespace JWSysWrap.Interface.IO
+namespace JWWrap.Interface.IO
 {
     // ----------------------------------------------------
     /// <summary>

@@ -11,9 +11,9 @@ using System.Data;
 using System.Collections;
 using System.Data.SqlClient;
 
-using JWSysWrap.Interface.Data.SqlClient;
+using JWWrap.Interface.Data.SqlClient;
 
-namespace JWSysWrap.Impl.Data.SqlClient
+namespace JWWrap.Impl.Data.SqlClient
 {
     // ----------------------------------------------------
     /// <summary>

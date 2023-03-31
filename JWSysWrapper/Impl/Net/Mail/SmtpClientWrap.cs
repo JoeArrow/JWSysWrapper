@@ -14,9 +14,9 @@ using System.Threading.Tasks;
 using System.Security.Permissions;
 using System.Security.Cryptography.X509Certificates;
 
-using JWSysWrap.Interface.Net.Mail;
+using JWWrap.Interface.Net.Mail;
 
-namespace JWSysWrap.Impl.Net.Mail
+namespace JWWrap.Impl.Net.Mail
 {
     // ----------------------------------------------------
     /// <summary>

@@ -12,9 +12,9 @@ using System.Threading;
 
 using System.Threading.Tasks;
 
-using JWSysWrap.Interface.Net.Http.Headers;
+using JWWrap.Interface.Net.Http.Headers;
 
-namespace JWSysWrap.Interface.Net.Http
+namespace JWWrap.Interface.Net.Http
 {
     public interface IHttpClient
     {

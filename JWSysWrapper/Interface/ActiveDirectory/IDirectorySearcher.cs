@@ -1,4 +1,4 @@
-namespace JWSysWrap.Interface.ActiveDirectory
+namespace JWWrap.Interface.ActiveDirectory
 {
     using System;
     using System.Collections.Specialized;

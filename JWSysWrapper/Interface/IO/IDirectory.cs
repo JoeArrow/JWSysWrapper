@@ -11,9 +11,9 @@ using System.IO;
 using System.Collections.Generic;
 using System.Security.AccessControl;
 
-using JWSysWrap.Interface.Security;
+using JWWrap.Interface.Security;
 
-namespace JWSysWrap.Interface.IO
+namespace JWWrap.Interface.IO
 {
     public interface IDirectory
     {

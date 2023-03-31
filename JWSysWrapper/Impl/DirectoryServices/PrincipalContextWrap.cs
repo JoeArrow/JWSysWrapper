@@ -9,9 +9,9 @@
 using System;
 using System.DirectoryServices.AccountManagement;
 
-using JWSysWrap.Interface.DirectoryServices;
+using JWWrap.Interface.DirectoryServices;
 
-namespace JWSysWrap.Impl.DirectoryServices
+namespace JWWrap.Impl.DirectoryServices
 {
     public class PrincipalContextWrap : IPrincipalContext
     {

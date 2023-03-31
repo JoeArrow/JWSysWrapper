@@ -1,8 +1,8 @@
 using System.DirectoryServices;
 
-using JWSysWrap.Interface.ActiveDirectory;
+using JWWrap.Interface.ActiveDirectory;
 
-namespace JWSysWrap.Impl.ActiveDirectory
+namespace JWWrap.Impl.ActiveDirectory
 {
     // ----------------------------------------------------
     /// <summary/>

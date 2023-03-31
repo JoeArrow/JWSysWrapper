@@ -12,9 +12,9 @@ using System.Text;
 using System.Xml;
 using System.Xml.XPath;
 
-using JWSysWrap.Interface.Xml;
+using JWWrap.Interface.Xml;
 
-namespace JWSysWrap.Impl.Xml
+namespace JWWrap.Impl.Xml
 {
     // ----------------------------------------------------
     /// <summary>

@@ -9,7 +9,7 @@
 using System.Collections;
 using System.DirectoryServices;
 
-namespace JWSysWrap.Interface.ActiveDirectory
+namespace JWWrap.Interface.ActiveDirectory
 {
     // ----------------------------------------------------
     /// <summary>

@@ -6,11 +6,11 @@
 //
 #endregion
 
-using JWSysWrap.Interface.Win32;
+using JWWrap.Interface.Win32;
 
 using Microsoft.Win32;
 
-namespace JWSysWrap.Impl.Win32
+namespace JWWrap.Impl.Win32
 {
     // ----------------------------------------------------
     /// <summary>

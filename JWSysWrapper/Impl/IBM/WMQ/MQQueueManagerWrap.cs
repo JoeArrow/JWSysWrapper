@@ -11,9 +11,9 @@ using System.Collections;
 
 using IBM.WMQ;
 
-using JWSysWrap.Interface.IBM.WMQ;
+using JWWrap.Interface.IBM.WMQ;
 
-namespace JWSysWrap.Impl.IBM.WMQ
+namespace JWWrap.Impl.IBM.WMQ
 {
     // ----------------------------------------------------
     /// <summary>

@@ -9,7 +9,7 @@
 using System;
 using System.Data;
 
-namespace JWSysWrap.Interface.Data.SqlClient
+namespace JWWrap.Interface.Data.SqlClient
 {
     public interface ISqlDataReader : IDataReader, IDisposable
     {

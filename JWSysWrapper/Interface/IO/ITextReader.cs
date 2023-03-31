@@ -11,7 +11,7 @@ using System.IO;
 using System.Security.Permissions;
 using System.Runtime.InteropServices;
 
-namespace JWSysWrap.Interface.IO
+namespace JWWrap.Interface.IO
 {
     // -------------------------------------
     // Abstract, no implementation necessary

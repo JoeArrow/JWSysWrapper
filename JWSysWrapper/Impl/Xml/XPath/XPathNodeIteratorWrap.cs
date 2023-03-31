@@ -9,9 +9,9 @@
 using System.Xml.XPath;
 using System.Collections;
 
-using JWSysWrap.Interface.Xml.XPath;
+using JWWrap.Interface.Xml.XPath;
 
-namespace JWSysWrap.Impl.Xml.XPath
+namespace JWWrap.Impl.Xml.XPath
 {
     // ----------------------------------------------------
     /// <summary>

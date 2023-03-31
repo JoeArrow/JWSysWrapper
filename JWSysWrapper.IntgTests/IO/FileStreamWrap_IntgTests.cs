@@ -14,13 +14,13 @@ using System.Runtime.InteropServices;
 using Microsoft.Win32.SafeHandles;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using JWSysWrap.Impl.IO;
+using JWWrap.Impl.IO;
 
-namespace JWSysWrap.IntgTests
+namespace JWWrap.IntgTests
 {
     // ----------------------------------------------------
     /// <summary>
-    ///     Summary description for JWSysWrap.IntgTests
+    ///     Summary description for JWWrap.IntgTests
     /// </summary>
 
     [TestClass]

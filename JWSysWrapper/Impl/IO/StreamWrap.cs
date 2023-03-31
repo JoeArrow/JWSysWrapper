@@ -11,9 +11,9 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-using JWSysWrap.Interface.IO;
+using JWWrap.Interface.IO;
 
-namespace JWSysWrap.Impl.IO
+namespace JWWrap.Impl.IO
 {
     // ----------------------------------------------------
     /// <summary>

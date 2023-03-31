@@ -12,11 +12,11 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-using JWSysWrap.Interface.Net.Http;
-using JWSysWrap.Impl.Net.Http.Headers;
-using JWSysWrap.Interface.Net.Http.Headers;
+using JWWrap.Interface.Net.Http;
+using JWWrap.Impl.Net.Http.Headers;
+using JWWrap.Interface.Net.Http.Headers;
 
-namespace JWSysWrap.Impl.Net.Http
+namespace JWWrap.Impl.Net.Http
 {
     // ----------------------------------------------------
     /// <summary>

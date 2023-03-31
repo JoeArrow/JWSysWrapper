@@ -6,14 +6,14 @@
 //
 #endregion
 
-using JWSysWrap.Interface.Security;
+using JWWrap.Interface.Security;
 
 using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 
-namespace JWSysWrap.Interface.IO
+namespace JWWrap.Interface.IO
 {
     public interface IFileInfo : IDisposable
     {

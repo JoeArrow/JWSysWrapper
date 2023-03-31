@@ -9,9 +9,9 @@
 using System;
 using System.Net.Http.Headers;
 
-using JWSysWrap.Interface.Net.Http.Headers;
+using JWWrap.Interface.Net.Http.Headers;
 
-namespace JWSysWrap.Impl.Net.Http.Headers
+namespace JWWrap.Impl.Net.Http.Headers
 {
     // ----------------------------------------------------
     /// <summary>

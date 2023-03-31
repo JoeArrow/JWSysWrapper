@@ -8,7 +8,7 @@
 
 using System.Collections;
 
-namespace JWSysWrap.Interface.DirectoryServices
+namespace JWWrap.Interface.DirectoryServices
 {
     public interface IDirectoryEntries
     {

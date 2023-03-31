@@ -2,7 +2,7 @@ using System;
 using System.Net;
 using System.DirectoryServices.Protocols;
 
-namespace JWSysWrap.Interface.ActiveDirectory
+namespace JWWrap.Interface.ActiveDirectory
 {
     public interface ILdapConnection : IDisposable
     {

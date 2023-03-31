@@ -6,7 +6,7 @@
 //
 #endregion
 
-namespace JWSysWrap.Interface.DirectoryServices
+namespace JWWrap.Interface.DirectoryServices
 {
     interface IDirectorySearcherFactory
     {

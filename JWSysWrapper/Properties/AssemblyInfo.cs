@@ -11,10 +11,10 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyTrademark("JoeWare")]
-[assembly: AssemblyTitle("JWSysWrap")]
-[assembly: AssemblyProduct("JWSysWrap")]
+[assembly: AssemblyTitle("JWWrap")]
+[assembly: AssemblyProduct("JWWrap")]
 [assembly: AssemblyCopyright("Copyright © 2021")]
-[assembly: AssemblyDescription("JWSysWrap is designed to grow over time,\r\n" +
+[assembly: AssemblyDescription("JWWrap is designed to grow over time,\r\n" +
                                "wrapping more and more System level objects\r\n\r\n" +
                                "The intent is to make System Level objects more easily mockable,\r\n" +
                                "for Unit Testing")]

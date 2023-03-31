@@ -14,7 +14,7 @@ using System.Globalization;
 using System.ComponentModel;
 using System.Runtime.Serialization;
 
-namespace JWSysWrap.Interface.Data
+namespace JWWrap.Interface.Data
 {
     public interface IDataTable : IDisposable
     {

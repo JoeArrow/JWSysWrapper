@@ -10,7 +10,7 @@ using System;
 
 using IBM.WMQ;
 
-namespace JWSysWrap.Interface.IBM.WMQ
+namespace JWWrap.Interface.IBM.WMQ
 {
     public interface IMQMessage
     {

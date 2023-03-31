@@ -8,9 +8,9 @@
 
 using System;
 
-using JWSysWrap.Interface;
+using JWWrap.Interface;
 
-namespace JWSysWrap.Impl
+namespace JWWrap.Impl
 {
     // ----------------------------------------------------
     /// <summary>

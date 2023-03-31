@@ -9,7 +9,7 @@
 using System.DirectoryServices;
 using System.Collections.Specialized;
 
-namespace JWSysWrap.Interface.DirectoryServices
+namespace JWWrap.Interface.DirectoryServices
 {
     public interface IDirectorySearcher
     {

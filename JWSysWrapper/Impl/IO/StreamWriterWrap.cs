@@ -10,9 +10,9 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-using JWSysWrap.Interface.IO;
+using JWWrap.Interface.IO;
 
-namespace JWSysWrap.Impl.IO
+namespace JWWrap.Impl.IO
 {
     // ----------------------------------------------------
     /// <summary>

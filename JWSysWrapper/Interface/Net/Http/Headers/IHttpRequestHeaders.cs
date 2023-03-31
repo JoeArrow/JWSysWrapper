@@ -9,7 +9,7 @@
 using System;
 using System.Net.Http.Headers;
 
-namespace JWSysWrap.Interface.Net.Http.Headers
+namespace JWWrap.Interface.Net.Http.Headers
 {
     public interface IHttpRequestHeaders
     {

@@ -10,7 +10,7 @@ using System;
 using System.IO;
 using System.Text;
 
-namespace JWSysWrap.Interface.IO
+namespace JWWrap.Interface.IO
 {
     public interface IStreamReader : ITextReader, IDisposable
     {

@@ -8,7 +8,7 @@
 
 using System.DirectoryServices.AccountManagement;
 
-namespace JWSysWrap.Interface.DirectoryServices
+namespace JWWrap.Interface.DirectoryServices
 {
     public interface IPrincipalCollection
     {

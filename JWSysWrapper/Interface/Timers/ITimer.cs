@@ -9,7 +9,7 @@
 using System.Timers;
 using System.ComponentModel;
 
-namespace JWSysWrap.Interface.Timers
+namespace JWWrap.Interface.Timers
 {
     public interface ITimer
     {

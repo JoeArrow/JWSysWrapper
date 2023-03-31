@@ -11,7 +11,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 
-namespace JWSysWrap.Interface.Net.Mail
+namespace JWWrap.Interface.Net.Mail
 {
     public interface ISmtpClient : IDisposable
     {

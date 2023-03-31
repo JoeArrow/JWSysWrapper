@@ -9,9 +9,9 @@
 using System.Collections;
 using System.DirectoryServices;
 
-using JWSysWrap.Interface.DirectoryServices;
+using JWWrap.Interface.DirectoryServices;
 
-namespace JWSysWrap.Impl.DirectoryServices
+namespace JWWrap.Impl.DirectoryServices
 {
     // ----------------------------------------------------
     /// <summary>

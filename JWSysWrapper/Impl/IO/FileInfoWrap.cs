@@ -11,12 +11,12 @@ using System.IO;
 using System.Security.AccessControl;
 using System.Runtime.InteropServices;
 
-using JWSysWrap.Interface;
-using JWSysWrap.Interface.IO;
-using JWSysWrap.Impl.Security;
-using JWSysWrap.Interface.Security;
+using JWWrap.Interface;
+using JWWrap.Interface.IO;
+using JWWrap.Impl.Security;
+using JWWrap.Interface.Security;
 
-namespace JWSysWrap.Impl.IO
+namespace JWWrap.Impl.IO
 {
     // ----------------------------------------------------
     /// <summary>

@@ -10,7 +10,7 @@ using System;
 using System.Xml;
 using System.Xml.XPath;
 
-namespace JWSysWrap.Interface.Xml
+namespace JWWrap.Interface.Xml
 {
     public interface IXmlWriter : IDisposable
 

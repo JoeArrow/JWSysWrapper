@@ -12,9 +12,9 @@ using System.Threading;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 
-using JWSysWrap.Interface.Net.Sockets;
+using JWWrap.Interface.Net.Sockets;
 
-namespace JWSysWrap.Impl.Net.Sockets
+namespace JWWrap.Impl.Net.Sockets
 {
     // ----------------------------------------------------
     /// <summary>
