@@ -16,14 +16,14 @@ using JWWrap.Interface.Xml;
 
 namespace JWWrap.Impl.Xml
 {
-    // ----------------------------------------------------
+    /// ---------------------------------------------------
     /// <summary>
     ///     XmlWriterWrap Description
     /// </summary>
 
     public class XmlWriterWrap : IXmlWriter
     {
-        private readonly XmlWriter Instance;
+        public XmlWriter Instance { private set;  get; }
 
         // ------------------------------------------------
 

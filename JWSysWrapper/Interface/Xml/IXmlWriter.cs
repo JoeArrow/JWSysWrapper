@@ -12,7 +12,7 @@ using System.Xml.XPath;
 
 namespace JWWrap.Interface.Xml
 {
-    public interface IXmlWriter : IDisposable
+    public interface IXmlWriter : IWrapper<XmlWriter>, IDisposable
 
     {
         XmlWriterSettings Settings { get; }

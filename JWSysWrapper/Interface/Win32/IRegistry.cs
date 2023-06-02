@@ -12,16 +12,16 @@ namespace JWWrap.Interface.Win32
 {
     public interface IRegistry
     {
-        RegistryKey CurrentUser { get; }
-        RegistryKey LocalMachine { get; }
-        RegistryKey ClassesRoot { get; }
         RegistryKey Users { get; }
-        RegistryKey PerformanceData { get; }
-        RegistryKey CurrentConfig { get; }
         RegistryKey DynData { get; }
+        RegistryKey CurrentUser { get; }
+        RegistryKey ClassesRoot { get; }
+        RegistryKey LocalMachine { get; }
+        RegistryKey CurrentConfig { get; }
+        RegistryKey PerformanceData { get; }
 
-        object GetValue(string keyName, string valueName, object defaultValue);
         void SetValue(string keyName, string valueName, object value);
+        object GetValue(string keyName, string valueName, object defaultValue);
         void SetValue(string keyName, string valueName, object value, RegistryValueKind valueKind);
     }
 }

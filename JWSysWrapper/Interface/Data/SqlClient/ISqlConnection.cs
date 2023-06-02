@@ -13,10 +13,8 @@ using System.Data.SqlClient;
 
 namespace JWWrap.Interface.Data.SqlClient
 {
-    public interface ISqlConnection : IDisposable
+    public interface ISqlConnection : IWrapper<SqlConnection>, IDisposable
     {
-        SqlConnection Instance { get; }
-
         void Initialize();
         void Initialize(SqlConnection connection);
         void Initialize(string connectionString);
