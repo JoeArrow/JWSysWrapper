@@ -19,13 +19,14 @@ namespace JWWrap.Interface.IO
     public interface ITextReader : IDisposable
     {
         TextReader TextReaderInstance { get; }
-        void Close();
         int Peek();
         int Read();
-        int Read([In, Out] char[] buffer, int index, int count);
-        int ReadBlock([In, Out] char[] buffer, int index, int count);
+        void Close();
         string ReadLine();
         string ReadToEnd();
+        int Read([In, Out] char[] buffer, int index, int count);
+        int ReadBlock([In, Out] char[] buffer, int index, int count);
+
         [HostProtection(SecurityAction.LinkDemand, Synchronization = true)]
         ITextReader Synchronized(ITextReader reader);
     }

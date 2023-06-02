@@ -23,6 +23,7 @@ namespace JWWrap.Impl.IO
     public class StreamReaderWrap : IStreamReader
     {
         public StreamReader Instance { get; private set; }
+        public TextReader TextReaderInstance { get { return Instance; } }
 
         // ------------------------------------------------
 
@@ -73,7 +74,6 @@ namespace JWWrap.Impl.IO
         public Stream BaseStream { get { return Instance.BaseStream; } }
         public Encoding CurrentEncoding { get { return Instance.CurrentEncoding; } }
         public bool EndOfStream { get { return Instance.EndOfStream; } }
-        public TextReader TextReaderInstance { get { return Instance; } }
         public void Close() { Instance.Close(); }
         public void DiscardBufferedData() { Instance.DiscardBufferedData(); }
         public int Peek() => Instance.Peek();

@@ -10,10 +10,10 @@ using System;
 using System.IO;
 using System.Security.AccessControl;
 
-using JWWrap.Interface.IO;
 using JWWrap.Interface;
-using JWWrap.Interface.Security;
+using JWWrap.Interface.IO;
 using JWWrap.Impl.Security;
+using JWWrap.Interface.Security;
 
 namespace JWWrap.Impl.IO
 {

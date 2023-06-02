@@ -1,11 +1,12 @@
-﻿namespace JWWrap.Impl.Security.Certificate
+﻿
+using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
+
+using JWWrap.Interface.IO;
+using JWWrap.Interface.Security.Certificate;
+
+namespace JWWrap.Impl.Security.Certificate
 {
-    using System.Security.Cryptography;
-    using System.Security.Cryptography.X509Certificates;
-
-    using JWWrap.Interface.IO;
-    using JWWrap.Interface.Security.Certificate;
-
     // ----------------------------------------------------
     /// <summary>
     ///     Wrapper for <see cref="X509Certificate2"/> class.

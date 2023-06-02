@@ -7,10 +7,7 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
 
 namespace JWWrap.Interface
 {
@@ -19,9 +16,8 @@ namespace JWWrap.Interface
     ///     ITimeSpan Description
     /// </summary>
 
-    public interface ITimeSpan
+    public interface ITimeSpan : IWrapper<TimeSpan>
     {
-        TimeSpan Instance { get; }
         int Compare(ITimeSpan t1, ITimeSpan t2);
         bool Equals(ITimeSpan t1, ITimeSpan t2);
         ITimeSpan FromDays(double value);

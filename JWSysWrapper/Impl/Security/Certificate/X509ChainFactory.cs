@@ -1,25 +1,23 @@
-﻿namespace JWWrap.Impl.Security.Certificate
-{
-    using JWWrap.Interface.Security.Certificate;
+﻿
+using JWWrap.Interface.Security.Certificate;
 
+namespace JWWrap.Impl.Security.Certificate
+{
+    /// ---------------------------------------------------
     /// <summary>
-    /// This class wraps a X509Chain in order to be mock-able.
+    ///     This class wraps a X509Chain in order to be mock-able.
     /// </summary>
+   
     public class X509ChainFactory : IX509ChainFactory
     {
-        #region Public Methods and Operators
-
+        /// -----------------------------------------------
         /// <summary>
-        /// Wraps the X509Chain creation method.
+        ///     Wraps the X509Chain creation method.
         /// </summary>
         /// <returns>
-        /// The <see cref="IX509Chain"/>.
+        ///     The <see cref="IX509Chain"/>.
         /// </returns>
-        public IX509Chain Create()
-        {
-            return new X509ChainWrap();
-        }
-
-        #endregion
+        
+        public IX509Chain Create() => new X509ChainWrap();
     }
 }

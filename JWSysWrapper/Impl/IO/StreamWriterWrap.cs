@@ -30,8 +30,8 @@ namespace JWWrap.Impl.IO
         // ------------------------------------------------
 
         public StreamWriterWrap(string path) => Instance = new StreamWriter(path); 
-        public StreamWriterWrap(StreamWriter streamWriter) => Instance = streamWriter; 
         public StreamWriterWrap(Stream stream) => Instance = new StreamWriter(stream); 
+        public StreamWriterWrap(StreamWriter streamWriter) => Instance = streamWriter;
         public StreamWriterWrap(string path, bool append) => Instance = new StreamWriter(path, append); 
         public StreamWriterWrap(Stream stream, Encoding encoding) => Instance = new StreamWriter(stream, encoding); 
         public StreamWriterWrap(string path, bool append, Encoding encoding) => Instance = new StreamWriter(path, append, encoding);

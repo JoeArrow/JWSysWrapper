@@ -1,4 +1,6 @@
-﻿namespace JWWrap.Interface.IO
+﻿using System;
+
+namespace JWWrap.Interface.IO
 {
     public interface IPath
     {

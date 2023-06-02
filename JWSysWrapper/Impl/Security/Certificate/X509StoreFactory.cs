@@ -1,9 +1,10 @@
-﻿namespace JWWrap.Impl.Security.Certificate
+﻿
+using System.Security.Cryptography.X509Certificates;
+
+using JWWrap.Interface.Security.Certificate;
+
+namespace JWWrap.Impl.Security.Certificate
 {
-    using System.Security.Cryptography.X509Certificates;
-
-    using JWWrap.Interface.Security.Certificate;
-
     /// <summary>
     ///     This class wraps a X509Store in order to be mock-able.
     /// </summary>
