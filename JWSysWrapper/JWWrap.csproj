@@ -46,6 +46,8 @@
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.DirectoryServices.Protocols" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -114,6 +116,7 @@
     <Compile Include="Impl\DirectoryServices\SchemaNameCollectionWrap.cs" />
     <Compile Include="Impl\DirectoryServices\SearchResultCollectionWrap.cs" />
     <Compile Include="Impl\DirectoryServices\SearchResultWrap.cs" />
+    <Compile Include="Impl\Drawing\ImageWrap.cs" />
     <Compile Include="Impl\IBM\WMQ\MQMessageWrap.cs" />
     <Compile Include="Impl\IBM\WMQ\MQQueueManagerWrap.cs" />
     <Compile Include="Impl\IBM\WMQ\MQQueueWrap.cs" />
@@ -126,11 +129,34 @@
     <Compile Include="Impl\IO\StreamReaderWrap.cs" />
     <Compile Include="Impl\IO\StreamWrap.cs" />
     <Compile Include="Impl\IO\StreamWriterWrap.cs" />
+    <Compile Include="Impl\IO\PathWrap.cs" />
     <Compile Include="Impl\Net\Http\Headers\HttpRequestHeadersWrap.cs" />
     <Compile Include="Impl\Net\Http\HttpClientWrap.cs" />
     <Compile Include="Impl\Net\Http\HttpResponseMessageWrap.cs" />
     <Compile Include="Impl\Net\Mail\SmtpClientWrap.cs" />
     <Compile Include="Impl\Net\Sockets\NetworkStreamWrap.cs" />
+    <Compile Include="Impl\Security\AccessControl\DirectorySecurityWrap.cs" />
+    <Compile Include="Impl\Security\AccessControl\FileSecurityWrap.cs" />
+    <Compile Include="Impl\Security\AccessControl\RegistrySecurityWrap.cs" />
+    <Compile Include="Impl\Security\Certificate\KeyInfoX509DataFactory.cs" />
+    <Compile Include="Impl\Security\Certificate\KeyInfoX509DataFactoryWrap.cs" />
+    <Compile Include="Impl\Security\Certificate\KeyInfoX509DataWrap.cs" />
+    <Compile Include="Impl\Security\Certificate\X509Certificate2CollectionFactory.cs" />
+    <Compile Include="Impl\Security\Certificate\X509Certificate2CollectionWrap.cs" />
+    <Compile Include="Impl\Security\Certificate\X509Certificate2Factory.cs" />
+    <Compile Include="Impl\Security\Certificate\X509Certificate2Wrap.cs" />
+    <Compile Include="Impl\Security\Certificate\X509CertificateFactory.cs" />
+    <Compile Include="Impl\Security\Certificate\X509CertificateFactoryWrap.cs" />
+    <Compile Include="Impl\Security\Certificate\X509CertificateWrap.cs" />
+    <Compile Include="Impl\Security\Certificate\X509ChainElementCollectionFactory.cs" />
+    <Compile Include="Impl\Security\Certificate\X509ChainElementCollectionWrap.cs" />
+    <Compile Include="Impl\Security\Certificate\X509ChainElementEnumeratorWrap.cs" />
+    <Compile Include="Impl\Security\Certificate\X509ChainElementFactory.cs" />
+    <Compile Include="Impl\Security\Certificate\X509ChainElementWrap.cs" />
+    <Compile Include="Impl\Security\Certificate\X509ChainFactory.cs" />
+    <Compile Include="Impl\Security\Certificate\X509ChainWrap.cs" />
+    <Compile Include="Impl\Security\Certificate\X509StoreFactory.cs" />
+    <Compile Include="Impl\Security\Certificate\X509StoreWrap.cs" />
     <Compile Include="Impl\Security\DirectorySecurityWrap.cs" />
     <Compile Include="Impl\Security\FileSecurityWrap.cs" />
     <Compile Include="Impl\Timers\TimerWrap.cs" />
@@ -198,6 +224,7 @@
     <Compile Include="Interface\DirectoryServices\ISchemaNameCollection.cs" />
     <Compile Include="Interface\DirectoryServices\ISearchResult.cs" />
     <Compile Include="Interface\DirectoryServices\ISearchResultCollection.cs" />
+    <Compile Include="Interface\Drawing\IImage.cs" />
     <Compile Include="Interface\IBM\WMQ\IMQMessage.cs" />
     <Compile Include="Interface\IBM\WMQ\IMQQueue.cs" />
     <Compile Include="Interface\IBM\WMQ\IMQQueueManager.cs" />
@@ -208,6 +235,7 @@
     <Compile Include="Interface\IO\IFile.cs" />
     <Compile Include="Interface\IO\IFileInfo.cs" />
     <Compile Include="Interface\IO\IFileStream.cs" />
+    <Compile Include="Interface\IO\IPath.cs" />
     <Compile Include="Interface\IO\IStream.cs" />
     <Compile Include="Interface\IO\IStreamReader.cs" />
     <Compile Include="Interface\IO\IStreamWriter.cs" />
@@ -220,6 +248,27 @@
     <Compile Include="Interface\Net\Http\IHttpClient.cs" />
     <Compile Include="Interface\Net\Mail\ISmtpClient.cs" />
     <Compile Include="Interface\Net\Sockets\INetworkStream.cs" />
+    <Compile Include="Interface\Security\AccessControl\IDirectorySecurity.cs" />
+    <Compile Include="Interface\Security\AccessControl\IFileSecurity.cs" />
+    <Compile Include="Interface\Security\AccessControl\IRegistrySecurity.cs" />
+    <Compile Include="Interface\Security\Certificate\IKeyInfoX509Data.cs" />
+    <Compile Include="Interface\Security\Certificate\IKeyInfoX509DataFactory.cs" />
+    <Compile Include="Interface\Security\Certificate\IX509Certificate.cs" />
+    <Compile Include="Interface\Security\Certificate\IX509Certificate2.cs" />
+    <Compile Include="Interface\Security\Certificate\IX509Certificate2Collection.cs" />
+    <Compile Include="Interface\Security\Certificate\IX509Certificate2CollectionFactory.cs" />
+    <Compile Include="Interface\Security\Certificate\IX509Certificate2Factory.cs" />
+    <Compile Include="Interface\Security\Certificate\IX509CertificateFactory.cs" />
+    <Compile Include="Interface\Security\Certificate\IX509CertificateFactoryWrap.cs" />
+    <Compile Include="Interface\Security\Certificate\IX509Chain.cs" />
+    <Compile Include="Interface\Security\Certificate\IX509ChainElement.cs" />
+    <Compile Include="Interface\Security\Certificate\IX509ChainElementCollection.cs" />
+    <Compile Include="Interface\Security\Certificate\IX509ChainElementCollectionFactory.cs" />
+    <Compile Include="Interface\Security\Certificate\IX509ChainElementEnumerator.cs" />
+    <Compile Include="Interface\Security\Certificate\IX509ChainElementFactory.cs" />
+    <Compile Include="Interface\Security\Certificate\IX509ChainFactory.cs" />
+    <Compile Include="Interface\Security\Certificate\IX509Store.cs" />
+    <Compile Include="Interface\Security\Certificate\IX509StoreFactory.cs" />
     <Compile Include="Interface\Security\IDirectorySecurity.cs" />
     <Compile Include="Interface\Security\IFileSecurity.cs" />
     <Compile Include="Interface\Timers\ITimer.cs" />
@@ -240,7 +289,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Impl\Collections\Generic\" />
+    <Folder Include="Impl\Security\Extensions\" />
     <Folder Include="Interface\Collections\Generic\" />
+    <Folder Include="Interface\Security\Extensions\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
