@@ -11,10 +11,8 @@ using System.ComponentModel;
 
 namespace JWWrap.Interface.Timers
 {
-    public interface ITimer
+    public interface ITimer : IWrapper<Timer>
     {
-        Timer Instance { get; }
-        
         ISite Site { get; set; }
         bool Enabled { get; set; }
         bool AutoReset { get; set; }

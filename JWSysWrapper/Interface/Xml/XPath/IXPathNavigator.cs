@@ -14,10 +14,8 @@ using System.Collections;
 
 namespace JWWrap.Interface.Xml.XPath
 {
-    public interface IXPathNavigator
+    public interface IXPathNavigator : IWrapper<XPathNavigator>
     {
-        XPathNavigator Instance { get; }
-
         /*static*/
         IEqualityComparer NavigatorComparer { get; }
 

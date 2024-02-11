@@ -91,6 +91,8 @@ namespace JWWrap.Impl
         public static bool operator >=(DateTimeWrap d, DateTime t) => d >= t;
         public static bool operator >=(DateTimeWrap d, IDateTime t) => d.Instance >= t.Instance;
 
+        public override int GetHashCode() => Instance.GetHashCode();
+
         public override bool Equals(object obj)
         {
             var retVal = false;
@@ -101,11 +103,6 @@ namespace JWWrap.Impl
             }
 
             return retVal;
-        }
-
-        public override int GetHashCode()
-        {
-            return Instance.GetHashCode();
         }
     }
 }

@@ -11,9 +11,8 @@ using System.Collections;
 
 namespace JWWrap.Interface.Xml.XPath
 {
-    public interface IXPathNodeIterator
+    public interface IXPathNodeIterator : IWrapper<XPathNodeIterator>
     {
-        XPathNodeIterator Instance { get; }
         IXPathNavigator Current { get; }
         int CurrentPosition { get; }
         int Count { get; }

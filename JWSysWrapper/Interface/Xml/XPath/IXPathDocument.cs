@@ -10,9 +10,8 @@ using System.Xml.XPath;
 
 namespace JWWrap.Interface.Xml.XPath
 {
-    public interface IXPathDocument
+    public interface IXPathDocument : IWrapper<XPathDocument>
     {
-        XPathDocument Instance { get; }
         IXPathNavigator CreateNavigator();
     }
 }

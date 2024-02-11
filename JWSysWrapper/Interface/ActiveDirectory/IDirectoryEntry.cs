@@ -5,10 +5,8 @@ namespace JWWrap.Interface.ActiveDirectory
 
     /// <summary/>
 
-    public interface IDirectoryEntry : IDisposable
+    public interface IDirectoryEntry : IWrapper<DirectoryEntry>, IDisposable
     {
-        DirectoryEntry Instance { get; }
-
         // ------------------------------------------------
         /// <summary/>
 

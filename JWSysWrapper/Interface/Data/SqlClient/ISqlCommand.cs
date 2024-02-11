@@ -12,12 +12,8 @@ using System.Data.SqlClient;
 
 namespace JWWrap.Interface.Data.SqlClient
 {
-    public interface ISqlCommand : IDisposable
+    public interface ISqlCommand : IWrapper<SqlCommand>, IDisposable
     {
-        SqlCommand Instance { get; }
-
-        // ------------------------------------------------
-
         ISqlParameterCollection Parameters { get; }
 
         // ------------------------------------------------
