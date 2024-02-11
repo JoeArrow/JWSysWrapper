@@ -31,7 +31,7 @@ namespace JWWrap.Impl.IO.Compression
         public GZipStreamWrap(IStream stream, CompressionMode mode, bool leaveOpen) => Instance = new GZipStream(stream.Instance, mode, leaveOpen); 
 
         public GZipStreamWrap(IStream stream, CompressionLevel compressionLevel, bool leaveOpen)  =>
-        Instance = new GZipStream(stream.Instance, compressionLevel, leaveOpen); 
+            Instance = new GZipStream(stream.Instance, compressionLevel, leaveOpen); 
 
         // ------------------------------------------------
 
@@ -43,7 +43,7 @@ namespace JWWrap.Impl.IO.Compression
 
         public bool CanRead => Instance.CanRead;
 
-        public Stream BaseStream => Instance.BaseStream;
+        public IStream BaseStream => new StreamWrap(Instance.BaseStream);
 
         public long Position { get => Instance.Position; set => Instance.Position = value; }
 

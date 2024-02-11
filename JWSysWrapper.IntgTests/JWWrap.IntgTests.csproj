@@ -50,6 +50,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IO\Compression\GZipStreamWrap_IntgTests.cs" />
     <Compile Include="IO\FileStreamWrap_IntgTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -62,9 +63,7 @@
       <Name>JWWrap</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="IO\Compression\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="TestData\Target.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

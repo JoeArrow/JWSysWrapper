@@ -18,7 +18,7 @@ namespace JWWrap.Interface.IO.Compression
         bool CanWrite { get; }
         bool CanRead { get; }
         long Position { get; set; }
-        Stream BaseStream { get; }
+        IStream BaseStream { get; }
 
         IAsyncResult BeginRead(byte[] array, int offset, int count, AsyncCallback asyncCallback, object asyncState);
         IAsyncResult BeginWrite(byte[] array, int offset, int count, AsyncCallback asyncCallback, object asyncState);

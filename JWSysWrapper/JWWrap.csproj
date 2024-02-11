@@ -130,6 +130,7 @@
     <Compile Include="Impl\IO\StreamWrap.cs" />
     <Compile Include="Impl\IO\StreamWriterWrap.cs" />
     <Compile Include="Impl\IO\PathWrap.cs" />
+    <Compile Include="Impl\Microsoft.Win32\SafeHandles\SafeFileHandleWrap.cs" />
     <Compile Include="Impl\Net\Http\Headers\HttpRequestHeadersWrap.cs" />
     <Compile Include="Impl\Net\Http\HttpClientWrap.cs" />
     <Compile Include="Impl\Net\Http\HttpResponseMessageWrap.cs" />
@@ -243,6 +244,7 @@
     <Compile Include="Interface\IStaticWrapper.cs" />
     <Compile Include="Interface\ITimeSpan.cs" />
     <Compile Include="Interface\IWrapper.cs" />
+    <Compile Include="Interface\Microsoft.Win32\SafeHandles\ISafeFileHandle.cs" />
     <Compile Include="Interface\Net\Http\Headers\IHttpRequestHeaders.cs" />
     <Compile Include="Interface\Net\Http\IHttpResponseMessage.cs" />
     <Compile Include="Interface\Net\Http\IHttpClient.cs" />

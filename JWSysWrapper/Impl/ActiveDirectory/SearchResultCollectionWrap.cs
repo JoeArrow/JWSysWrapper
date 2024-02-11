@@ -69,7 +69,7 @@ namespace JWWrap.Impl.ActiveDirectory
             {
                 if(index < 0)
                 {
-                    throw new InvalidOperationException("Index must be greater or equal to zero");
+                    throw new InvalidOperationException("Index must be greater than or equal to zero");
                 }
 
                 if(index >= searchResults.Count)

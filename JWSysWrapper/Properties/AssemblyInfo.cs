@@ -19,6 +19,9 @@ using System.Runtime.InteropServices;
                                "The intent is to make System Level objects more easily mockable,\r\n" +
                                "for Unit Testing")]
 
+[assembly: AssemblyVersion("1.1.0.0")]
+[assembly: AssemblyFileVersion("1.1.0.0")]
+
 // --------------------------------------------------------
 // Setting ComVisible to false makes the types in this 
 // assembly not visible to COM components.  
@@ -32,20 +35,3 @@ using System.Runtime.InteropServices;
 // project is exposed to COM
 
 [assembly: Guid("d16acfd2-6240-4b1f-9ec4-0f1940b9989e")]
-
-// --------------------------------------------------------
-// Version information for an assembly consists of the 
-// following four values:
-//
-//      Major Version
-//      Minor Version
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can 
-// default the Build and Revision Numbers
-// by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
-
-[assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
