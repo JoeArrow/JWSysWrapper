@@ -8,13 +8,14 @@
 
 using System;
 using System.IO;
-using System.Security.AccessControl;
 using System.Runtime.InteropServices;
-
-using Microsoft.Win32.SafeHandles;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Security.AccessControl;
 
 using JWWrap.Impl.IO;
+using JWWrap.Interface.IO;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.Win32.SafeHandles;
 
 namespace JWWrap.IntgTests
 {
@@ -51,7 +52,7 @@ namespace JWWrap.IntgTests
             // Arrange
 
             var success = false;
-            FileStreamWrap sut = null;
+            IFileStream sut = null;
 
             // ---
             // Act
