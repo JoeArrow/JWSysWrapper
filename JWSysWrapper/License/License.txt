@@ -1,2 +1,15 @@
-﻿No Warrantee, But you can change the code if you like.
-Just don't overwrite my copy.
+﻿Copyright © 2025 Joe Arrowood (JoeWare)
+All rights reserved.
+
+Permission is hereby granted to any person obtaining a copy of this software (the “Software”) to use, copy, modify, 
+and merge the Software into their own projects, subject to the following conditions:
+
+You may not redistribute modified versions as if they were the original.
+You may publish forks or modified copies, but you must not represent them as the original JoeWare version or overwrite the original distribution.
+
+This Software is provided “as is,” without warranty of any kind.
+The author makes no guarantees of fitness for any purpose and is not liable for any damages or losses arising from its use.
+
+This notice must be included in all copies or substantial portions of the Software.
+
+By using the Software, you agree to these terms.
