@@ -27,13 +27,16 @@ namespace JWWrap.IntgTests
     [TestClass]
     public class FileStreamWrap_IntgTests
     {
+        private const uint OPEN_EXISTING = 3;
+        private const uint GENERIC_WRITE = 0x40000000;
+
+        /*
         private const uint CREATE_NEW = 1;
         private const uint CREATE_ALWAYS = 2;
-        private const uint OPEN_EXISTING = 3;
         private const uint GENERIC_READ = 0x80000000;
-        private const uint GENERIC_WRITE = 0x40000000;
         private const short INVALID_HANDLE_VALUE = -1;
         private const short FILE_ATTRIBUTE_NORMAL = 0x80;
+        */
 
         [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
         static extern SafeFileHandle CreateFile(string lpFileName, uint dwDesiredAccess, uint dwShareMode, 
@@ -205,55 +208,6 @@ namespace JWWrap.IntgTests
 
         // ------------------------------------------------
 
-        [Obsolete]
-        [TestMethod]
-        [DataRow("./TestData/Target.txt", FileMode.Open, FileAccess.Read, true)]
-        [DataRow("./TestData/NonExistant.txt", FileMode.Open, FileAccess.Read, false)]
-        public void Constructor_IntPtr_FileStreamWrap(string filePath, FileMode fileMode, FileAccess fileAccess, bool expected)
-        {
-            // -------
-            // Arrange
-
-            var success = false;
-            FileStreamWrap sut = null;
-
-            // ---
-            // Act
-
-            try
-            {
-                var stream = new FileStream(filePath, fileMode);
-
-                // --------------------------
-                // Type or member is obsolete
-
-                #pragma warning disable CS0618
-                sut = new FileStreamWrap(stream.Handle, fileAccess);
-                #pragma warning restore CS0618 
-
-                success = (sut != null);
-            }
-            catch(Exception)
-            {
-                success = false;
-            }
-            finally
-            {
-                if(sut != null)
-                {
-                    Console.WriteLine($"File Length: {sut.Length} bytes");
-                    sut.Close();
-                }
-            }
-
-            // ------
-            // Assert
-
-            Assert.AreEqual(expected, success);
-        }
-
-        // ------------------------------------------------
-
         [TestMethod]
         [DataRow("./TestData/Target.txt", FileMode.Open, FileAccess.Read, true)]
         [DataRow("./TestData/NonExistant.txt", FileMode.Open, FileAccess.Read, false)]
@@ -337,55 +291,6 @@ namespace JWWrap.IntgTests
         // ------------------------------------------------
 
         [TestMethod]
-        [DataRow("./TestData/Target.txt", FileMode.Open, FileAccess.Read, true, true)]
-        [DataRow("./TestData/NonExistant.txt", FileMode.Open, FileAccess.Read, true, false)]
-        [Obsolete]
-        public void Constructor3_IntPtr_FileStreamWrap(string filePath, FileMode fileMode, FileAccess fileAccess, bool ownsHandle, bool expected)
-        {
-            // -------
-            // Arrange
-
-            var success = false;
-            FileStreamWrap sut = null;
-
-            // ---
-            // Act
-
-            try
-            {
-                var stream = new FileStream(filePath, fileMode);
-
-                // --------------------------
-                // Type or member is obsolete
-
-                #pragma warning disable CS0618
-                sut = new FileStreamWrap(stream.Handle, fileAccess, ownsHandle);
-                #pragma warning restore CS0618
-
-                success = (sut != null);
-            }
-            catch(Exception)
-            {
-                success = false;
-            }
-            finally
-            {
-                if(sut != null)
-                {
-                    Console.WriteLine($"File Length: {sut.Length} bytes");
-                    sut.Close();
-                }
-            }
-
-            // ------
-            // Assert
-
-            Assert.AreEqual(expected, success);
-        }
-
-        // ------------------------------------------------
-
-        [TestMethod]
         [DataRow("./TestData/Target.txt", FileMode.Open, FileAccess.Read, FileShare.Read, true)]
         [DataRow("./TestData/NonExistant.txt", FileMode.Open, FileAccess.Read, FileShare.Read, false)]
         public void Constructor4_FileStreamWrap(string filePath, FileMode fileMode, FileAccess fileAccess, FileShare fileShare, bool expected)
@@ -444,106 +349,6 @@ namespace JWWrap.IntgTests
                 var safeHandle = CreateFile(filePath, GENERIC_WRITE, 0, IntPtr.Zero, OPEN_EXISTING, 0, IntPtr.Zero);
 
                 sut = new FileStreamWrap(safeHandle, fileAccess, bufferSize, useAsync);
-                success = (sut != null);
-            }
-            catch(Exception)
-            {
-                success = false;
-            }
-            finally
-            {
-                if(sut != null)
-                {
-                    Console.WriteLine($"File Length: {sut.Length} bytes");
-                    sut.Close();
-                }
-            }
-
-            // ------
-            // Assert
-
-            Assert.AreEqual(expected, success);
-        }
-
-        // ------------------------------------------------
-
-        [Obsolete]
-        [TestMethod]
-        [DataRow("./TestData/Target.txt", FileMode.Open, FileAccess.Read, true, 2048, true)]
-        [DataRow("./TestData/NonExistant.txt", FileMode.Open, FileAccess.Read, true, 2048, false)]
-        public void Constructor4_IntPtr_FileStreamWrap(string filePath, FileMode fileMode, FileAccess fileAccess, bool ownsHandle, 
-                                                       int bufferSize, bool expected)
-        {
-            // -------
-            // Arrange
-
-            var success = false;
-            FileStreamWrap sut = null;
-
-            // ---
-            // Act
-
-            try
-            {
-                var stream = new FileStream(filePath, fileMode);
-
-                // --------------------------
-                // Type or member is obsolete
-
-                #pragma warning disable CS0618
-                sut = new FileStreamWrap(stream.Handle, fileAccess, ownsHandle, bufferSize);
-                #pragma warning restore CS0618
-
-                success = (sut != null);
-            }
-            catch(Exception)
-            {
-                success = false;
-            }
-            finally
-            {
-                if(sut != null)
-                {
-                    Console.WriteLine($"File Length: {sut.Length} bytes");
-                    sut.Close();
-                }
-            }
-
-            // ------
-            // Assert
-
-            Assert.AreEqual(expected, success);
-        }
-
-        // ------------------------------------------------
-
-        [Obsolete]
-        [TestMethod]
-        [DataRow("./TestData/Target.txt", FileMode.Open, FileAccess.Read, true, 2048, false, true)]
-        [DataRow("./TestData/NonExistant.txt", FileMode.Open, FileAccess.Read, true, 2048, false, false)]
-        public void Constructor5_IntPtr_FileStreamWrap(string filePath, FileMode fileMode, FileAccess fileAccess, bool ownsHandle, 
-                                                       int bufferSize, bool isAsync, bool expected)
-        {
-            // -------
-            // Arrange
-
-            var success = false;
-            FileStreamWrap sut = null;
-
-            // ---
-            // Act
-
-            try
-            {
-                var stream = new FileStream(filePath, fileMode);
-
-                // --------------------------
-                // Type or member is obsolete
-
-                #pragma warning disable CS0618
-                sut = new FileStreamWrap(stream.Handle, fileAccess, ownsHandle, bufferSize, isAsync);
-                #pragma warning restore CS0618
-
                 success = (sut != null);
             }
             catch(Exception)

@@ -30,7 +30,7 @@ namespace GZipStreamWrap_IntgTests
 
         [TestMethod]
         [DataRow("./TestData/Target.txt", "./TestData/Target.zip")]
-        public void Method_Class(string input, string output)
+        public void CopyTo_FileStreamWrap(string input, string output)
         {
             // -------
             // Arrange
@@ -38,9 +38,6 @@ namespace GZipStreamWrap_IntgTests
             var inStream = new FileStreamWrap(input, FileMode.Open, FileAccess.Read);
             var outStream = new FileStreamWrap(output, FileMode.Create, FileAccess.Write);
             var sut = new GZipStreamWrap(outStream, CompressionMode.Compress);
-
-            // ----------
-            // Mock Setup
 
             // ---
             // Act

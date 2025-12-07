@@ -26,12 +26,12 @@ namespace JWWrap.Impl
         public readonly TimeSpan MaxValue;
         public readonly TimeSpan MinValue;
 
-        public const long TicksPerSecond = 10000000;
-        public const long TicksPerMinute = 600000000;
-        public const long TicksPerHour = 36000000000;
-        public const long TicksPerDay = 864000000000;
+        public const long TicksPerDay = TimeSpan.TicksPerDay;
+        public const long TicksPerHour = TimeSpan.TicksPerHour;
+        public const long TicksPerSecond = TimeSpan.TicksPerSecond;
+        public const long TicksPerMinute = TimeSpan.TicksPerMinute;
 
-        public const long TicksPerMillisecond = 10000;
+        public const long TicksPerMillisecond = TimeSpan.TicksPerMillisecond;
 
         // ------------------------------------------------
 
@@ -74,7 +74,9 @@ namespace JWWrap.Impl
             new TimeSpanWrap(TimeSpan.ParseExact(input, format, formatProvider));
         public ITimeSpan ParseExact(string input, string format, IFormatProvider formatProvider, TimeSpanStyles styles) =>
             new TimeSpanWrap(TimeSpan.ParseExact(input, format, formatProvider, styles));
-        
+
+        // ------------------------------------------------
+
         public static bool TryParse(string s, out ITimeSpan result) 
         {
             TimeSpan res; 
@@ -83,6 +85,8 @@ namespace JWWrap.Impl
             else { result = null; }
             return retVal;
         }
+
+        // ------------------------------------------------
 
         public static bool TryParse(string input, IFormatProvider formatProvider, out ITimeSpan result)
         {
@@ -93,6 +97,8 @@ namespace JWWrap.Impl
             return retVal;
         }
 
+        // ------------------------------------------------
+
         public static bool TryParseExact(string input, string[] formats, IFormatProvider formatProvider, out ITimeSpan result)
         {
             TimeSpan res;
@@ -101,6 +107,8 @@ namespace JWWrap.Impl
             else { result = null; }
             return retVal;
         }
+
+        // ------------------------------------------------
 
         public static bool TryParseExact(string input, string format, IFormatProvider formatProvider, TimeSpanStyles styles, out ITimeSpan result)
         {
@@ -111,6 +119,8 @@ namespace JWWrap.Impl
             return retVal;
         }
 
+        // ------------------------------------------------
+
         public static bool TryParseExact(string input, string[] formats, IFormatProvider formatProvider, TimeSpanStyles styles, out ITimeSpan result)
         {
             TimeSpan res;
@@ -120,6 +130,8 @@ namespace JWWrap.Impl
             return retVal;
         }
 
+        // ------------------------------------------------
+
         public static bool TryParseExact(string input, string format, IFormatProvider formatProvider, out ITimeSpan result)
         {
             TimeSpan res;
@@ -128,6 +140,8 @@ namespace JWWrap.Impl
             else { result = null; }
             return retVal;
         }
+
+        // ------------------------------------------------
 
         public ITimeSpan Add(ITimeSpan ts) => new TimeSpanWrap(Instance.Add(ts.Instance));
         public int CompareTo(ITimeSpan value) => Instance.CompareTo(value.Instance);

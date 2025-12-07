@@ -18,8 +18,15 @@ namespace JWWrap.Interface
 
     public interface ITimeSpan : IWrapper<TimeSpan>
     {
+        int Hours { get; }
+        long Ticks { get; }
+        int Minutes { get; }
+        int Seconds { get; }
+        int Milliseconds { get; }
+
         int Compare(ITimeSpan t1, ITimeSpan t2);
         bool Equals(ITimeSpan t1, ITimeSpan t2);
+
         ITimeSpan FromDays(double value);
         ITimeSpan FromHours(double value);
         ITimeSpan FromMilliseconds(double value);
@@ -28,27 +35,22 @@ namespace JWWrap.Interface
         ITimeSpan FromTicks(long value);
         ITimeSpan Parse(string s);
         ITimeSpan Parse(string input, IFormatProvider formatProvider);
-        ITimeSpan ParseExact(string input, string[] formats, IFormatProvider formatProvider, TimeSpanStyles styles);
-        ITimeSpan ParseExact(string input, string[] formats, IFormatProvider formatProvider);
         ITimeSpan ParseExact(string input, string format, IFormatProvider formatProvider);
+        ITimeSpan ParseExact(string input, string[] formats, IFormatProvider formatProvider);
         ITimeSpan ParseExact(string input, string format, IFormatProvider formatProvider, TimeSpanStyles styles);
-        //bool TryParse(string s, out ITimeSpan result);
-        //bool TryParse(string input, IFormatProvider formatProvider, out ITimeSpan result);
-        //bool TryParseExact(string input, string[] formats, IFormatProvider formatProvider, out ITimeSpan result);
-        //bool TryParseExact(string input, string format, IFormatProvider formatProvider, TimeSpanStyles styles, out ITimeSpan result);
-        //bool TryParseExact(string input, string[] formats, IFormatProvider formatProvider, TimeSpanStyles styles, out ITimeSpan result);
-        //bool TryParseExact(string input, string format, IFormatProvider formatProvider, out ITimeSpan result);
+        ITimeSpan ParseExact(string input, string[] formats, IFormatProvider formatProvider, TimeSpanStyles styles);
+        int GetHashCode();
+        ITimeSpan Negate();
+        ITimeSpan Duration();
         ITimeSpan Add(ITimeSpan ts);
         int CompareTo(object value);
         int CompareTo(ITimeSpan value);
-        ITimeSpan Duration();
-        bool Equals(ITimeSpan obj);
         bool Equals(object value);
-        int GetHashCode();
-        ITimeSpan Negate();
+        bool Equals(ITimeSpan obj);
         ITimeSpan Subtract(ITimeSpan ts);
-        string ToString(string format, IFormatProvider formatProvider);
-        string ToString(string format);
+
         string ToString();
+        string ToString(string format);
+        string ToString(string format, IFormatProvider formatProvider);
     }
 }
