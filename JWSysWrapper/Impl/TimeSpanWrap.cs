@@ -39,7 +39,7 @@ namespace JWWrap.Impl
         public TimeSpanWrap(long ticks) => Instance = new TimeSpan(ticks);
         public TimeSpanWrap(int hours, int minutes, int seconds) => Instance = new TimeSpan(hours, minutes, seconds);
         public TimeSpanWrap(int days, int hours, int minutes, int seconds) => Instance = new TimeSpan(days, hours, minutes, seconds);
-        public TimeSpanWrap(int days, int hours, int minutes, int seconds, int milliseconds) => 
+        public TimeSpanWrap(int days, int hours, int minutes, int seconds, int milliseconds) =>
             Instance = new TimeSpan(days, hours, minutes, seconds, milliseconds);
 
         // ------------------------------------------------
@@ -77,9 +77,9 @@ namespace JWWrap.Impl
 
         // ------------------------------------------------
 
-        public static bool TryParse(string s, out ITimeSpan result) 
+        public static bool TryParse(string s, out ITimeSpan result)
         {
-            TimeSpan res; 
+            TimeSpan res;
             var retVal = TimeSpan.TryParse(s, out res);
             if(retVal) { result = new TimeSpanWrap(res); }
             else { result = null; }
@@ -156,5 +156,5 @@ namespace JWWrap.Impl
         public override string ToString() => Instance.ToString();
         public string ToString(string format) => Instance.ToString(format);
         public string ToString(string format, IFormatProvider formatProvider) => Instance.ToString(format, formatProvider);
-    }    
-}        
+    }
+}

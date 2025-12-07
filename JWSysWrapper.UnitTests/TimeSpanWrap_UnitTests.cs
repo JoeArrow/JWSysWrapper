@@ -29,11 +29,23 @@ namespace TimeSpanWrap_UnitTests
         // ------------------------------------------------
 
         [TestMethod]
-        public void Constructor_Ticks_Properties_TimeSpanWrap()
+        [DataRow(12345.0)]
+        [DataRow(54321.0)]
+        public void Constructor_Ticks_TimeSpanWrap(double expectedMs)
         {
-            var expectedMs = 12345.0;
+            // -------
+            // Arrange
+
             var ticks = TimeSpan.FromMilliseconds(expectedMs).Ticks;
+
+            // ---
+            // Act
+
             var sut = new TimeSpanWrap(ticks);
+
+            // ------
+            // Assert
+
             Assert.AreEqual(ticks, sut.Ticks);
             Assert.AreEqual(expectedMs, sut.TotalMilliseconds, 0.0001);
         }
@@ -41,39 +53,231 @@ namespace TimeSpanWrap_UnitTests
         // ------------------------------------------------
 
         [TestMethod]
-        public void Add_Subtract_Duration_Negate_TimeSpanWrap()
+        [DataRow(1,10,15)]
+        [DataRow(1, 15, 30)]
+        public void Constructor_HMS_TimeSpanWrap(int hours, int min, int sec)
         {
+            // ---
+            // Act
+
+            var sut = new TimeSpanWrap(hours, min, sec);
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(hours, sut.Hours);
+            Assert.AreEqual(min, sut.Minutes);
+            Assert.AreEqual(sec, sut.Seconds);
+        }
+
+        // ------------------------------------------------
+
+        [TestMethod]
+        [DataRow(1, 1, 10, 15)]
+        [DataRow(2, 1, 30, 50)]
+        public void Constructor_DHMS_TimeSpanWrap(int days, int hours, int min, int sec)
+        {
+            // ---
+            // Act
+
+            var sut = new TimeSpanWrap(days, hours, min, sec);
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(days, sut.Days);
+            Assert.AreEqual(hours, sut.Hours);
+            Assert.AreEqual(min, sut.Minutes);
+            Assert.AreEqual(sec, sut.Seconds);
+        }
+
+        // ------------------------------------------------
+
+        [TestMethod]
+        [DataRow(1, 1, 10, 15, 5)]
+        [DataRow(1, 1, 10, 15, 200)]
+        public void Constructor_DHMSm_TimeSpanWrap(int days, int hours, int min, int sec, int msec)
+        {
+            // ---
+            // Act
+
+            var sut = new TimeSpanWrap(days, hours, min, sec, msec);
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(days, sut.Days);
+            Assert.AreEqual(hours, sut.Hours);
+            Assert.AreEqual(min, sut.Minutes);
+            Assert.AreEqual(sec, sut.Seconds);
+            Assert.AreEqual(msec, sut.Milliseconds);
+        }
+
+        // ------------------------------------------------
+
+        [TestMethod]
+        [DataRow(60, 30, 90)]
+        [DataRow(10, 60, 70)]
+        [DataRow(-10, 60, 50)]
+        public void Add_TimeSpanWrap(int minutes1, int minutes2, int expected)
+        {
+            // -------
+            // Arrange
+
+            ITimeSpan a = new TimeSpanWrap(new TimeSpan(0, minutes1, 0));
+            ITimeSpan b = new TimeSpanWrap(new TimeSpan(0, minutes2, 0));
+
+            // ---
+            // Act
+
+            var sum = a.Add(b);
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(TimeSpan.FromMinutes(expected).Ticks, sum.Ticks);
+        }
+
+        // ------------------------------------------------
+
+        [TestMethod]
+        public void Subtract_TimeSpanWrap()
+        {
+            // -------
+            // Arrange
+
             ITimeSpan a = new TimeSpanWrap(new TimeSpan(1, 0, 0)); // 1 hour
             ITimeSpan b = new TimeSpanWrap(new TimeSpan(0, 30, 0)); // 30 minutes
 
-            var sum = a.Add(b);
-            Assert.AreEqual(TimeSpan.FromMinutes(90).Ticks, sum.Ticks);
+            // ---
+            // Act
 
             var diff = a.Subtract(b);
-            Assert.AreEqual(TimeSpan.FromMinutes(30).Ticks, diff.Ticks);
 
+            // ------
+            // Assert
+
+            Assert.AreEqual(TimeSpan.FromMinutes(30).Ticks, diff.Ticks);
+        }
+
+        // ------------------------------------------------
+
+        [TestMethod]
+        public void Duration_TimeSpanWrap()
+        {
+            // -------
+            // Arrange
+
+            ITimeSpan a = new TimeSpanWrap(new TimeSpan(1, 0, 0)); // 1 hour
+            ITimeSpan b = new TimeSpanWrap(new TimeSpan(0, 30, 0)); // 30 minutes
+
+            var diff = a.Subtract(b);
             var neg = diff.Negate();
-            Assert.AreEqual(-TimeSpan.FromMinutes(30).Ticks, neg.Ticks);
+
+            // ---
+            // Act
 
             var dur = neg.Duration();
+
+            // ------
+            // Assert
+
             Assert.AreEqual(TimeSpan.FromMinutes(30).Ticks, dur.Ticks);
         }
 
         // ------------------------------------------------
 
         [TestMethod]
-        public void Compare_CompareTo_Equals_TimeSpanWrap()
+        public void Negate_TimeSpanWrap()
         {
+            // -------
+            // Arrange
+
+            ITimeSpan a = new TimeSpanWrap(new TimeSpan(1, 0, 0)); // 1 hour
+            ITimeSpan b = new TimeSpanWrap(new TimeSpan(0, 30, 0)); // 30 minutes
+
+            var diff = a.Subtract(b);
+            var neg = diff.Negate();
+
+            // ---
+            // Act
+
+            var dur = neg.Duration();
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(TimeSpan.FromMinutes(30).Ticks, dur.Ticks);
+        }
+
+        // ------------------------------------------------
+
+        [TestMethod]
+        public void Compare_TimeSpanWrap()
+        {
+            // -------
+            // Arrange
+
             var sut = new TimeSpanWrap(TimeSpan.Zero); // factory for Compare method
 
             ITimeSpan larger = new TimeSpanWrap(TimeSpan.FromSeconds(2));
             ITimeSpan smaller = new TimeSpanWrap(TimeSpan.FromSeconds(1));
 
+            // ---
+            // Act
+
             var cmp = sut.Compare(larger, smaller);
+
+            // ------
+            // Assert
+
             Assert.IsTrue(cmp > 0);
+        }
+
+        // ------------------------------------------------
+
+        [TestMethod]
+        public void CompareTo_TimeSpanWrap()
+        {
+            // -------
+            // Arrange
+
+            var sut = new TimeSpanWrap(TimeSpan.Zero); // factory for Compare method
+
+            ITimeSpan larger = new TimeSpanWrap(TimeSpan.FromSeconds(2));
+            ITimeSpan smaller = new TimeSpanWrap(TimeSpan.FromSeconds(1));
+
+            // ---
+            // Act
 
             var cmpTo = larger.CompareTo(smaller);
+
+            // ------
+            // Assert
+
             Assert.IsTrue(cmpTo > 0);
+        }
+
+        // ------------------------------------------------
+
+        [TestMethod]
+        public void Equals_TimeSpanWrap()
+        {
+            // -------
+            // Arrange
+
+            var sut = new TimeSpanWrap(TimeSpan.Zero); // factory for Compare method
+
+            ITimeSpan larger = new TimeSpanWrap(TimeSpan.FromSeconds(2));
+            ITimeSpan smaller = new TimeSpanWrap(TimeSpan.FromSeconds(1));
+
+            // ---
+            // Act
+
+            var cmpTo = larger.CompareTo(smaller);
+
+            // ------
+            // Assert
 
             Assert.IsTrue(larger.Equals(larger));
             Assert.IsFalse(larger.Equals(smaller));
@@ -82,26 +286,126 @@ namespace TimeSpanWrap_UnitTests
         // ------------------------------------------------
 
         [TestMethod]
-        public void FromMethods_TimeSpanWrap()
+        public void FromDays_TimeSpanWrap()
         {
-            var factory = new TimeSpanWrap(TimeSpan.Zero);
+            // -------
+            // Arrange
 
-            var fromDays = factory.FromDays(1.5); // 1.5 days
+            var sut = new TimeSpanWrap(TimeSpan.Zero);
+
+            // ---
+            // Act
+
+            var fromDays = sut.FromDays(1.5); // 1.5 days
+
+            // ------
+            // Assert
+
             Assert.AreEqual(TimeSpan.FromDays(1.5).Ticks, fromDays.Ticks);
+        }
 
-            var fromHours = factory.FromHours(2.25);
+        // ------------------------------------------------
+
+        [TestMethod]
+        public void FromHours_TimeSpanWrap()
+        {
+            // -------
+            // Arrange
+
+            var sut = new TimeSpanWrap(TimeSpan.Zero);
+
+            // ---
+            // Act
+
+            var fromHours = sut.FromHours(2.25);
+
+            // ------
+            // Assert
+
             Assert.AreEqual(TimeSpan.FromHours(2.25).Ticks, fromHours.Ticks);
+        }
 
-            var fromMinutes = factory.FromMinutes(90);
+        // ------------------------------------------------
+
+        [TestMethod]
+        public void FromMinutes_TimeSpanWrap()
+        {
+            // -------
+            // Arrange
+
+            var sut = new TimeSpanWrap(TimeSpan.Zero);
+
+            // ---
+            // Act
+
+            var fromMinutes = sut.FromMinutes(90);
+
+            // ------
+            // Assert
+
             Assert.AreEqual(TimeSpan.FromMinutes(90).Ticks, fromMinutes.Ticks);
+        }
 
-            var fromSeconds = factory.FromSeconds(30.5);
+        // ------------------------------------------------
+
+        [TestMethod]
+        public void FromSeconds_TimeSpanWrap()
+        {
+            // -------
+            // Arrange
+
+            var sut = new TimeSpanWrap(TimeSpan.Zero);
+
+            // ---
+            // Act
+
+            var fromSeconds = sut.FromSeconds(30.5);
+
+            // ------
+            // Assert
+
             Assert.AreEqual(TimeSpan.FromSeconds(30.5).Ticks, fromSeconds.Ticks);
+        }
 
-            var fromMs = factory.FromMilliseconds(1500);
+        // ------------------------------------------------
+
+        [TestMethod]
+        public void FromMilliseconds_TimeSpanWrap()
+        {
+            // -------
+            // Arrange
+
+            var sut = new TimeSpanWrap(TimeSpan.Zero);
+
+            // ---
+            // Act
+
+            var fromMs = sut.FromMilliseconds(1500);
+
+            // ------
+            // Assert
+
             Assert.AreEqual(TimeSpan.FromMilliseconds(1500).Ticks, fromMs.Ticks);
+        }
 
-            var fromTicks = factory.FromTicks(1234567);
+        // ------------------------------------------------
+
+        [TestMethod]
+        public void FromTicks_TimeSpanWrap()
+        {
+            // -------
+            // Arrange
+
+            var sut = new TimeSpanWrap(TimeSpan.Zero);
+
+            // ---
+            // Act
+
+            var fromTicks = sut.FromTicks(1234567);
+
+            // ------
+            // Assert
+
             Assert.AreEqual(1234567L, fromTicks.Ticks);
         }
 
@@ -203,15 +507,15 @@ namespace TimeSpanWrap_UnitTests
         // ------------------------------------------------
 
         [TestMethod]
-        public void TryParseExact_MultipleFormats_TimeSpanWrap()
+        [DataRow(0, 12, 34, 56, "c", new string[] { @"d\:hh\:mm\:ss", "c" })]
+        [DataRow(0, 12, 34, 56, "d\\:hh\\:mm\\:ss", new string[] { @"d\:hh\:mm\:ss", "c" })]
+        public void TryParseExact_MultipleFormats_TimeSpanWrap(int days, int hours, int mins, int secs, string format, string[] formats)
         {
             // -------
             // Arrange
 
-            var original = new TimeSpan(0, 12, 34, 56); // 12:34:56                                                        
-            var formats = new[] { @"d\:hh\:mm\:ss", "c" }; // Use two formats: first a non-matching custom, second the constant "c"
-
-            var input = original.ToString("c", CultureInfo.InvariantCulture);
+            var original = new TimeSpan(days, hours, mins, secs);
+            var input = original.ToString(format, CultureInfo.InvariantCulture);
 
             // ---
             // Act
@@ -221,21 +525,20 @@ namespace TimeSpanWrap_UnitTests
             // ------
             // Assert
 
-            Assert.IsTrue(success, "Expected TryParseExact to succeed when one of multiple formats matches.");
             Assert.IsNotNull(result, "Expected result to be non-null on success.");
+            Assert.IsTrue(success, "Expected TryParseExact to succeed when one of multiple formats matches.");
             Assert.AreEqual(original.Ticks, result.Ticks, "Parsed TimeSpan ticks should match original when matching one of multiple formats.");
         }
 
         // ------------------------------------------------
 
         [TestMethod]
-        public void TryParseExact_WithStandardFormat_TimeSpanWrap()
+        [DataRow("01:02:03", "c")]
+        public void TryParseExact_WithStandardFormat_TimeSpanWrap(string input, string format)
         {
             // -------
             // Arrange
 
-            var input = "01:02:03";
-            var format = "c";
             var provider = CultureInfo.InvariantCulture;
 
             // ---
