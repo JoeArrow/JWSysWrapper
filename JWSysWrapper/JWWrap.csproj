@@ -117,6 +117,7 @@
     <Compile Include="Impl\DirectoryServices\SearchResultCollectionWrap.cs" />
     <Compile Include="Impl\DirectoryServices\SearchResultWrap.cs" />
     <Compile Include="Impl\Drawing\ImageWrap.cs" />
+    <Compile Include="Impl\EventLogWrap.cs" />
     <Compile Include="Impl\IBM\WMQ\MQMessageWrap.cs" />
     <Compile Include="Impl\IBM\WMQ\MQQueueManagerWrap.cs" />
     <Compile Include="Impl\IBM\WMQ\MQQueueWrap.cs" />
@@ -230,6 +231,7 @@
     <Compile Include="Interface\IBM\WMQ\IMQQueue.cs" />
     <Compile Include="Interface\IBM\WMQ\IMQQueueManager.cs" />
     <Compile Include="Interface\IDateTime.cs" />
+    <Compile Include="Interface\IEventLog.cs" />
     <Compile Include="Interface\IO\Compression\IGZipStream.cs" />
     <Compile Include="Interface\IO\IDirectory.cs" />
     <Compile Include="Interface\IO\IDirectoryInfo.cs" />
