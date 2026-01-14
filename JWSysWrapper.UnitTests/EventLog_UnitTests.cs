@@ -6,15 +6,10 @@
 //
 #endregion
 
-using System;
-using System.Linq;
-using System.Text;
-using System.Diagnostics;
-using System.Collections.Generic;
+using System.Web.Script.Serialization;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using JWWrap.Impl;
-
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace JWWrap.UnitTests
 {
@@ -23,9 +18,10 @@ namespace JWWrap.UnitTests
     ///     EventLog_UnitTests Description
     /// </summary>
 
+    [TestClass]
     public class EventLog_UnitTests
     {
-        //private readonly JavaScriptSerializer jsSer = new JavaScriptSerializer();
+        private readonly JavaScriptSerializer jsSer = new JavaScriptSerializer();
 
         public EventLog_UnitTests() { }
 
