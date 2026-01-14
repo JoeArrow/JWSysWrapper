@@ -120,6 +120,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventLog_UnitTests.cs" />
     <Compile Include="IO\Compression\GZipStreamWrap_UnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TimeSpanWrap_UnitTests.cs" />

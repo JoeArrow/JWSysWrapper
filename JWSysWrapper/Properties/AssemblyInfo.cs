@@ -19,8 +19,8 @@ using System.Runtime.InteropServices;
                                "The intent is to make System Level objects more easily mockable,\r\n" +
                                "for Unit Testing")]
 
-[assembly: AssemblyVersion("1.1.1.0")]
-[assembly: AssemblyFileVersion("1.1.1.0")]
+[assembly: AssemblyVersion("1.2.1.0")]
+[assembly: AssemblyFileVersion("1.2.1.0")]
 
 // --------------------------------------------------------
 // Setting ComVisible to false makes the types in this 
