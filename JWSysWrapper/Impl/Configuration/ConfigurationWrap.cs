@@ -8,6 +8,7 @@
 
 using System;
 using System.Configuration;
+using System.Diagnostics.Tracing;
 using System.Runtime.Versioning;
 
 using JWWrap.Interface.Configuration;

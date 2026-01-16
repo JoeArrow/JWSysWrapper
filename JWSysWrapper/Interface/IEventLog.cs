@@ -21,31 +21,37 @@ namespace JWWrap.Interface
     {
         EventLog Instance { get; }
 
-        ISynchronizeInvoke SynchronizingObject { get; set; }
-        bool EnableRaisingEvents { get; set; }
-        int MinimumRetentionDays { get; }
-        OverflowAction OverflowAction { get; }
-        long MaximumKilobytes { get; set; }
-        string MachineName { get; set; }
         string Log { get; set; }
-        string LogDisplayName { get; }
-        EventLogEntryCollection Entries { get; }
         string Source { get; set; }
+        string LogDisplayName { get; }
+        string MachineName { get; set; }
+        int MinimumRetentionDays { get; }
+        long MaximumKilobytes { get; set; }
+        bool EnableRaisingEvents { get; set; }
+        OverflowAction OverflowAction { get; }
+        EventLogEntryCollection Entries { get; }
+        ISynchronizeInvoke SynchronizingObject { get; set; }
 
         event EntryWrittenEventHandler EntryWritten;
 
-        void CreateEventSource(EventSourceCreationData sourceData);
         void CreateEventSource(string source, string logName);
+        void CreateEventSource(EventSourceCreationData sourceData);
         void CreateEventSource(string source, string logName, string machineName);
-        void Delete(string logName, string machineName);
+
         void Delete(string logName);
+        void Delete(string logName, string machineName);
+
         void DeleteEventSource(string source);
         void DeleteEventSource(string source, string machineName);
+
         bool Exists(string logName);
         bool Exists(string logName, string machineName);
+
         IEventLog[] GetEventLogs();
         IEventLog[] GetEventLogs(string machineName);
+
         string LogNameFromSourceName(string source, string machineName);
+
         bool SourceExists(string source);
         bool SourceExists(string source, string machineName);
 
@@ -54,6 +60,7 @@ namespace JWWrap.Interface
         void WriteEntry(string source, string message, EventLogEntryType type, int eventID);
         void WriteEntry(string source, string message, EventLogEntryType type, int eventID, short category);
         void WriteEntry(string source, string message, EventLogEntryType type, int eventID, short category, byte[] rawData);
+        
         void WriteEntry(string message);
         void WriteEntry(string message, EventLogEntryType type);
         void WriteEntry(string message, EventLogEntryType type, int eventID);

@@ -73,9 +73,9 @@ namespace JWWrap.Impl
 
         public void CreateEventSource(string source, string logName, string machineName) { EventLog.CreateEventSource(source, logName, machineName); }
 
-        public void Delete(string logName, string machineName) { EventLog.Delete(logName, machineName); }
-
         public void Delete(string logName) { EventLog.Delete(logName); }
+
+        public void Delete(string logName, string machineName) { EventLog.Delete(logName, machineName); }
 
         public void DeleteEventSource(string source) { EventLog.DeleteEventSource(source); }
 
