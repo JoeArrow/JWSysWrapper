@@ -76,13 +76,13 @@ namespace JWWrap.UnitTests
             Assert.IsNotNull(sut.Instance);
         }
 
-        //// ------------------------------------------------
+        // ------------------------------------------------
 
         //[TestMethod]
         //[DataRow("[{'Log':'Application', 'MachineName':'Bogus', 'Source':'BogusSource'}]")]
         //public void GetEventLogs_EventLogWrap(string logJson)
         //{
-        //    using(ShimsContext.Create())
+        //    using (ShimsContext.Create())
         //    {
         //        // -------
         //        // Arrange
@@ -107,13 +107,13 @@ namespace JWWrap.UnitTests
         //    }
         //}
 
-        //// ------------------------------------------------
+        // ------------------------------------------------
 
         //[TestMethod]
         //[DataRow("Bogus", "[{'Log':'Application', 'MachineName':'Bogus', 'Source':'BogusSource'}]")]
         //public void GetEventLogsString_EventLogWrap(string machName, string logJson)
         //{
-        //    using(ShimsContext.Create())
+        //    using (ShimsContext.Create())
         //    {
         //        // -------
         //        // Arrange
