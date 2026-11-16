@@ -23,45 +23,45 @@ namespace JWWrap.Interface.Data.SqlClient
         event FillErrorEventHandler FillError;
         event SqlRowUpdatedEventHandler RowUpdated;
         event SqlRowUpdatingEventHandler RowUpdating;
-        bool AcceptChangesDuringFill { get; set; }
-        bool AcceptChangesDuringUpdate { get; set; }
+
+        ISite Site { get; set; }
         IContainer Container { get; }
-        bool ContinueUpdateOnError { get; set; }
+        int UpdateBatchSize { get; set; }
         ISqlCommand DeleteCommand { get; set; }
         LoadOption FillLoadOption { get; set; }
         ISqlCommand InsertCommand { get; set; }
-        MissingMappingAction MissingMappingAction { get; set; }
-        MissingSchemaAction MissingSchemaAction { get; set; }
-        bool ReturnProviderSpecificTypes { get; set; }
         ISqlCommand SelectCommand { get; set; }
-        ISite Site { get; set; }
-        DataTableMappingCollection TableMappings { get; }
-        int UpdateBatchSize { get; set; }
         ISqlCommand UpdateCommand { get; set; }
-        // event SqlRowUpdatedEventHandler RowUpdated
-        // event SqlRowUpdatingEventHandler RowUpdating
-        ObjRef CreateObjRef(Type requestedType);
+        bool ContinueUpdateOnError { get; set; }
+        bool AcceptChangesDuringFill { get; set; }
+        bool AcceptChangesDuringUpdate { get; set; }
+        bool ReturnProviderSpecificTypes { get; set; }
+        DataTableMappingCollection TableMappings { get; }
+        MissingSchemaAction MissingSchemaAction { get; set; }
+        MissingMappingAction MissingMappingAction { get; set; }
+
+        Type GetType();
+        int GetHashCode();
+        string ToString();
         bool Equals(Object obj);
         int Fill(DataSet dataSet);
-        int Fill(DataSet dataSet, string srcTable);
-        int Fill(DataSet dataSet, int startRecord, int maxRecords, string srcTable);
-        int Fill(DataTable dataTable);
-        int Fill(int startRecord, int maxRecords, params DataTable[] dataTables);
-        DataTable FillSchema(DataTable dataTable, SchemaType schemaType);
-        DataTable[] FillSchema(DataSet dataSet, SchemaType schemaType);
-        DataTable[] FillSchema(DataSet dataSet, SchemaType schemaType, string srcTable);
-        IDataParameter[] GetFillParameters();
-        int GetHashCode();
-        Object GetLifetimeService();
-        Type GetType();
-        object InitializeLifetimeService();
         void ResetFillLoadOption();
-        bool ShouldSerializeAcceptChangesDuringFill();
-        bool ShouldSerializeFillLoadOption();
-        string ToString();
+        Object GetLifetimeService();
         int Update(DataSet dataSet);
         int Update(DataRow[] dataRows);
-        int Update(DataTable dataTable);
+        int Fill(System.Data.DataTable dataTable);
+        int Update(System.Data.DataTable dataTable);
+        object InitializeLifetimeService();
+        IDataParameter[] GetFillParameters();
+        bool ShouldSerializeFillLoadOption();
+        ObjRef CreateObjRef(Type requestedType);
+        int Fill(DataSet dataSet, string srcTable);
         int Update(DataSet dataSet, string srcTable);
+        bool ShouldSerializeAcceptChangesDuringFill();
+        IDataTable[] FillSchema(DataSet dataSet, SchemaType schemaType);
+        IDataTable FillSchema(System.Data.DataTable dataTable, SchemaType schemaType);
+        int Fill(int startRecord, int maxRecords, params System.Data.DataTable[] dataTables);
+        int Fill(DataSet dataSet, int startRecord, int maxRecords, string srcTable);
+        IDataTable[] FillSchema(DataSet dataSet, SchemaType schemaType, string srcTable);
     }
 }

@@ -49,10 +49,10 @@ namespace JWWrap.Impl.Data
         public decimal GetDecimal(int i) => Instance.GetDecimal(i);
         public Type GetFieldType(int i) => Instance.GetFieldType(i);
         public DateTime GetDateTime(int i) => Instance.GetDateTime(i);
-        public DataTable GetSchemaTable() => Instance.GetSchemaTable();
         public int GetOrdinal(string name) => Instance.GetOrdinal(name);
         public string GetDataTypeName(int i) => Instance.GetDataTypeName(i);
         public int GetValues(object[] values) => Instance.GetValues(values);
+        public System.Data.DataTable GetSchemaTable() => Instance.GetSchemaTable();
 
         public long GetBytes(int i, long fieldOffset, byte[] buffer, int bufferoffset, int length) => 
             Instance.GetBytes(i, fieldOffset, buffer, bufferoffset, length);

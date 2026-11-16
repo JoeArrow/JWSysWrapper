@@ -16,7 +16,7 @@ using System.Runtime.Serialization;
 
 using JWWrap.Interface.Data;
 
-namespace JWWrap.Impl.Data
+namespace JWWrap.Impl.Data.DataTable
 {
     // ----------------------------------------------------
     /// <summary>
@@ -25,13 +25,13 @@ namespace JWWrap.Impl.Data
 
     public class DataTableWrap : IDataTable
     {
-        public DataTable Instance { get; private set; }
+        public System.Data.DataTable Instance { get; private set; }
 
         // ------------------------------------------------
 
-        public DataTableWrap() => Initialize();
+        public DataTableWrap(System.Data.DataTable dataTable) => Initialize();
         public DataTableWrap(string tableName) => Initialize(tableName);
-        public DataTableWrap(DataTable dataTable) => Initialize(dataTable);
+        public DataTableWrap(IDataTable dataTable) => Initialize(dataTable.Instance);
         public DataTableWrap(string tableName, string tableNamespace) => Initialize(tableName, tableNamespace);
 
         // ------------------------------------------------
@@ -96,9 +96,9 @@ namespace JWWrap.Impl.Data
         public DataRow LoadDataRow(object[] values, bool acceptChanges) => Instance.LoadDataRow(values, acceptChanges);
         public DataRow LoadDataRow(object[] values, LoadOption loadOption) => Instance.LoadDataRow(values, loadOption);
         
-        public void Merge(DataTable table) => Instance.Merge(table);
-        public void Merge(DataTable table, bool preserveChanges) => Instance.Merge(table, preserveChanges);
-        public void Merge(DataTable table, bool preserveChanges, MissingSchemaAction missingSchemaAction) => 
+        public void Merge(System.Data.DataTable table) => Instance.Merge(table);
+        public void Merge(System.Data.DataTable table, bool preserveChanges) => Instance.Merge(table, preserveChanges);
+        public void Merge(System.Data.DataTable table, bool preserveChanges, MissingSchemaAction missingSchemaAction) => 
             Instance.Merge(table, preserveChanges, missingSchemaAction);
         public XmlReadMode ReadXml(Stream stream) => Instance.ReadXml(stream);
         public XmlReadMode ReadXml(TextReader reader) => Instance.ReadXml(reader);
@@ -136,9 +136,9 @@ namespace JWWrap.Impl.Data
         public void WriteXmlSchema(Stream stream, bool writeHierarchy) => Instance.WriteXmlSchema(stream, writeHierarchy);
         public void WriteXmlSchema(TextWriter writer, bool writeHierarchy) => Instance.WriteXmlSchema(writer, writeHierarchy);
         
-        private void Initialize() => Instance = new DataTable();
-        private void Initialize(DataTable dataTable) => Instance = dataTable;
-        private void Initialize(string tableName) => Instance = new DataTable(tableName);
-        private void Initialize(string tableName, string tableNamespace) => Instance = new DataTable(tableName, tableNamespace);
+        private void Initialize() => Instance = new System.Data.DataTable();
+        private void Initialize(System.Data.DataTable dataTable) => Instance = dataTable;
+        private void Initialize(string tableName) => Instance = new System.Data.DataTable(tableName);
+        private void Initialize(string tableName, string tableNamespace) => Instance = new System.Data.DataTable(tableName, tableNamespace);
     }
 }

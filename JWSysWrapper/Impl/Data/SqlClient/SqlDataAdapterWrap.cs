@@ -13,6 +13,7 @@ using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Runtime.Remoting;
 
+using JWWrap.Interface.Data;
 using JWWrap.Interface.Data.SqlClient;
 
 namespace JWWrap.Impl.Data.SqlClient
@@ -72,11 +73,11 @@ namespace JWWrap.Impl.Data.SqlClient
         public void Dispose() => Instance.Dispose();
         public int Fill(DataSet dataSet) => Instance.Fill(dataSet);
         public int Update(DataSet dataSet) => Instance.Update(dataSet);
-        public int Fill(DataTable dataTable) => Instance.Fill(dataTable);
+        public int Fill(System.Data.DataTable dataTable) => Instance.Fill(dataTable);
         public int Update(DataRow[] dataRows) => Instance.Update(dataRows);
         public object GetLifetimeService() => Instance.GetLifetimeService();
         public void ResetFillLoadOption() => Instance.ResetFillLoadOption();
-        public int Update(DataTable dataTable) => Instance.Update(dataTable);
+        public int Update(System.Data.DataTable dataTable) => Instance.Update(dataTable);
         public IDataParameter[] GetFillParameters() => Instance.GetFillParameters();
         public object InitializeLifetimeService() => Instance.InitializeLifetimeService();
         public int Fill(DataSet dataSet, string srcTable) => Instance.Fill(dataSet, srcTable);
@@ -85,10 +86,10 @@ namespace JWWrap.Impl.Data.SqlClient
         public int Update(DataSet dataSet, string srcTable) => Instance.Update(dataSet, srcTable);
         private void Initialize(SqlCommand sqlCommand) => Instance = new SqlDataAdapter(sqlCommand);
         public bool ShouldSerializeAcceptChangesDuringFill() => Instance.ShouldSerializeAcceptChangesDuringFill();
-        public DataTable[] FillSchema(DataSet dataSet, SchemaType schemaType) => Instance.FillSchema(dataSet, schemaType);
-        public DataTable FillSchema(DataTable dataTable, SchemaType schemaType) => Instance.FillSchema(dataTable, schemaType);
-        public int Fill(int startRecord, int maxRecords, params DataTable[] dataTables) => Instance.Fill(startRecord, maxRecords, dataTables);
-        public DataTable[] FillSchema(DataSet dataSet, SchemaType schemaType, string srcTable) => Instance.FillSchema(dataSet, schemaType, srcTable);
+        public IDataTable[] FillSchema(System.Data.DataSet dataSet, SchemaType schemaType) => FillSchema(dataSet, schemaType);
+        public IDataTable FillSchema(System.Data.DataTable dataTable, SchemaType schemaType) => FillSchema(dataTable, schemaType);
+        public int Fill(int startRecord, int maxRecords, params System.Data.DataTable[] dataTables) => Instance.Fill(startRecord, maxRecords, dataTables);
+        public IDataTable[] FillSchema(System.Data.DataSet dataSet, SchemaType schemaType, string srcTable) => FillSchema(dataSet, schemaType, srcTable);
         public int Fill(DataSet dataSet, int startRecord, int maxRecords, string srcTable) => Instance.Fill(dataSet, startRecord, maxRecords, srcTable);
     }
 }

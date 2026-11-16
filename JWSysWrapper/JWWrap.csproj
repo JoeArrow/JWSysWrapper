@@ -229,6 +229,7 @@
     <Compile Include="Interface\Collections\Specialized\INameValueCollectionFactory.cs" />
     <Compile Include="Interface\Configuration\IConfiguration.cs" />
     <Compile Include="Interface\Configuration\IConfigurationManager.cs" />
+    <Compile Include="Interface\Data\Datatable\IDataTableFactory.cs" />
     <Compile Include="Interface\Data\IDataTable.cs" />
     <Compile Include="Interface\Data\SqlClient\ISqlCommand.cs" />
     <Compile Include="Interface\Data\SqlClient\ISqlCommandFactory.cs" />
@@ -355,7 +356,7 @@
     <Compile Include="Interface\Xml\XPath\IXPathDocument.cs" />
     <Compile Include="Interface\Xml\XPath\IXPathNavigator.cs" />
     <Compile Include="Interface\Xml\XPath\IXPathNodeIterator.cs" />
-    <Compile Include="Interface\xslt\IXslCompiledTransform.cs" />
+    <Compile Include="Interface\Xslt\IXslCompiledTransform.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

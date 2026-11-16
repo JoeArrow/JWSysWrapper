@@ -18,7 +18,7 @@ namespace JWWrap.Interface.Data
 {
     public interface IDataTable : IDisposable
     {
-        DataTable Instance { get; }
+        System.Data.DataTable Instance { get; }
 
         event EventHandler Initialized;
         event DataRowChangeEventHandler RowChanged;
@@ -71,9 +71,9 @@ namespace JWWrap.Interface.Data
         void Load(IDataReader reader, LoadOption loadOption, FillErrorEventHandler errorHandler);
         DataRow LoadDataRow(object[] values, bool acceptChanges);
         DataRow LoadDataRow(object[] values, LoadOption loadOption);
-        void Merge(DataTable table);
-        void Merge(DataTable table, bool preserveChanges);
-        void Merge(DataTable table, bool preserveChanges, MissingSchemaAction missingSchemaAction);
+        void Merge(System.Data.DataTable table);
+        void Merge(System.Data.DataTable table, bool preserveChanges);
+        void Merge(System.Data.DataTable table, bool preserveChanges, MissingSchemaAction missingSchemaAction);
         DataRow NewRow();
         XmlReadMode ReadXml(Stream stream);
         XmlReadMode ReadXml(TextReader reader);
