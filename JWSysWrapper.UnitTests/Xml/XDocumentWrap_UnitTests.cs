@@ -28,8 +28,6 @@ namespace JWWrap.UnitTests.Xml
     [TestClass]
     public class XDocumentWrap_UnitTests
     {
-        private readonly JavaScriptSerializer jsSer = new JavaScriptSerializer();
-
         public XDocumentWrap_UnitTests() { }
 
         // ------------------------------------------------
