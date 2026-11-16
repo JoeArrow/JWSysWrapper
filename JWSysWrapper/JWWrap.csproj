@@ -205,6 +205,7 @@
     <Compile Include="Impl\Xml\XPath\XPathDocumentWrap.cs" />
     <Compile Include="Impl\Xml\XPath\XPathNavigatorWrap.cs" />
     <Compile Include="Impl\Xml\XPath\XPathNodeIteratorWrap.cs" />
+    <Compile Include="Impl\xslt\XslCompiledTransformWrap.cs" />
     <Compile Include="Interface\ActiveDirectory\IDirectoryEntries.cs" />
     <Compile Include="Interface\ActiveDirectory\IDirectoryEntry.cs" />
     <Compile Include="Interface\ActiveDirectory\IDirectoryEntryConfiguration.cs" />
@@ -354,6 +355,7 @@
     <Compile Include="Interface\Xml\XPath\IXPathDocument.cs" />
     <Compile Include="Interface\Xml\XPath\IXPathNavigator.cs" />
     <Compile Include="Interface\Xml\XPath\IXPathNodeIterator.cs" />
+    <Compile Include="Interface\xslt\IXslCompiledTransform.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
