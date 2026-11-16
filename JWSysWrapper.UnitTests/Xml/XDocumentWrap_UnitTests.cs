@@ -10,12 +10,10 @@ using System.IO;
 using System.Xml;
 using System.Text;
 using System.Xml.Schema;
-using System.Web.Script.Serialization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using JWWrap.Impl.Xml;
 using System.Xml.Linq;
-using JWWrap.Interface.Xml;
 
 namespace JWWrap.UnitTests.Xml
 {
