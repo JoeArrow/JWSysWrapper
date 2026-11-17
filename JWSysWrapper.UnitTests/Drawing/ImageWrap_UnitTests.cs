@@ -1071,5 +1071,30 @@ namespace JWWrap.UnitTests.Drawing
 
             sut.GetObjectData(info, new StreamingContext());
         }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Dispose_Image_LeavesImageUsable()
+        {
+            // -------
+            // Arrange
+
+            var bitmap = new Bitmap(2, 3);
+            var sut = new ImageWrap(bitmap);
+
+            // ---
+            // Act
+
+            sut.Dispose();
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(2, bitmap.Width);
+            Assert.AreEqual(3, bitmap.Height);
+
+            bitmap.Dispose();
+        }
     }
 }

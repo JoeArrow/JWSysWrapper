@@ -1257,5 +1257,121 @@ namespace JWWrap.UnitTests.IO
 
             Assert.IsFalse(sut.CanRead);
         }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Construction_IntPtrAccess_OpensFile()
+        {
+            // -------
+            // Arrange
+
+            var path = Path.Combine(_tempDir, "a.bin");
+            File.WriteAllBytes(path, new byte[] { 1, 2, 3, 4, 5 });
+            var source = new FileStream(path, FileMode.Open, FileAccess.ReadWrite);
+            var handle = source.SafeFileHandle.DangerousGetHandle();
+
+            // ---
+            // Act
+
+            #pragma warning disable 612, 618
+            var sut = new FileStreamWrap(handle, FileAccess.ReadWrite);
+            #pragma warning restore 612, 618
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(5L, sut.Length);
+
+            sut.Close();
+            source.Close();
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Construction_IntPtrAccessOwnsHandle_OpensFile()
+        {
+            // -------
+            // Arrange
+
+            var path = Path.Combine(_tempDir, "a.bin");
+            File.WriteAllBytes(path, new byte[] { 1, 2, 3, 4, 5 });
+            var source = new FileStream(path, FileMode.Open, FileAccess.ReadWrite);
+            var handle = source.SafeFileHandle.DangerousGetHandle();
+
+            // ---
+            // Act
+
+            #pragma warning disable 612, 618
+            var sut = new FileStreamWrap(handle, FileAccess.ReadWrite, false);
+            #pragma warning restore 612, 618
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(5L, sut.Length);
+
+            sut.Close();
+            source.Close();
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Construction_IntPtrAccessOwnsHandleBuffer_OpensFile()
+        {
+            // -------
+            // Arrange
+
+            var path = Path.Combine(_tempDir, "a.bin");
+            File.WriteAllBytes(path, new byte[] { 1, 2, 3, 4, 5 });
+            var source = new FileStream(path, FileMode.Open, FileAccess.ReadWrite);
+            var handle = source.SafeFileHandle.DangerousGetHandle();
+
+            // ---
+            // Act
+
+            #pragma warning disable 612, 618
+            var sut = new FileStreamWrap(handle, FileAccess.ReadWrite, false, 128);
+            #pragma warning restore 612, 618
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(5L, sut.Length);
+
+            sut.Close();
+            source.Close();
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Construction_IntPtrAccessOwnsHandleBufferAsync_OpensFile()
+        {
+            // -------
+            // Arrange
+
+            var path = Path.Combine(_tempDir, "a.bin");
+            File.WriteAllBytes(path, new byte[] { 1, 2, 3, 4, 5 });
+            var source = new FileStream(path, FileMode.Open, FileAccess.ReadWrite);
+            var handle = source.SafeFileHandle.DangerousGetHandle();
+
+            // ---
+            // Act
+
+            #pragma warning disable 612, 618
+            var sut = new FileStreamWrap(handle, FileAccess.ReadWrite, false, 128, false);
+            #pragma warning restore 612, 618
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(5L, sut.Length);
+
+            sut.Close();
+            source.Close();
+        }
     }
 }
