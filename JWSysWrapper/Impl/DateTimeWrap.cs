@@ -91,6 +91,27 @@ namespace JWWrap.Impl
         public static bool operator >=(DateTimeWrap d, DateTime t) => d >= t;
         public static bool operator >=(DateTimeWrap d, IDateTime t) => d.Instance >= t.Instance;
 
+        // Comparisons where the IDateTime is on the left, and where both sides are DateTimeWrap.
+        // (The DateTimeWrap/DateTimeWrap overloads prevent an ambiguity with the mixed overloads.)
+
+        public static bool operator ==(IDateTime d, DateTimeWrap t) => d.Instance == t.Instance;
+        public static bool operator ==(DateTimeWrap d, DateTimeWrap t) => d.Instance == t.Instance;
+
+        public static bool operator !=(IDateTime d, DateTimeWrap t) => d.Instance != t.Instance;
+        public static bool operator !=(DateTimeWrap d, DateTimeWrap t) => d.Instance != t.Instance;
+
+        public static bool operator <(IDateTime d, DateTimeWrap t) => d.Instance < t.Instance;
+        public static bool operator <(DateTimeWrap d, DateTimeWrap t) => d.Instance < t.Instance;
+
+        public static bool operator >(IDateTime d, DateTimeWrap t) => d.Instance > t.Instance;
+        public static bool operator >(DateTimeWrap d, DateTimeWrap t) => d.Instance > t.Instance;
+
+        public static bool operator <=(IDateTime d, DateTimeWrap t) => d.Instance <= t.Instance;
+        public static bool operator <=(DateTimeWrap d, DateTimeWrap t) => d.Instance <= t.Instance;
+
+        public static bool operator >=(IDateTime d, DateTimeWrap t) => d.Instance >= t.Instance;
+        public static bool operator >=(DateTimeWrap d, DateTimeWrap t) => d.Instance >= t.Instance;
+
         public override int GetHashCode() => Instance.GetHashCode();
 
         public override bool Equals(object obj)
