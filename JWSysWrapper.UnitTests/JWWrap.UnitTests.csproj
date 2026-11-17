@@ -209,6 +209,7 @@
     <Compile Include="Security\Extensions\SecurityExtensions_UnitTests.cs" />
     <Compile Include="Security\FileSecurityWrap_UnitTests.cs" />
     <Compile Include="EventLog_UnitTests.cs" />
+    <Compile Include="EventLogWrap_UnitTests.cs" />
     <Compile Include="IBM\WMQ\MQMessageWrap_UnitTests.cs" />
     <Compile Include="IBM\WMQ\MQQueueManagerWrap_UnitTests.cs" />
     <Compile Include="IBM\WMQ\MQQueueWrap_UnitTests.cs" />
@@ -248,6 +249,7 @@
     <Compile Include="Web\WebControls\TableRowCollectionWrap_UnitTests.cs" />
     <Compile Include="Microsoft.Win32\SafeHandles\SafeFileHandleWrap_UnitTests.cs" />
     <Compile Include="Win32\RegistryWrap_UnitTests.cs" />
+    <Compile Include="Xslt\XslCompiledTransformWrap_UnitTests.cs" />
     <Compile Include="Xml\XPath\XPathDocumentWrap_UnitTests.cs" />
     <Compile Include="Xml\XPath\XPathNavigatorWrap_UnitTests.cs" />
     <Compile Include="Xml\XPath\XPathNodeIteratorWrap_UnitTests.cs" />
