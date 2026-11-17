@@ -7,6 +7,7 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Security.AccessControl;
@@ -44,6 +45,51 @@ namespace JWWrap.IntgTests
                                                 uint dwFlagsAndAttributes, IntPtr hTemplateFile);
         public FileStreamWrap_IntgTests() { }
 
+        private readonly List<string> _tempFiles = new List<string>();
+
+        // ------------------------------------------------
+
+        // Each test works on its own writable copy of the test file so tests never
+        // contend for it. Missing files are returned unchanged.
+        private string Prepare(string filePath)
+        {
+            if(!File.Exists(filePath))
+            {
+                return filePath;
+            }
+
+            var copy = Path.Combine(Path.GetTempPath(), "JWWrapIT_" + Guid.NewGuid().ToString("N") + Path.GetExtension(filePath));
+
+            File.Copy(filePath, copy);
+            File.SetAttributes(copy, FileAttributes.Normal);
+            _tempFiles.Add(copy);
+
+            return copy;
+        }
+
+        // ------------------------------------------------
+
+        [TestCleanup]
+        public void Cleanup()
+        {
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+
+            foreach(var file in _tempFiles)
+            {
+                try
+                {
+                    File.Delete(file);
+                }
+                catch(IOException)
+                {
+                    // Left open by a test; the OS temp cleanup will remove it.
+                }
+            }
+
+            _tempFiles.Clear();
+        }
+
         // ------------------------------------------------
 
         [TestMethod]
@@ -55,6 +101,7 @@ namespace JWWrap.IntgTests
             // Arrange
 
             var success = false;
+            filePath = Prepare(filePath);
             IFileStream sut = null;
 
             // ---
@@ -95,6 +142,7 @@ namespace JWWrap.IntgTests
             // Arrange
 
             var success = false;
+            filePath = Prepare(filePath);
             FileStreamWrap sut = null;
 
             // ---
@@ -135,6 +183,7 @@ namespace JWWrap.IntgTests
             // Arrange
 
             var success = false;
+            filePath = Prepare(filePath);
             FileStreamWrap sut = null;
 
             // ---
@@ -175,14 +224,16 @@ namespace JWWrap.IntgTests
             // Arrange
 
             var success = false;
+            filePath = Prepare(filePath);
             FileStreamWrap sut = null;
+            SafeFileHandle safeHandle = null;
 
             // ---
             // Act
 
             try
             {
-                var safeHandle = CreateFile(filePath, GENERIC_WRITE, 0, IntPtr.Zero, OPEN_EXISTING, 0, IntPtr.Zero);
+                safeHandle = CreateFile(filePath, GENERIC_WRITE, 0, IntPtr.Zero, OPEN_EXISTING, 0, IntPtr.Zero);
 
                 sut = new FileStreamWrap(safeHandle, fileAccess);
                 success = (sut != null);
@@ -197,6 +248,11 @@ namespace JWWrap.IntgTests
                 {
                     Console.WriteLine($"File Length: {sut.Length} bytes");
                     sut.Close();
+                }
+
+                if(safeHandle != null)
+                {
+                    safeHandle.Dispose();
                 }
             }
 
@@ -217,6 +273,7 @@ namespace JWWrap.IntgTests
             // Arrange
 
             var success = false;
+            filePath = Prepare(filePath);
             FileStreamWrap sut = null;
 
             // ---
@@ -257,14 +314,16 @@ namespace JWWrap.IntgTests
             // Arrange
 
             var success = false;
+            filePath = Prepare(filePath);
             FileStreamWrap sut = null;
+            SafeFileHandle safeHandle = null;
 
             // ---
             // Act
 
             try
             {
-                var safeHandle = CreateFile(filePath, GENERIC_WRITE, 0, IntPtr.Zero, OPEN_EXISTING, 0, IntPtr.Zero);
+                safeHandle = CreateFile(filePath, GENERIC_WRITE, 0, IntPtr.Zero, OPEN_EXISTING, 0, IntPtr.Zero);
 
                 sut = new FileStreamWrap(safeHandle, fileAccess, bufferSize);
                 success = (sut != null);
@@ -279,6 +338,11 @@ namespace JWWrap.IntgTests
                 {
                     Console.WriteLine($"File Length: {sut.Length} bytes");
                     sut.Close();
+                }
+
+                if(safeHandle != null)
+                {
+                    safeHandle.Dispose();
                 }
             }
 
@@ -299,6 +363,7 @@ namespace JWWrap.IntgTests
             // Arrange
 
             var success = false;
+            filePath = Prepare(filePath);
             FileStreamWrap sut = null;
 
             // ---
@@ -339,14 +404,16 @@ namespace JWWrap.IntgTests
             // Arrange
 
             var success = false;
+            filePath = Prepare(filePath);
             FileStreamWrap sut = null;
+            SafeFileHandle safeHandle = null;
 
             // ---
             // Act
 
             try
             {
-                var safeHandle = CreateFile(filePath, GENERIC_WRITE, 0, IntPtr.Zero, OPEN_EXISTING, 0, IntPtr.Zero);
+                safeHandle = CreateFile(filePath, GENERIC_WRITE, 0, IntPtr.Zero, OPEN_EXISTING, 0, IntPtr.Zero);
 
                 sut = new FileStreamWrap(safeHandle, fileAccess, bufferSize, useAsync);
                 success = (sut != null);
@@ -361,6 +428,11 @@ namespace JWWrap.IntgTests
                 {
                     Console.WriteLine($"File Length: {sut.Length} bytes");
                     sut.Close();
+                }
+
+                if(safeHandle != null)
+                {
+                    safeHandle.Dispose();
                 }
             }
 
@@ -382,6 +454,7 @@ namespace JWWrap.IntgTests
             // Arrange
 
             var success = false;
+            filePath = Prepare(filePath);
             FileStreamWrap sut = null;
 
             // ---
@@ -423,6 +496,7 @@ namespace JWWrap.IntgTests
             // Arrange
 
             var success = false;
+            filePath = Prepare(filePath);
             FileStreamWrap sut = null;
 
             // ---
@@ -464,6 +538,7 @@ namespace JWWrap.IntgTests
             // Arrange
 
             var success = false;
+            filePath = Prepare(filePath);
             FileStreamWrap sut = null;
 
             // ---
@@ -505,6 +580,7 @@ namespace JWWrap.IntgTests
             // Arrange
 
             var success = false;
+            filePath = Prepare(filePath);
             FileStreamWrap sut = null;
 
             // ---
@@ -546,6 +622,7 @@ namespace JWWrap.IntgTests
             // Arrange
 
             var success = false;
+            filePath = Prepare(filePath);
             FileStreamWrap sut = null;
 
             // ---
