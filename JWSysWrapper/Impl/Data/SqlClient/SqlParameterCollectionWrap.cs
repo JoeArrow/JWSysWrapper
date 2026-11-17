@@ -26,7 +26,7 @@ namespace JWWrap.Impl.Data.SqlClient
 
         // ------------------------------------------------
 
-        public SqlParameterCollectionWrap(SqlParameterCollection sqlParameterCollection) => SqlParameterCollectionInstance = sqlParameterCollection;
+        public SqlParameterCollectionWrap(SqlParameterCollection sqlParameterCollection) => Instance = SqlParameterCollectionInstance = sqlParameterCollection;
 
         // ------------------------------------------------
 

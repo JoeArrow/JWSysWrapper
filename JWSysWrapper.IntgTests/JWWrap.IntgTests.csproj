@@ -89,6 +89,7 @@
     </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.5.0.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -117,6 +118,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\SqlClient\SqlCommandFactory_IntgTests.cs" />
+    <Compile Include="Data\SqlClient\SqlCommandWrap_IntgTests.cs" />
+    <Compile Include="Data\SqlClient\SqlConnectionFactory_IntgTests.cs" />
+    <Compile Include="Data\SqlClient\SqlConnectionWrap_IntgTests.cs" />
+    <Compile Include="Data\SqlClient\SqlDataAdapterFactory_IntgTests.cs" />
+    <Compile Include="Data\SqlClient\SqlDataAdapterWrap_IntgTests.cs" />
+    <Compile Include="Data\SqlClient\SqlDataReaderWrap_IntgTests.cs" />
+    <Compile Include="Data\SqlClient\SqlParameterCollectionWrap_IntgTests.cs" />
+    <Compile Include="Data\SqlClient\SqlScratch.cs" />
+    <Compile Include="Data\SqlClient\SqlTransactionWrap_IntgTests.cs" />
     <Compile Include="DirectoryServices\AdLdsScratch.cs" />
     <Compile Include="DirectoryServices\DirectoryEntriesWrap_IntgTests.cs" />
     <Compile Include="DirectoryServices\DirectoryEntryConfigurationWrap_IntgTests.cs" />

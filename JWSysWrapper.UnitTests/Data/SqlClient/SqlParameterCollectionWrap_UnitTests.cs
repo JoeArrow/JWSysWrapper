@@ -52,6 +52,94 @@ namespace JWWrap.UnitTests.Data.SqlClient
         // ----------------------------------------------------
 
         [TestMethod]
+        public void Construction_Collection_SetsInstance()
+        {
+            // -------
+            // Arrange
+
+            var collection = new SqlCommand().Parameters;
+
+            // ---
+            // Act
+
+            var sut = new SqlParameterCollectionWrap(collection);
+
+            // ------
+            // Assert
+
+            Assert.AreSame(collection, sut.Instance);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Add_Parameter_IncreasesCount()
+        {
+            // -------
+            // Arrange
+
+            var sut = new SqlParameterCollectionWrap(new SqlCommand().Parameters);
+
+            // ---
+            // Act
+
+            var result = sut.Add(new SqlParameter("@a", 1));
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(1, sut.Count);
+            Assert.AreEqual("@a", result.ParameterName);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void AddWithValue_NameAndValue_AddsParameter()
+        {
+            // -------
+            // Arrange
+
+            var sut = new SqlParameterCollectionWrap(new SqlCommand().Parameters);
+
+            // ---
+            // Act
+
+            var result = sut.AddWithValue("@a", 5);
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(5, result.Value);
+            Assert.IsTrue(sut.Contains("@a"));
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Clear_Parameters_EmptiesCollection()
+        {
+            // -------
+            // Arrange
+
+            var sut = new SqlParameterCollectionWrap(new SqlCommand().Parameters);
+
+            sut.AddWithValue("@a", 1);
+
+            // ---
+            // Act
+
+            sut.Clear();
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(0, sut.Count);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
         public void Dispose_Collection_DoesNotThrow()
         {
             // -------
