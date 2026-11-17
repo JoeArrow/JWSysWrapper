@@ -167,6 +167,15 @@
     <Compile Include="DirectoryServices\ResultPropertyCollectionWrap_UnitTests.cs" />
     <Compile Include="DirectoryServices\ResultPropertyValueCollectionWrap_UnitTests.cs" />
     <Compile Include="DirectoryServices\SearchResultCollectionWrap_UnitTests.cs" />
+    <Compile Include="Data\SqlClient\SqlCommandFactory_UnitTests.cs" />
+    <Compile Include="Data\SqlClient\SqlCommandWrap_UnitTests.cs" />
+    <Compile Include="Data\SqlClient\SqlConnectionFactory_UnitTests.cs" />
+    <Compile Include="Data\SqlClient\SqlConnectionWrap_UnitTests.cs" />
+    <Compile Include="Data\SqlClient\SqlDataAdapterFactory_UnitTests.cs" />
+    <Compile Include="Data\SqlClient\SqlDataAdapterWrap_UnitTests.cs" />
+    <Compile Include="Data\SqlClient\SqlDataReaderWrap_UnitTests.cs" />
+    <Compile Include="Data\SqlClient\SqlParameterCollectionWrap_UnitTests.cs" />
+    <Compile Include="Data\SqlClient\SqlTransactionWrap_UnitTests.cs" />
     <Compile Include="Drawing\ImageWrap_UnitTests.cs" />
     <Compile Include="Security\AccessControl\DirectorySecurityWrap_UnitTests.cs" />
     <Compile Include="Security\AccessControl\FileSecurityWrap_UnitTests.cs" />
