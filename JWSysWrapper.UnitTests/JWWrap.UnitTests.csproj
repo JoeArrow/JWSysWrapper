@@ -127,6 +127,8 @@
     <Compile Include="DateTimeWrap_UnitTests.cs" />
     <Compile Include="Data\DataReaderWrap_UnitTests.cs" />
     <Compile Include="Data\DataTableWrap_UnitTests.cs" />
+    <Compile Include="Collections\Specialized\NameValueCollectionFactory_UnitTests.cs" />
+    <Compile Include="Collections\Specialized\NameValueCollectionWrap_UnitTests.cs" />
     <Compile Include="Configuration\ConfigurationManagerWrap_UnitTests.cs" />
     <Compile Include="Configuration\ConfigurationWrap_UnitTests.cs" />
     <Compile Include="Diagnostics\StopwatchWrap_UnitTests.cs" />
