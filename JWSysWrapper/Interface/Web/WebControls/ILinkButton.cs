@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JWWrap.Web.WebControls
+namespace JWWrap.Interface.Web.WebControls
 {
     public interface ILinkButton
     {

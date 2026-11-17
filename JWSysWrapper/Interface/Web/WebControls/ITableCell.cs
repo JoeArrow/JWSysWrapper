@@ -9,7 +9,7 @@
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace JWWrap.Web.WebControls
+namespace JWWrap.Interface.Web.WebControls
 {
     public interface ITableCell
     {

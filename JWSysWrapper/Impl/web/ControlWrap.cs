@@ -11,10 +11,10 @@ using System.Web.UI;
 using System.Web.Routing;
 using System.ComponentModel;
 
-using JWWrap.Web;
+using JWWrap.Interface.Web;
 using System.Web.UI.WebControls;
 
-namespace JWWrap.Impl
+namespace JWWrap.Impl.Web
 {
     // ----------------------------------------------------
     /// <summary>

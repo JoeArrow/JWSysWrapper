@@ -8,7 +8,7 @@
 
 using System.IO;
 
-namespace JWWrap.Web
+namespace JWWrap.Interface.Web
 {
     public interface IHttpPostedFile
     {

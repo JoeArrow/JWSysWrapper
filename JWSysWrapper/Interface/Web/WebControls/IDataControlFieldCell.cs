@@ -8,7 +8,7 @@
 
 using System.Web.UI;
 
-namespace JWWrap.Web.WebControls
+namespace JWWrap.Interface.Web.WebControls
 {
     public interface IDataControlFieldCell
     {

@@ -12,7 +12,7 @@ using System.Collections;
 using System.Web.SessionState;
 using System.Collections.Specialized;
 
-namespace JWWrap.Web
+namespace JWWrap.Interface.Web
 {
     public interface IHttpSessionState
     {

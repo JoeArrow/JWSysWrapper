@@ -16,9 +16,9 @@ using System.Security.Principal;
 using System.Collections.Specialized;
 using System.Security.Authentication.ExtendedProtection;
 
-using JWWrap.Web;
+using JWWrap.Interface.Web;
 
-namespace JWWrap.Impl
+namespace JWWrap.Impl.Web
 {
     // ----------------------------------------------------
     /// <summary>

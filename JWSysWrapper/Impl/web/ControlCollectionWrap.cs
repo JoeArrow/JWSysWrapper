@@ -10,9 +10,9 @@ using System;
 using System.Web.UI;
 using System.Collections;
 
-using JWWrap.Web;
+using JWWrap.Interface.Web;
 
-namespace JWWrap.Impl
+namespace JWWrap.Impl.Web
 {
     // ----------------------------------------------------
     /// <summary>

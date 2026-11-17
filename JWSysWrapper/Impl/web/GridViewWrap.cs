@@ -8,12 +8,12 @@
 
 using System;
 using System.Web.UI;
-using JWWrap.Web;
+using JWWrap.Interface.Web;
 using System.Web.UI.WebControls;
-using JWWrap.Impl.WebControls;
-using JWWrap.Web.WebControls;
+using JWWrap.Impl.Web.WebControls;
+using JWWrap.Interface.Web.WebControls;
 
-namespace JWWrap.Impl
+namespace JWWrap.Impl.Web
 {
     // ----------------------------------------------------
     /// <summary>

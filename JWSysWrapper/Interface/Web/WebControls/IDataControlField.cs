@@ -10,7 +10,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Collections.Specialized;
 
-namespace JWWrap.Web.WebControls
+namespace JWWrap.Interface.Web.WebControls
 {
     public interface IDataControlField
     {

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Web.UI.WebControls;
 
-namespace JWWrap.Web
+namespace JWWrap.Interface.Web
 {
     public interface IGridViewRowCollection
     {

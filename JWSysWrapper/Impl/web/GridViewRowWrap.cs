@@ -10,11 +10,11 @@ using System.Web.UI;
 using System.Drawing;
 using System.Web.UI.WebControls;
 
-using JWWrap.Web;
-using JWWrap.Impl.WebControls;
-using JWWrap.Web.WebControls;
+using JWWrap.Interface.Web;
+using JWWrap.Impl.Web.WebControls;
+using JWWrap.Interface.Web.WebControls;
 
-namespace JWWrap.Impl
+namespace JWWrap.Impl.Web
 {
     // ----------------------------------------------------
     /// <summary>

@@ -1,4 +1,4 @@
-﻿namespace JWWrap.Impl.Script.Serialization
+﻿namespace JWWrap.Impl.Web.Script.Serialization
 {
     using System;
     using System.Collections.Generic;
@@ -6,7 +6,7 @@
     using System.Web.Script.Serialization;
 
     using JWWrap.Attributes;
-    using JWWrap.Web.Script.Serialization;
+    using JWWrap.Interface.Web.Script.Serialization;
 
     /// <summary>
     ///     Wrapper for <see cref="T:System.Web.Script.Serialization.JavaScriptSerializer"/> class.

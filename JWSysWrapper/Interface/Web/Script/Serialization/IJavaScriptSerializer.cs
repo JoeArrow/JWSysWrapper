@@ -1,4 +1,4 @@
-namespace JWWrap.Web.Script.Serialization
+namespace JWWrap.Interface.Web.Script.Serialization
 {
     using System;
     using System.Text;

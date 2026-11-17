@@ -14,10 +14,10 @@ using System.Threading;
 using System.Web.Caching;
 using System.Collections;
 using System.Web.Routing;
-using JWWrap.Web;
+using JWWrap.Interface.Web;
 using System.Collections.Specialized;
 
-namespace JWWrap.Impl
+namespace JWWrap.Impl.Web
 {
     // ----------------------------------------------------
     /// <summary>

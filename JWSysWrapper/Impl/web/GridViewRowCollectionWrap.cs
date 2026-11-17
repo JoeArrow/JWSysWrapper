@@ -8,10 +8,10 @@
 
 using System;
 using System.Collections;
-using JWWrap.Web;
+using JWWrap.Interface.Web;
 using System.Web.UI.WebControls;
 
-namespace JWWrap.Impl
+namespace JWWrap.Impl.Web
 {
     // ----------------------------------------------------
     /// <summary>

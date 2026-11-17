@@ -16,7 +16,7 @@ using System.Security.Principal;
 using System.Collections.Specialized;
 using System.Security.Authentication.ExtendedProtection;
 
-namespace JWWrap.Web
+namespace JWWrap.Interface.Web
 {
     public interface IHttpRequest
     {

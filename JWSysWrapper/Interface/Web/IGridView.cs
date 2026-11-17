@@ -9,9 +9,9 @@
 using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using JWWrap.Web.WebControls;
+using JWWrap.Interface.Web.WebControls;
 
-namespace JWWrap.Web
+namespace JWWrap.Interface.Web
 {
     public interface IGridView
     {

@@ -9,7 +9,7 @@
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace JWWrap.Web
+namespace JWWrap.Interface.Web
 {
     public interface ICustomValidator
     {

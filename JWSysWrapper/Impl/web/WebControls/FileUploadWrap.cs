@@ -11,10 +11,10 @@ using System.Web;
 using System.Web.UI.WebControls;
 using System.Collections.Generic;
 
-using JWWrap.Web.WebControls;
-using JWWrap.Web;
+using JWWrap.Interface.Web.WebControls;
+using JWWrap.Interface.Web;
 
-namespace JWWrap.Impl.WebControls
+namespace JWWrap.Impl.Web.WebControls
 {
     // ----------------------------------------------------
     /// <summary>

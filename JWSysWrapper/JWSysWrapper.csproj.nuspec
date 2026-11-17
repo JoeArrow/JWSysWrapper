@@ -11,7 +11,7 @@
         <license type="file">License.txt</license>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <dependencies>
-            <group targetFramework=".NETFramework4.6.1" />
+            <group targetFramework=".NETFramework4.8" />
         </dependencies>
     </metadata>
     <files>

@@ -19,9 +19,9 @@ using System.Web.ModelBinding;
 using System.Security.Principal;
 using System.Web.UI.HtmlControls;
 
-using JWWrap.Web;
+using JWWrap.Interface.Web;
 
-namespace JWWrap.Impl
+namespace JWWrap.Impl.Web
 {
     // ----------------------------------------------------
     /// <summary>

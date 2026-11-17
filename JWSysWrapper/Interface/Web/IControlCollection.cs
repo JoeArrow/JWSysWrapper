@@ -10,7 +10,7 @@ using System;
 using System.Web.UI;
 using System.Collections;
 
-namespace JWWrap.Web
+namespace JWWrap.Interface.Web
 {
     public interface IControlCollection
     {

@@ -10,7 +10,7 @@ using System.IO;
 using System.Web;
 using System.Collections.Generic;
 
-namespace JWWrap.Web.WebControls
+namespace JWWrap.Interface.Web.WebControls
 {
     public interface IFileUpload
     {

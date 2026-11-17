@@ -10,7 +10,7 @@ using System.Web.ModelBinding;
 using System.Security.Principal;
 using System.Web.UI.HtmlControls;
 
-namespace JWWrap.Web
+namespace JWWrap.Interface.Web
 {
     public interface IPage
     {

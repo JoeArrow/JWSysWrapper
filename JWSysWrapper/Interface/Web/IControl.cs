@@ -11,7 +11,7 @@ using System.Web.UI;
 using System.Web.Routing;
 using System.ComponentModel;
 
-namespace JWWrap.Web
+namespace JWWrap.Interface.Web
 {
     public interface IControl : IDisposable
     {
