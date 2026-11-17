@@ -860,5 +860,27 @@ namespace JWWrap.UnitTests
             Assert.IsTrue(sut != later);
             Assert.IsFalse(sut != same);
         }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Subtraction_DateTimeWrapAndDateTime_ReturnsTimeSpan()
+        {
+            // -------
+            // Arrange
+
+            var value = new DateTime(2026, 1, 3);
+            var sut = new DateTimeWrap(value);
+
+            // ---
+            // Act
+
+            var result = sut - new DateTime(2026, 1, 1);
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(TimeSpan.FromDays(2), result.Instance);
+        }
     }
 }

@@ -2470,5 +2470,138 @@ namespace JWWrap.UnitTests.Data
 
             Assert.AreEqual(2, target.Columns.Count);
         }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Prefix_SetThenGet_RoundTrips()
+        {
+            // -------
+            // Arrange
+
+            var sut = new DataTableWrap("T");
+
+            // ---
+            // Act
+
+            sut.Prefix = "pfx";
+            var result = sut.Prefix;
+
+            // ------
+            // Assert
+
+            Assert.AreEqual("pfx", result);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Locale_SetThenGet_RoundTrips()
+        {
+            // -------
+            // Arrange
+
+            var sut = new DataTableWrap("T");
+
+            // ---
+            // Act
+
+            sut.Locale = new CultureInfo("fr-FR");
+            var result = sut.Locale;
+
+            // ------
+            // Assert
+
+            Assert.AreEqual("fr-FR", result.Name);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void CaseSensitive_SetThenGet_RoundTrips()
+        {
+            // -------
+            // Arrange
+
+            var sut = new DataTableWrap("T");
+
+            // ---
+            // Act
+
+            sut.CaseSensitive = true;
+            var result = sut.CaseSensitive;
+
+            // ------
+            // Assert
+
+            Assert.IsTrue(result);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void MinimumCapacity_SetThenGet_RoundTrips()
+        {
+            // -------
+            // Arrange
+
+            var sut = new DataTableWrap("T");
+
+            // ---
+            // Act
+
+            sut.MinimumCapacity = 100;
+            var result = sut.MinimumCapacity;
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(100, result);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void DisplayExpression_SetThenGet_RoundTrips()
+        {
+            // -------
+            // Arrange
+
+            var sut = new DataTableWrap("T");
+            sut.Instance.Columns.Add("Name", typeof(string));
+
+            // ---
+            // Act
+
+            sut.DisplayExpression = "Name";
+            var result = sut.DisplayExpression;
+
+            // ------
+            // Assert
+
+            Assert.AreEqual("Name", result);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void RemotingFormat_SetThenGet_RoundTrips()
+        {
+            // -------
+            // Arrange
+
+            var sut = new DataTableWrap("T");
+
+            // ---
+            // Act
+
+            sut.RemotingFormat = SerializationFormat.Binary;
+            var result = sut.RemotingFormat;
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(SerializationFormat.Binary, result);
+        }
     }
 }

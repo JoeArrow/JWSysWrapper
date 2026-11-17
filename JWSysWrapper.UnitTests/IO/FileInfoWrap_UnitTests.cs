@@ -924,5 +924,155 @@ namespace JWWrap.UnitTests.IO
 
             Assert.IsTrue(sut.Exists);
         }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void IFileInfo_CreationTime_SetThenGet_RoundTrips()
+        {
+            // -------
+            // Arrange
+
+            var path = Path.Combine(_tempDir, "a.txt");
+            File.WriteAllText(path, "x");
+            IFileInfo sut = new FileInfoWrap(path);
+            var time = new DateTimeWrap(new DateTime(2020, 5, 6, 7, 8, 9, DateTimeKind.Local));
+
+            // ---
+            // Act
+
+            sut.CreationTime = time;
+            var result = sut.CreationTime;
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(time.Instance, result.Instance);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void IFileInfo_CreationTimeUtc_SetThenGet_RoundTrips()
+        {
+            // -------
+            // Arrange
+
+            var path = Path.Combine(_tempDir, "a.txt");
+            File.WriteAllText(path, "x");
+            IFileInfo sut = new FileInfoWrap(path);
+            var time = new DateTimeWrap(new DateTime(2020, 5, 6, 7, 8, 9, DateTimeKind.Utc));
+
+            // ---
+            // Act
+
+            sut.CreationTimeUtc = time;
+            var result = sut.CreationTimeUtc;
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(time.Instance, result.Instance);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void IFileInfo_LastAccessTime_SetThenGet_RoundTrips()
+        {
+            // -------
+            // Arrange
+
+            var path = Path.Combine(_tempDir, "a.txt");
+            File.WriteAllText(path, "x");
+            IFileInfo sut = new FileInfoWrap(path);
+            var time = new DateTimeWrap(new DateTime(2020, 5, 6, 7, 8, 9, DateTimeKind.Local));
+
+            // ---
+            // Act
+
+            sut.LastAccessTime = time;
+            var result = sut.LastAccessTime;
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(time.Instance, result.Instance);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void IFileInfo_LastAccessTimeUtc_SetThenGet_RoundTrips()
+        {
+            // -------
+            // Arrange
+
+            var path = Path.Combine(_tempDir, "a.txt");
+            File.WriteAllText(path, "x");
+            IFileInfo sut = new FileInfoWrap(path);
+            var time = new DateTimeWrap(new DateTime(2020, 5, 6, 7, 8, 9, DateTimeKind.Utc));
+
+            // ---
+            // Act
+
+            sut.LastAccessTimeUtc = time;
+            var result = sut.LastAccessTimeUtc;
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(time.Instance, result.Instance);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void IFileInfo_LastWriteTime_SetThenGet_RoundTrips()
+        {
+            // -------
+            // Arrange
+
+            var path = Path.Combine(_tempDir, "a.txt");
+            File.WriteAllText(path, "x");
+            IFileInfo sut = new FileInfoWrap(path);
+            var time = new DateTimeWrap(new DateTime(2020, 5, 6, 7, 8, 9, DateTimeKind.Local));
+
+            // ---
+            // Act
+
+            sut.LastWriteTime = time;
+            var result = sut.LastWriteTime;
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(time.Instance, result.Instance);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void IFileInfo_LastWriteTimeUtc_SetThenGet_RoundTrips()
+        {
+            // -------
+            // Arrange
+
+            var path = Path.Combine(_tempDir, "a.txt");
+            File.WriteAllText(path, "x");
+            IFileInfo sut = new FileInfoWrap(path);
+            var time = new DateTimeWrap(new DateTime(2020, 5, 6, 7, 8, 9, DateTimeKind.Utc));
+
+            // ---
+            // Act
+
+            sut.LastWriteTimeUtc = time;
+            var result = sut.LastWriteTimeUtc;
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(time.Instance, result.Instance);
+        }
     }
 }

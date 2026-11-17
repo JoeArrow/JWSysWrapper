@@ -602,5 +602,398 @@ namespace TimeSpanWrap_UnitTests
             Assert.IsFalse(success, "Expected TryParseExact to return false for an invalid input/format combination.");
             Assert.IsNull(result, "Expected result to be null when parsing fails.");
         }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void TotalHours_NewSpan_ReturnsHours()
+        {
+            // -------
+            // Arrange
+
+            var sut = new TimeSpanWrap(1, 12, 30, 0);
+
+            // ---
+            // Act
+
+            var result = sut.TotalHours;
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(36.5, result);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void TotalDays_NewSpan_ReturnsDays()
+        {
+            // -------
+            // Arrange
+
+            var sut = new TimeSpanWrap(1, 12, 30, 0);
+
+            // ---
+            // Act
+
+            var result = sut.TotalDays;
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(1.5208333333333333, result, 0.0000001);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void TotalMinutes_NewSpan_ReturnsMinutes()
+        {
+            // -------
+            // Arrange
+
+            var sut = new TimeSpanWrap(1, 12, 30, 0);
+
+            // ---
+            // Act
+
+            var result = sut.TotalMinutes;
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(2190.0, result);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void TotalSeconds_NewSpan_ReturnsSeconds()
+        {
+            // -------
+            // Arrange
+
+            var sut = new TimeSpanWrap(1, 12, 30, 0);
+
+            // ---
+            // Act
+
+            var result = sut.TotalSeconds;
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(131400.0, result);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Equals_TwoSpans_ComparesInstances()
+        {
+            // -------
+            // Arrange
+
+            var sut = new TimeSpanWrap(1, 2, 3);
+            var same = new TimeSpanWrap(1, 2, 3);
+            var other = new TimeSpanWrap(4, 5, 6);
+
+            // ---
+            // Act
+
+            var equal = sut.Equals(sut, same);
+            var different = sut.Equals(sut, other);
+
+            // ------
+            // Assert
+
+            Assert.IsTrue(equal);
+            Assert.IsFalse(different);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Equals_ObjectSpan_ComparesInstances()
+        {
+            // -------
+            // Arrange
+
+            var sut = new TimeSpanWrap(1, 2, 3);
+            object same = new TimeSpanWrap(1, 2, 3);
+            object other = new TimeSpanWrap(4, 5, 6);
+
+            // ---
+            // Act
+
+            var equal = sut.Equals(same);
+            var different = sut.Equals(other);
+
+            // ------
+            // Assert
+
+            Assert.IsTrue(equal);
+            Assert.IsFalse(different);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void CompareTo_ObjectSpan_ComparesInstances()
+        {
+            // -------
+            // Arrange
+
+            var sut = new TimeSpanWrap(1, 2, 3);
+            object larger = new TimeSpanWrap(4, 5, 6);
+            object same = new TimeSpanWrap(1, 2, 3);
+
+            // ---
+            // Act
+
+            var less = sut.CompareTo(larger);
+            var equal = sut.CompareTo(same);
+
+            // ------
+            // Assert
+
+            Assert.IsTrue(less < 0);
+            Assert.AreEqual(0, equal);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Parse_StringAndProvider_ParsesSpan()
+        {
+            // -------
+            // Arrange
+
+            var sut = new TimeSpanWrap(0);
+
+            // ---
+            // Act
+
+            var result = sut.Parse("01:02:03", CultureInfo.InvariantCulture);
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(new TimeSpan(1, 2, 3), result.Instance);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void ParseExact_FormatsProviderAndStyles_ParsesSpan()
+        {
+            // -------
+            // Arrange
+
+            var sut = new TimeSpanWrap(0);
+
+            // ---
+            // Act
+
+            var result = sut.ParseExact("01:02:03", new[] { @"hh\:mm\:ss" }, CultureInfo.InvariantCulture, TimeSpanStyles.None);
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(new TimeSpan(1, 2, 3), result.Instance);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void ParseExact_FormatsAndProvider_ParsesSpan()
+        {
+            // -------
+            // Arrange
+
+            var sut = new TimeSpanWrap(0);
+
+            // ---
+            // Act
+
+            var result = sut.ParseExact("01:02:03", new[] { @"hh\:mm\:ss" }, CultureInfo.InvariantCulture);
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(new TimeSpan(1, 2, 3), result.Instance);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void ParseExact_FormatAndProvider_ParsesSpan()
+        {
+            // -------
+            // Arrange
+
+            var sut = new TimeSpanWrap(0);
+
+            // ---
+            // Act
+
+            var result = sut.ParseExact("01:02:03", @"hh\:mm\:ss", CultureInfo.InvariantCulture);
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(new TimeSpan(1, 2, 3), result.Instance);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void ParseExact_FormatProviderAndStyles_ParsesSpan()
+        {
+            // -------
+            // Arrange
+
+            var sut = new TimeSpanWrap(0);
+
+            // ---
+            // Act
+
+            var result = sut.ParseExact("01:02:03", @"hh\:mm\:ss", CultureInfo.InvariantCulture, TimeSpanStyles.None);
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(new TimeSpan(1, 2, 3), result.Instance);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void ParseExact_NegativeStyle_ParsesNegativeSpan()
+        {
+            // -------
+            // Arrange
+
+            var sut = new TimeSpanWrap(0);
+
+            // ---
+            // Act
+
+            var result = sut.ParseExact("01:02:03", @"hh\:mm\:ss", CultureInfo.InvariantCulture, TimeSpanStyles.AssumeNegative);
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(new TimeSpan(1, 2, 3).Negate(), result.Instance);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void TryParse_StringAndProvider_ParsesSpan()
+        {
+            // ---
+            // Act
+
+            ITimeSpan result;
+            var success = TimeSpanWrap.TryParse("01:02:03", CultureInfo.InvariantCulture, out result);
+
+            // ------
+            // Assert
+
+            Assert.IsTrue(success);
+            Assert.AreEqual(new TimeSpan(1, 2, 3), result.Instance);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void TryParse_StringAndProviderInvalid_ReturnsFalse()
+        {
+            // ---
+            // Act
+
+            ITimeSpan result;
+            var success = TimeSpanWrap.TryParse("not a span", CultureInfo.InvariantCulture, out result);
+
+            // ------
+            // Assert
+
+            Assert.IsFalse(success);
+            Assert.IsNull(result);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void TryParseExact_FormatsAndProvider_ParsesSpan()
+        {
+            // ---
+            // Act
+
+            ITimeSpan result;
+            var success = TimeSpanWrap.TryParseExact("01:02:03", new[] { @"hh\:mm\:ss" }, CultureInfo.InvariantCulture, out result);
+
+            // ------
+            // Assert
+
+            Assert.IsTrue(success);
+            Assert.AreEqual(new TimeSpan(1, 2, 3), result.Instance);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void TryParseExact_FormatProviderAndStyles_ParsesSpan()
+        {
+            // ---
+            // Act
+
+            ITimeSpan result;
+            var success = TimeSpanWrap.TryParseExact("01:02:03", @"hh\:mm\:ss", CultureInfo.InvariantCulture, TimeSpanStyles.None, out result);
+
+            // ------
+            // Assert
+
+            Assert.IsTrue(success);
+            Assert.AreEqual(new TimeSpan(1, 2, 3), result.Instance);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void TryParseExact_FormatsProviderAndStyles_ParsesSpan()
+        {
+            // ---
+            // Act
+
+            ITimeSpan result;
+            var success = TimeSpanWrap.TryParseExact("01:02:03", new[] { @"hh\:mm\:ss" }, CultureInfo.InvariantCulture, TimeSpanStyles.None, out result);
+
+            // ------
+            // Assert
+
+            Assert.IsTrue(success);
+            Assert.AreEqual(new TimeSpan(1, 2, 3), result.Instance);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void TryParseExact_FormatAndProvider_ParsesSpan()
+        {
+            // ---
+            // Act
+
+            ITimeSpan result;
+            var success = TimeSpanWrap.TryParseExact("01:02:03", @"hh\:mm\:ss", CultureInfo.InvariantCulture, out result);
+
+            // ------
+            // Assert
+
+            Assert.IsTrue(success);
+            Assert.AreEqual(new TimeSpan(1, 2, 3), result.Instance);
+        }
     }
 }

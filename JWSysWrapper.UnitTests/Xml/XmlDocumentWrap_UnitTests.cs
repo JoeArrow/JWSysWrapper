@@ -1540,5 +1540,162 @@ namespace JWWrap.UnitTests.Xml
 
             Assert.AreEqual(document.OuterXml, builder.ToString());
         }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Prefix_Set_DocumentKeepsEmptyPrefix()
+        {
+            // -------
+            // Arrange
+
+            var sut = new XmlDocumentWrap();
+            sut.LoadXml("<root><child/></root>");
+
+            // ---
+            // Act
+
+            sut.Prefix = "p";
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(string.Empty, sut.Prefix);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Value_Set_Throws()
+        {
+            // -------
+            // Arrange
+
+            var sut = new XmlDocumentWrap();
+            sut.LoadXml("<root><child/></root>");
+
+            // ------------
+            // Act & Assert
+
+            Assert.ThrowsExactly<InvalidOperationException>(() => sut.Value = "changed");
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Schemas_Set_UpdatesDocument()
+        {
+            // -------
+            // Arrange
+
+            var sut = new XmlDocumentWrap();
+            sut.LoadXml("<root><child/></root>");
+            var schemas = new System.Xml.Schema.XmlSchemaSet();
+
+            // ---
+            // Act
+
+            sut.Schemas = schemas;
+
+            // ------
+            // Assert
+
+            Assert.AreSame(schemas, sut.Schemas);
+            Assert.AreSame(schemas, sut.Instance.Schemas);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Indexer_ElementName_ReturnsElement()
+        {
+            // -------
+            // Arrange
+
+            var sut = new XmlDocumentWrap();
+            sut.LoadXml("<root><child/></root>");
+            IXmlDocument document = sut;
+
+            // ---
+            // Act
+
+            var result = document["root"];
+
+            // ------
+            // Assert
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual("root", result.Name);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Indexer_UnknownName_ReturnsNull()
+        {
+            // -------
+            // Arrange
+
+            var sut = new XmlDocumentWrap();
+            sut.LoadXml("<root><child/></root>");
+            IXmlDocument document = sut;
+
+            // ---
+            // Act
+
+            var result = document["missing"];
+
+            // ------
+            // Assert
+
+            Assert.IsNull(result);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Indexer_LocalNameAndNamespace_ReturnsElement()
+        {
+            // -------
+            // Arrange
+
+            var sut = new XmlDocumentWrap();
+            sut.LoadXml("<p:root xmlns:p=\"urn:test\"/>");
+            IXmlDocument document = sut;
+
+            // ---
+            // Act
+
+            var result = document["root", "urn:test"];
+
+            // ------
+            // Assert
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual("root", result.LocalName);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Indexer_LocalNameAndWrongNamespace_ReturnsNull()
+        {
+            // -------
+            // Arrange
+
+            var sut = new XmlDocumentWrap();
+            sut.LoadXml("<p:root xmlns:p=\"urn:test\"/>");
+            IXmlDocument document = sut;
+
+            // ---
+            // Act
+
+            var result = document["root", "urn:other"];
+
+            // ------
+            // Assert
+
+            Assert.IsNull(result);
+        }
     }
 }
