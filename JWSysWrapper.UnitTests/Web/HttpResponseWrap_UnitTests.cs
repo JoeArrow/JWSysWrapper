@@ -878,5 +878,1167 @@ namespace JWWrap.UnitTests.Web
 
             sut.AddCacheDependency(new CacheDependency(null, new[] { "key" }));
         }
+
+        // ----------------------------------------------------
+
+        private static Tuple<object, Type> Outcome(Func<object> action)
+        {
+            try
+            {
+                return Tuple.Create(action(), (Type) null);
+            }
+            catch(Exception ex)
+            {
+                return Tuple.Create((object) null, ex.GetType());
+            }
+        }
+
+        // ----------------------------------------------------
+
+        private static void AssertSameOutcome(Tuple<object, Type> expected, Tuple<object, Type> actual)
+        {
+            Assert.AreEqual(expected.Item2, actual.Item2);
+
+            if(expected.Item1 == null || expected.Item1 is string || expected.Item1.GetType().IsValueType)
+            {
+                Assert.AreEqual(expected.Item1, actual.Item1);
+            }
+            else
+            {
+                Assert.IsNotNull(actual.Item1);
+            }
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Headers_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.Headers);
+            var actual = Outcome(() => (object) sut.Headers);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void SubStatusCode_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.SubStatusCode);
+            var actual = Outcome(() => (object) sut.SubStatusCode);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void TrySkipIisCustomErrors_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.TrySkipIisCustomErrors);
+            var actual = Outcome(() => (object) sut.TrySkipIisCustomErrors);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void IsClientConnected_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.IsClientConnected);
+            var actual = Outcome(() => (object) sut.IsClientConnected);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void ClientDisconnectedToken_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.ClientDisconnectedToken);
+            var actual = Outcome(() => (object) sut.ClientDisconnectedToken);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void OutputStream_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.OutputStream);
+            var actual = Outcome(() => (object) sut.OutputStream);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Filter_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.Filter);
+            var actual = Outcome(() => (object) sut.Filter);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Expires_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.Expires);
+            var actual = Outcome(() => (object) sut.Expires);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void SubStatusCode_Set_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.SubStatusCode = 5; return null; });
+            var actual = Outcome(() => { sut.SubStatusCode = 5; return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void TrySkipIisCustomErrors_Set_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.TrySkipIisCustomErrors = true; return null; });
+            var actual = Outcome(() => { sut.TrySkipIisCustomErrors = true; return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Filter_Set_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.Filter = null; return null; });
+            var actual = Outcome(() => { sut.Filter = null; return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Expires_Set_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.Expires = 5; return null; });
+            var actual = Outcome(() => { sut.Expires = 5; return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void AddOnSendingHeaders_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.AddOnSendingHeaders(c => { }));
+            var actual = Outcome(() => (object) sut.AddOnSendingHeaders(c => { }));
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void AppendCookie_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.AppendCookie(new System.Web.HttpCookie("c", "v")); return null; });
+            var actual = Outcome(() => { sut.AppendCookie(new System.Web.HttpCookie("c", "v")); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void AppendToLog_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.AppendToLog("entry"); return null; });
+            var actual = Outcome(() => { sut.AppendToLog("entry"); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void ApplyAppPathModifier_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.ApplyAppPathModifier("~/x"));
+            var actual = Outcome(() => (object) sut.ApplyAppPathModifier("~/x"));
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void BeginFlush_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.BeginFlush(null, null));
+            var actual = Outcome(() => (object) sut.BeginFlush(null, null));
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void BinaryWrite_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.BinaryWrite(new byte[] { 1, 2 }); return null; });
+            var actual = Outcome(() => { sut.BinaryWrite(new byte[] { 1, 2 }); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Clear_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.Clear(); return null; });
+            var actual = Outcome(() => { sut.Clear(); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Close_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.Close(); return null; });
+            var actual = Outcome(() => { sut.Close(); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void End_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.End(); return null; });
+            var actual = Outcome(() => { sut.End(); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void EndFlush_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.EndFlush((IAsyncResult) null); return null; });
+            var actual = Outcome(() => { sut.EndFlush((IAsyncResult) null); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Flush_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.Flush(); return null; });
+            var actual = Outcome(() => { sut.Flush(); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void RedirectWithEnd_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.Redirect("http://localhost/x", false); return null; });
+            var actual = Outcome(() => { sut.Redirect("http://localhost/x", false); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Redirect_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.Redirect("http://localhost/x"); return null; });
+            var actual = Outcome(() => { sut.Redirect("http://localhost/x"); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void RedirectPermanentWithEnd_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.RedirectPermanent("http://localhost/x", false); return null; });
+            var actual = Outcome(() => { sut.RedirectPermanent("http://localhost/x", false); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void RedirectPermanent_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.RedirectPermanent("http://localhost/x"); return null; });
+            var actual = Outcome(() => { sut.RedirectPermanent("http://localhost/x"); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void RedirectToRouteWithDictionary_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var values = new System.Web.Routing.RouteValueDictionary();
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.RedirectToRoute(values); return null; });
+            var actual = Outcome(() => { sut.RedirectToRoute(values); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void RedirectToRouteWithObject_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.RedirectToRoute((object) new { id = 1 }); return null; });
+            var actual = Outcome(() => { sut.RedirectToRoute((object) new { id = 1 }); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void RedirectToRouteNameAndObject_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.RedirectToRoute("route", (object) new { id = 1 }); return null; });
+            var actual = Outcome(() => { sut.RedirectToRoute("route", (object) new { id = 1 }); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void RedirectToRouteNameAndDictionary_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var values = new System.Web.Routing.RouteValueDictionary();
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.RedirectToRoute("route", values); return null; });
+            var actual = Outcome(() => { sut.RedirectToRoute("route", values); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void RedirectToRouteName_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.RedirectToRoute("route"); return null; });
+            var actual = Outcome(() => { sut.RedirectToRoute("route"); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void RedirectToRoutePermanentWithDictionary_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var values = new System.Web.Routing.RouteValueDictionary();
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.RedirectToRoutePermanent(values); return null; });
+            var actual = Outcome(() => { sut.RedirectToRoutePermanent(values); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void RedirectToRoutePermanentWithObject_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.RedirectToRoutePermanent((object) new { id = 1 }); return null; });
+            var actual = Outcome(() => { sut.RedirectToRoutePermanent((object) new { id = 1 }); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void RedirectToRoutePermanentNameAndObject_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.RedirectToRoutePermanent("route", (object) new { id = 1 }); return null; });
+            var actual = Outcome(() => { sut.RedirectToRoutePermanent("route", (object) new { id = 1 }); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void RedirectToRoutePermanentNameAndDictionary_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var values = new System.Web.Routing.RouteValueDictionary();
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.RedirectToRoutePermanent("route", values); return null; });
+            var actual = Outcome(() => { sut.RedirectToRoutePermanent("route", values); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void RedirectToRoutePermanentName_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.RedirectToRoutePermanent("route"); return null; });
+            var actual = Outcome(() => { sut.RedirectToRoutePermanent("route"); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void RemoveOutputCacheItemWithProvider_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { System.Web.HttpResponse.RemoveOutputCacheItem("/x", "provider"); return null; });
+            var actual = Outcome(() => { sut.RemoveOutputCacheItem("/x", "provider"); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void RemoveOutputCacheItem_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { System.Web.HttpResponse.RemoveOutputCacheItem("/x"); return null; });
+            var actual = Outcome(() => { sut.RemoveOutputCacheItem("/x"); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void SetCookie_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.SetCookie(new System.Web.HttpCookie("c", "v")); return null; });
+            var actual = Outcome(() => { sut.SetCookie(new System.Web.HttpCookie("c", "v")); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void TransmitFile_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.TransmitFile("missing-file.txt"); return null; });
+            var actual = Outcome(() => { sut.TransmitFile("missing-file.txt"); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void TransmitFileRange_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.TransmitFile("missing-file.txt", 0, 1); return null; });
+            var actual = Outcome(() => { sut.TransmitFile("missing-file.txt", 0, 1); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void WriteFile_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.WriteFile("missing-file.txt"); return null; });
+            var actual = Outcome(() => { sut.WriteFile("missing-file.txt"); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void WriteFileInMemory_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.WriteFile("missing-file.txt", true); return null; });
+            var actual = Outcome(() => { sut.WriteFile("missing-file.txt", true); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void WriteFileRange_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.WriteFile("missing-file.txt", 0, 1); return null; });
+            var actual = Outcome(() => { sut.WriteFile("missing-file.txt", 0, 1); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void WriteFileHandle_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.WriteFile(IntPtr.Zero, 0, 1); return null; });
+            var actual = Outcome(() => { sut.WriteFile(IntPtr.Zero, 0, 1); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void WriteSubstitution_NoContext_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var actualInstance = new System.Web.HttpResponse(new System.IO.StringWriter());
+            var sut = new HttpResponseWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.WriteSubstitution(c => "x"); return null; });
+            var actual = Outcome(() => { sut.WriteSubstitution(c => "x"); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
     }
 }

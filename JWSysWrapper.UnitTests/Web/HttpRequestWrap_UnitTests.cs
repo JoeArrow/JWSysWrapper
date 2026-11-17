@@ -243,5 +243,923 @@ namespace JWWrap.UnitTests.Web
 
             sut.ValidateInput();
         }
+
+        // ----------------------------------------------------
+
+        private static Tuple<object, Type> Outcome(Func<object> action)
+        {
+            try
+            {
+                return Tuple.Create(action(), (Type) null);
+            }
+            catch(Exception ex)
+            {
+                return Tuple.Create((object) null, ex.GetType());
+            }
+        }
+
+        // ----------------------------------------------------
+
+        private static void AssertSameOutcome(Tuple<object, Type> expected, Tuple<object, Type> actual)
+        {
+            Assert.AreEqual(expected.Item2, actual.Item2);
+
+            if(expected.Item1 == null || expected.Item1 is string || expected.Item1.GetType().IsValueType)
+            {
+                Assert.AreEqual(expected.Item1, actual.Item1);
+            }
+            else
+            {
+                Assert.IsNotNull(actual.Item1);
+            }
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void LogonUserIdentity_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.LogonUserIdentity);
+            var actual = Outcome(() => (object) sut.LogonUserIdentity);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void PhysicalPath_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.PhysicalPath);
+            var actual = Outcome(() => (object) sut.PhysicalPath);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void ApplicationPath_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.ApplicationPath);
+            var actual = Outcome(() => (object) sut.ApplicationPath);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void PhysicalApplicationPath_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.PhysicalApplicationPath);
+            var actual = Outcome(() => (object) sut.PhysicalApplicationPath);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void UserAgent_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.UserAgent);
+            var actual = Outcome(() => (object) sut.UserAgent);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void UserLanguages_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.UserLanguages);
+            var actual = Outcome(() => (object) sut.UserLanguages);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void UserHostName_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.UserHostName);
+            var actual = Outcome(() => (object) sut.UserHostName);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void UserHostAddress_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.UserHostAddress);
+            var actual = Outcome(() => (object) sut.UserHostAddress);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void RawUrl_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.RawUrl);
+            var actual = Outcome(() => (object) sut.RawUrl);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void UrlReferrer_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.UrlReferrer);
+            var actual = Outcome(() => (object) sut.UrlReferrer);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void HttpChannelBinding_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.HttpChannelBinding);
+            var actual = Outcome(() => (object) sut.HttpChannelBinding);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Headers_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.Headers);
+            var actual = Outcome(() => (object) sut.Headers);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Unvalidated_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.Unvalidated);
+            var actual = Outcome(() => (object) sut.Unvalidated);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void ServerVariables_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.ServerVariables);
+            var actual = Outcome(() => (object) sut.ServerVariables);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void InputStream_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.InputStream);
+            var actual = Outcome(() => (object) sut.InputStream);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void TotalBytes_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.TotalBytes);
+            var actual = Outcome(() => (object) sut.TotalBytes);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Filter_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.Filter);
+            var actual = Outcome(() => (object) sut.Filter);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void ClientCertificate_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.ClientCertificate);
+            var actual = Outcome(() => (object) sut.ClientCertificate);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void PathInfo_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.PathInfo);
+            var actual = Outcome(() => (object) sut.PathInfo);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void ReadEntityBodyMode_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.ReadEntityBodyMode);
+            var actual = Outcome(() => (object) sut.ReadEntityBodyMode);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void AppRelativeCurrentExecutionFilePath_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.AppRelativeCurrentExecutionFilePath);
+            var actual = Outcome(() => (object) sut.AppRelativeCurrentExecutionFilePath);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void CurrentExecutionFilePath_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.CurrentExecutionFilePath);
+            var actual = Outcome(() => (object) sut.CurrentExecutionFilePath);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void CurrentExecutionFilePathExtension_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.CurrentExecutionFilePathExtension);
+            var actual = Outcome(() => (object) sut.CurrentExecutionFilePathExtension);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void RequestContext_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.RequestContext);
+            var actual = Outcome(() => (object) sut.RequestContext);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Filter_Set_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.Filter = null; return null; });
+            var actual = Outcome(() => { sut.Filter = null; return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void RequestContext_Set_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.RequestContext = null; return null; });
+            var actual = Outcome(() => { sut.RequestContext = null; return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Abort_NoWorkerRequest_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.Abort(); return null; });
+            var actual = Outcome(() => { sut.Abort(); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void BinaryRead_NoWorkerRequest_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.BinaryRead(4));
+            var actual = Outcome(() => (object) sut.BinaryRead(4));
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void GetBufferedInputStream_NoWorkerRequest_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.GetBufferedInputStream());
+            var actual = Outcome(() => (object) sut.GetBufferedInputStream());
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void GetBufferlessInputStream_NoWorkerRequest_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.GetBufferlessInputStream());
+            var actual = Outcome(() => (object) sut.GetBufferlessInputStream());
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void GetBufferlessInputStreamDisableMax_NoWorkerRequest_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.GetBufferlessInputStream(true));
+            var actual = Outcome(() => (object) sut.GetBufferlessInputStream(true));
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void InsertEntityBodyWithBuffer_NoWorkerRequest_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.InsertEntityBody(new byte[] { 1, 2, 3 }, 0, 3); return null; });
+            var actual = Outcome(() => { sut.InsertEntityBody(new byte[] { 1, 2, 3 }, 0, 3); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void InsertEntityBody_NoWorkerRequest_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.InsertEntityBody(); return null; });
+            var actual = Outcome(() => { sut.InsertEntityBody(); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void MapImageCoordinates_NoWorkerRequest_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.MapImageCoordinates("img"));
+            var actual = Outcome(() => (object) sut.MapImageCoordinates("img"));
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void MapPathWithBase_NoWorkerRequest_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.MapPath("~/page.aspx", "~/", true));
+            var actual = Outcome(() => (object) sut.MapPath("~/page.aspx", "~/", true));
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void MapPath_NoWorkerRequest_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.MapPath("~/page.aspx"));
+            var actual = Outcome(() => (object) sut.MapPath("~/page.aspx"));
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void MapRawImageCoordinates_NoWorkerRequest_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var actualInstance = new System.Web.HttpRequest("", "http://localhost/app/page.aspx?x=1&y=two", "x=1&y=two");
+            var sut = new HttpRequestWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.MapRawImageCoordinates("img"));
+            var actual = Outcome(() => (object) sut.MapRawImageCoordinates("img"));
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
     }
 }
