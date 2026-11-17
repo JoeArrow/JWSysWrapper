@@ -127,6 +127,7 @@
     <Compile Include="Data\SqlClient\SqlDataReaderWrap_IntgTests.cs" />
     <Compile Include="Data\SqlClient\SqlParameterCollectionWrap_IntgTests.cs" />
     <Compile Include="Data\SqlClient\SqlScratch.cs" />
+    <Compile Include="Data\SqlClient\SqlScratchCleanup.cs" />
     <Compile Include="Data\SqlClient\SqlTransactionWrap_IntgTests.cs" />
     <Compile Include="DirectoryServices\AdLdsScratch.cs" />
     <Compile Include="DirectoryServices\DirectoryEntriesWrap_IntgTests.cs" />

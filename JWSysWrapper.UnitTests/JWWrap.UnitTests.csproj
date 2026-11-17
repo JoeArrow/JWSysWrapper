@@ -246,6 +246,9 @@
     <Compile Include="Web\WebControls\TableCellCollectionWrap_UnitTests.cs" />
     <Compile Include="Web\WebControls\TableCellWrap_UnitTests.cs" />
     <Compile Include="Web\WebControls\TableRowCollectionWrap_UnitTests.cs" />
+    <Compile Include="Xml\XPath\XPathDocumentWrap_UnitTests.cs" />
+    <Compile Include="Xml\XPath\XPathNavigatorWrap_UnitTests.cs" />
+    <Compile Include="Xml\XPath\XPathNodeIteratorWrap_UnitTests.cs" />
     <Compile Include="Xml\SerializableItem.cs" />
     <Compile Include="Xml\XCommentFactory_UnitTests.cs" />
     <Compile Include="Xml\XCommentWrap_UnitTests.cs" />
