@@ -138,6 +138,12 @@
     <Compile Include="Diagnostics\ProcessStartInfoWrap_UnitTests.cs" />
     <Compile Include="Diagnostics\ProcessWrap_UnitTests.cs" />
     <Compile Include="Diagnostics\TraceSourceWrap_UnitTests.cs" />
+    <Compile Include="Net\Http\HttpClientWrap_UnitTests.cs" />
+    <Compile Include="Net\Http\HttpResponseMessageWrap_UnitTests.cs" />
+    <Compile Include="Net\Http\StubHttpMessageHandler.cs" />
+    <Compile Include="Net\Http\Headers\HttpRequestHeadersWrap_UnitTests.cs" />
+    <Compile Include="Net\Mail\SmtpClientWrap_UnitTests.cs" />
+    <Compile Include="Net\Sockets\NetworkStreamWrap_UnitTests.cs" />
     <Compile Include="Security\AccessControl\DirectorySecurityWrap_UnitTests.cs" />
     <Compile Include="Security\AccessControl\FileSecurityWrap_UnitTests.cs" />
     <Compile Include="Security\AccessControl\RegistrySecurityWrap_UnitTests.cs" />
