@@ -86,10 +86,12 @@ namespace JWWrap.Impl.Data.SqlClient
         public int Update(DataSet dataSet, string srcTable) => Instance.Update(dataSet, srcTable);
         private void Initialize(SqlCommand sqlCommand) => Instance = new SqlDataAdapter(sqlCommand);
         public bool ShouldSerializeAcceptChangesDuringFill() => Instance.ShouldSerializeAcceptChangesDuringFill();
-        public IDataTable[] FillSchema(System.Data.DataSet dataSet, SchemaType schemaType) => FillSchema(dataSet, schemaType);
-        public IDataTable FillSchema(System.Data.DataTable dataTable, SchemaType schemaType) => FillSchema(dataTable, schemaType);
+        public IDataTable[] FillSchema(System.Data.DataSet dataSet, SchemaType schemaType) => Wrap(Instance.FillSchema(dataSet, schemaType));
+        public IDataTable FillSchema(System.Data.DataTable dataTable, SchemaType schemaType) => new JWWrap.Impl.Data.DataTable.DataTableWrap(Instance.FillSchema(dataTable, schemaType));
         public int Fill(int startRecord, int maxRecords, params System.Data.DataTable[] dataTables) => Instance.Fill(startRecord, maxRecords, dataTables);
-        public IDataTable[] FillSchema(System.Data.DataSet dataSet, SchemaType schemaType, string srcTable) => FillSchema(dataSet, schemaType, srcTable);
+        public IDataTable[] FillSchema(System.Data.DataSet dataSet, SchemaType schemaType, string srcTable) => Wrap(Instance.FillSchema(dataSet, schemaType, srcTable));
+
+        private static IDataTable[] Wrap(System.Data.DataTable[] tables) => Array.ConvertAll(tables, table => (IDataTable) new JWWrap.Impl.Data.DataTable.DataTableWrap(table));
         public int Fill(DataSet dataSet, int startRecord, int maxRecords, string srcTable) => Instance.Fill(dataSet, startRecord, maxRecords, srcTable);
     }
 }

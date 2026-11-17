@@ -882,5 +882,273 @@ namespace JWWrap.UnitTests
 
             Assert.AreEqual(TimeSpan.FromDays(2), result.Instance);
         }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Equality_DateTimeOperand_ComparesInstance()
+        {
+            // -------
+            // Arrange
+
+            var sut = new DateTimeWrap(new DateTime(2026, 5, 6, 7, 8, 9));
+            var same = new DateTime(2026, 5, 6, 7, 8, 9);
+            var later = new DateTime(2026, 5, 7, 7, 8, 9);
+            var earlier = new DateTime(2026, 5, 5, 7, 8, 9);
+
+            // ---
+            // Act
+
+            var equal = sut == same;
+            var different = sut == later;
+
+            // ------
+            // Assert
+
+            Assert.IsTrue(equal);
+            Assert.IsFalse(different);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Inequality_DateTimeOperand_ComparesInstance()
+        {
+            // -------
+            // Arrange
+
+            var sut = new DateTimeWrap(new DateTime(2026, 5, 6, 7, 8, 9));
+            var same = new DateTime(2026, 5, 6, 7, 8, 9);
+            var later = new DateTime(2026, 5, 7, 7, 8, 9);
+            var earlier = new DateTime(2026, 5, 5, 7, 8, 9);
+
+            // ---
+            // Act
+
+            var equal = sut != same;
+            var different = sut != later;
+
+            // ------
+            // Assert
+
+            Assert.IsFalse(equal);
+            Assert.IsTrue(different);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void LessThan_DateTimeOperand_ComparesInstance()
+        {
+            // -------
+            // Arrange
+
+            var sut = new DateTimeWrap(new DateTime(2026, 5, 6, 7, 8, 9));
+            var same = new DateTime(2026, 5, 6, 7, 8, 9);
+            var later = new DateTime(2026, 5, 7, 7, 8, 9);
+            var earlier = new DateTime(2026, 5, 5, 7, 8, 9);
+
+            // ---
+            // Act
+
+            var less = sut < later;
+            var equal = sut < same;
+            var greater = sut < earlier;
+
+            // ------
+            // Assert
+
+            Assert.IsTrue(less);
+            Assert.IsFalse(equal);
+            Assert.IsFalse(greater);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void GreaterThan_DateTimeOperand_ComparesInstance()
+        {
+            // -------
+            // Arrange
+
+            var sut = new DateTimeWrap(new DateTime(2026, 5, 6, 7, 8, 9));
+            var same = new DateTime(2026, 5, 6, 7, 8, 9);
+            var later = new DateTime(2026, 5, 7, 7, 8, 9);
+            var earlier = new DateTime(2026, 5, 5, 7, 8, 9);
+
+            // ---
+            // Act
+
+            var less = sut > later;
+            var equal = sut > same;
+            var greater = sut > earlier;
+
+            // ------
+            // Assert
+
+            Assert.IsFalse(less);
+            Assert.IsFalse(equal);
+            Assert.IsTrue(greater);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void LessThanOrEqual_DateTimeOperand_ComparesInstance()
+        {
+            // -------
+            // Arrange
+
+            var sut = new DateTimeWrap(new DateTime(2026, 5, 6, 7, 8, 9));
+            var same = new DateTime(2026, 5, 6, 7, 8, 9);
+            var later = new DateTime(2026, 5, 7, 7, 8, 9);
+            var earlier = new DateTime(2026, 5, 5, 7, 8, 9);
+
+            // ---
+            // Act
+
+            var less = sut <= later;
+            var equal = sut <= same;
+            var greater = sut <= earlier;
+
+            // ------
+            // Assert
+
+            Assert.IsTrue(less);
+            Assert.IsTrue(equal);
+            Assert.IsFalse(greater);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void GreaterThanOrEqual_DateTimeOperand_ComparesInstance()
+        {
+            // -------
+            // Arrange
+
+            var sut = new DateTimeWrap(new DateTime(2026, 5, 6, 7, 8, 9));
+            var same = new DateTime(2026, 5, 6, 7, 8, 9);
+            var later = new DateTime(2026, 5, 7, 7, 8, 9);
+            var earlier = new DateTime(2026, 5, 5, 7, 8, 9);
+
+            // ---
+            // Act
+
+            var less = sut >= later;
+            var equal = sut >= same;
+            var greater = sut >= earlier;
+
+            // ------
+            // Assert
+
+            Assert.IsFalse(less);
+            Assert.IsTrue(equal);
+            Assert.IsTrue(greater);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void CompareTo_IDateTime_ComparesInstance()
+        {
+            // -------
+            // Arrange
+
+            var sut = new DateTimeWrap(new DateTime(2026, 5, 6, 7, 8, 9));
+            var same = new DateTime(2026, 5, 6, 7, 8, 9);
+            var later = new DateTime(2026, 5, 7, 7, 8, 9);
+            var earlier = new DateTime(2026, 5, 5, 7, 8, 9);
+            IDateTime laterWrap = new DateTimeWrap(later);
+            IDateTime sameWrap = new DateTimeWrap(same);
+            IDateTime earlierWrap = new DateTimeWrap(earlier);
+
+            // ---
+            // Act
+
+            var less = sut.CompareTo(laterWrap);
+            var equal = sut.CompareTo(sameWrap);
+            var greater = sut.CompareTo(earlierWrap);
+
+            // ------
+            // Assert
+
+            Assert.IsTrue(less < 0);
+            Assert.AreEqual(0, equal);
+            Assert.IsTrue(greater > 0);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void CompareTo_NullIDateTime_ReturnsPositive()
+        {
+            // -------
+            // Arrange
+
+            var sut = new DateTimeWrap(new DateTime(2026, 5, 6, 7, 8, 9));
+            var same = new DateTime(2026, 5, 6, 7, 8, 9);
+            var later = new DateTime(2026, 5, 7, 7, 8, 9);
+            var earlier = new DateTime(2026, 5, 5, 7, 8, 9);
+
+            // ---
+            // Act
+
+            var result = sut.CompareTo((IDateTime) null);
+
+            // ------
+            // Assert
+
+            Assert.IsTrue(result > 0);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void CompareTo_ObjectIDateTime_ComparesInstance()
+        {
+            // -------
+            // Arrange
+
+            var sut = new DateTimeWrap(new DateTime(2026, 5, 6, 7, 8, 9));
+            var same = new DateTime(2026, 5, 6, 7, 8, 9);
+            var later = new DateTime(2026, 5, 7, 7, 8, 9);
+            var earlier = new DateTime(2026, 5, 5, 7, 8, 9);
+            object laterWrap = new DateTimeWrap(later);
+
+            // ---
+            // Act
+
+            var result = sut.CompareTo(laterWrap);
+
+            // ------
+            // Assert
+
+            Assert.IsTrue(result < 0);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void CompareTo_ObjectNull_ReturnsPositive()
+        {
+            // -------
+            // Arrange
+
+            var sut = new DateTimeWrap(new DateTime(2026, 5, 6, 7, 8, 9));
+            var same = new DateTime(2026, 5, 6, 7, 8, 9);
+            var later = new DateTime(2026, 5, 7, 7, 8, 9);
+            var earlier = new DateTime(2026, 5, 5, 7, 8, 9);
+
+            // ---
+            // Act
+
+            var result = sut.CompareTo((object) null);
+
+            // ------
+            // Assert
+
+            Assert.IsTrue(result > 0);
+        }
     }
 }

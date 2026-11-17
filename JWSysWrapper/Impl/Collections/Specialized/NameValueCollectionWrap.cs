@@ -34,17 +34,17 @@ namespace JWWrap.Impl.Collections.Specialized
 
         // ------------------------------------------------
 
-        public string this[int index] => throw new NotImplementedException();
+        public string this[int index] => Instance[index];
 
         public string this[string name] { get => Instance[name]; set => Instance[name] = value; }
 
         // ------------------------------------------------
 
-        public int Count => throw new NotImplementedException();
+        public int Count => Instance.Count;
 
-        public string[] AllKeys => throw new NotImplementedException();
+        public string[] AllKeys => Instance.AllKeys;
 
-        public NameObjectCollectionBase.KeysCollection Keys => throw new NotImplementedException();
+        public NameObjectCollectionBase.KeysCollection Keys => Instance.Keys;
 
         public void Add(NameValueCollection c) => Instance.Add(c);
 

@@ -741,5 +741,57 @@ namespace JWWrap.UnitTests.Xslt
 
             Assert.Throws<IOException>(() => sut.Transform(missing, Writer(builder)));
         }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void OutputSettings_Loaded_ReflectsStylesheetOutput()
+        {
+            // -------
+            // Arrange
+
+            var raw = new System.Xml.Xsl.XslCompiledTransform();
+
+            raw.Load(XmlReader.Create(new StringReader(Xsl)));
+
+            var sut = Loaded();
+
+            // ---
+            // Act
+
+            var result = sut.OutputSettings;
+
+            // ------
+            // Assert
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(raw.OutputSettings.OmitXmlDeclaration, result.OmitXmlDeclaration);
+            Assert.IsTrue(result.OmitXmlDeclaration);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void TemporaryFiles_Loaded_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var raw = new System.Xml.Xsl.XslCompiledTransform();
+
+            raw.Load(XmlReader.Create(new StringReader(Xsl)));
+
+            var sut = Loaded();
+
+            // ---
+            // Act
+
+            var result = sut.TemporaryFiles;
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(raw.TemporaryFiles == null, result == null);
+        }
     }
 }

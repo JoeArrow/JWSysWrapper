@@ -388,5 +388,79 @@ namespace JWWrap.IntgTests.Data.SqlClient
 
             Assert.ThrowsExactly<SqlException>(() => sut.Fill(table));
         }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void FillSchema_DataSet_ReturnsSchemaTable()
+        {
+            // -------
+            // Arrange
+
+            var sut = new SqlDataAdapterWrap("SELECT Id, Name, Qty FROM dbo.Items ORDER BY Id", _scratch.ConnectionString);
+            var dataSet = new DataSet();
+
+            // ---
+            // Act
+
+            var result = sut.FillSchema(dataSet, SchemaType.Source);
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(1, result.Length);
+            Assert.AreSame(dataSet.Tables[0], result[0].Instance);
+            Assert.AreEqual(3, result[0].Instance.Columns.Count);
+            Assert.AreEqual("Name", result[0].Instance.Columns[1].ColumnName);
+            Assert.AreEqual(0, result[0].Instance.Rows.Count);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void FillSchema_DataSetAndSourceTable_NamesTable()
+        {
+            // -------
+            // Arrange
+
+            var sut = new SqlDataAdapterWrap("SELECT Id, Name, Qty FROM dbo.Items ORDER BY Id", _scratch.ConnectionString);
+            var dataSet = new DataSet();
+
+            // ---
+            // Act
+
+            var result = sut.FillSchema(dataSet, SchemaType.Source, "Items");
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(1, result.Length);
+            Assert.AreSame(dataSet.Tables["Items"], result[0].Instance);
+            Assert.AreEqual(3, dataSet.Tables["Items"].Columns.Count);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void FillSchema_DataTable_ReturnsSameTable()
+        {
+            // -------
+            // Arrange
+
+            var sut = new SqlDataAdapterWrap("SELECT Id, Name, Qty FROM dbo.Items ORDER BY Id", _scratch.ConnectionString);
+            var table = new System.Data.DataTable();
+
+            // ---
+            // Act
+
+            var result = sut.FillSchema(table, SchemaType.Source);
+
+            // ------
+            // Assert
+
+            Assert.AreSame(table, result.Instance);
+            Assert.AreEqual(3, table.Columns.Count);
+            Assert.AreEqual("Id", table.Columns[0].ColumnName);
+        }
     }
 }

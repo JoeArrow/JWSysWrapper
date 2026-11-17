@@ -34,7 +34,7 @@ namespace JWWrap.Impl.IBM.WMQ
         public string ApplicationIdData { get { return Instance.ApplicationIdData; } set { Instance.ApplicationIdData = value; } }
         public string ApplicationOriginData { get { return Instance.ApplicationOriginData; } set { Instance.ApplicationOriginData = value; } }
 
-        public int BackoutCount => throw new NotImplementedException();
+        public int BackoutCount => Instance.BackoutCount;
 
         public int CharacterSet { get { return Instance.CharacterSet; } set { Instance.CharacterSet = value; } }
         public byte[] CorrelationId { get { return Instance.CorrelationId; } set { Instance.CorrelationId = value; } }

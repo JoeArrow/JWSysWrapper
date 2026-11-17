@@ -2603,5 +2603,27 @@ namespace JWWrap.UnitTests.Data
 
             Assert.AreEqual(SerializationFormat.Binary, result);
         }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Construction_DataTable_UsesInstance()
+        {
+            // -------
+            // Arrange
+
+            var table = new System.Data.DataTable("People");
+
+            // ---
+            // Act
+
+            var sut = new DataTableWrap(table);
+
+            // ------
+            // Assert
+
+            Assert.AreSame(table, sut.Instance);
+            Assert.AreEqual("People", sut.TableName);
+        }
     }
 }

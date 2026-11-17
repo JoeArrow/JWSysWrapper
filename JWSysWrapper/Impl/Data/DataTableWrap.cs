@@ -29,7 +29,7 @@ namespace JWWrap.Impl.Data.DataTable
 
         // ------------------------------------------------
 
-        public DataTableWrap(System.Data.DataTable dataTable) => Initialize();
+        public DataTableWrap(System.Data.DataTable dataTable) => Initialize(dataTable);
         public DataTableWrap(string tableName) => Initialize(tableName);
         public DataTableWrap(IDataTable dataTable) => Initialize(dataTable.Instance);
         public DataTableWrap(string tableName, string tableNamespace) => Initialize(tableName, tableNamespace);

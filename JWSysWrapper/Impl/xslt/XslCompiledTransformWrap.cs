@@ -41,9 +41,9 @@ namespace JWWrap.Impl.Xslt
             instance = new XslCompiledTransform(enableDebug);
         }
 
-        public XmlWriterSettings OutputSettings => throw new NotImplementedException();
+        public XmlWriterSettings OutputSettings => instance.OutputSettings;
 
-        public TempFileCollection TemporaryFiles => throw new NotImplementedException();
+        public TempFileCollection TemporaryFiles => instance.TemporaryFiles;
 
         // ------------------------------------------------
 

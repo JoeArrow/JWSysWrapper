@@ -958,5 +958,254 @@ namespace JWWrap.UnitTests.Web
 
             Assert.IsNull(result);
         }
+
+        // ----------------------------------------------------
+
+        private static Tuple<object, Type> Outcome(Func<object> action)
+        {
+            try
+            {
+                return Tuple.Create(action(), (Type) null);
+            }
+            catch(Exception ex)
+            {
+                return Tuple.Create((object) null, ex.GetType());
+            }
+        }
+
+        // ----------------------------------------------------
+
+        private static void AssertSameOutcome(Tuple<object, Type> expected, Tuple<object, Type> actual)
+        {
+            Assert.AreEqual(expected.Item2, actual.Item2);
+
+            if(expected.Item1 == null || expected.Item1 is string || expected.Item1.GetType().IsValueType)
+            {
+                Assert.AreEqual(expected.Item1, actual.Item1);
+            }
+            else
+            {
+                Assert.IsNotNull(actual.Item1);
+            }
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void TemplateSourceDirectory_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.Control();
+            var actualInstance = new System.Web.UI.Control();
+            var sut = new ControlWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.TemplateSourceDirectory);
+            var actual = Outcome(() => (object) sut.TemplateSourceDirectory);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void AppRelativeTemplateSourceDirectory_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.Control();
+            var actualInstance = new System.Web.UI.Control();
+            var sut = new ControlWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.AppRelativeTemplateSourceDirectory);
+            var actual = Outcome(() => (object) sut.AppRelativeTemplateSourceDirectory);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void AppRelativeTemplateSourceDirectory_Set_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.Control();
+            var actualInstance = new System.Web.UI.Control();
+            var sut = new ControlWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.AppRelativeTemplateSourceDirectory = "~/"; return null; });
+            var actual = Outcome(() => { sut.AppRelativeTemplateSourceDirectory = "~/"; return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Focus_NoPage_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.Control();
+            var actualInstance = new System.Web.UI.Control();
+            var sut = new ControlWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.Focus(); return null; });
+            var actual = Outcome(() => { sut.Focus(); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void GetRouteUrl_NameAndDictionary_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var values = new System.Web.Routing.RouteValueDictionary();
+            var expectedInstance = new System.Web.UI.Control();
+            var actualInstance = new System.Web.UI.Control();
+            var sut = new ControlWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.GetRouteUrl("route", values));
+            var actual = Outcome(() => (object) sut.GetRouteUrl("route", values));
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void GetRouteUrl_NameAndObject_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.Control();
+            var actualInstance = new System.Web.UI.Control();
+            var sut = new ControlWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.GetRouteUrl("route", (object) new { id = 1 }));
+            var actual = Outcome(() => (object) sut.GetRouteUrl("route", (object) new { id = 1 }));
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void GetRouteUrl_Dictionary_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var values = new System.Web.Routing.RouteValueDictionary();
+            var expectedInstance = new System.Web.UI.Control();
+            var actualInstance = new System.Web.UI.Control();
+            var sut = new ControlWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.GetRouteUrl(values));
+            var actual = Outcome(() => (object) sut.GetRouteUrl(values));
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void GetRouteUrl_Object_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.Control();
+            var actualInstance = new System.Web.UI.Control();
+            var sut = new ControlWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.GetRouteUrl((object) new { id = 1 }));
+            var actual = Outcome(() => (object) sut.GetRouteUrl((object) new { id = 1 }));
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void GetUniqueIDRelativeTo_Control_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var other = new System.Web.UI.Control();
+            var expectedInstance = new System.Web.UI.Control();
+            var actualInstance = new System.Web.UI.Control();
+            var sut = new ControlWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.GetUniqueIDRelativeTo(other));
+            var actual = Outcome(() => (object) sut.GetUniqueIDRelativeTo(other));
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
     }
 }

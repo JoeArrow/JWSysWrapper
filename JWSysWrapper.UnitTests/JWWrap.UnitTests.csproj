@@ -242,6 +242,7 @@
     <Compile Include="Web\WebControls\DataControlFieldCellWrap_UnitTests.cs" />
     <Compile Include="Web\WebControls\DataControlFieldCollectionWrap_UnitTests.cs" />
     <Compile Include="Web\WebControls\DataControlFieldWrap_UnitTests.cs" />
+    <Compile Include="Web\HttpPostedFileWrap_UnitTests.cs" />
     <Compile Include="Web\WebControls\FileUploadWrap_UnitTests.cs" />
     <Compile Include="Web\WebControls\LinkButtonWrap_UnitTests.cs" />
     <Compile Include="Web\WebControls\TableCellCollectionWrap_UnitTests.cs" />

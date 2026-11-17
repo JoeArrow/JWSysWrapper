@@ -1581,5 +1581,26 @@ namespace JWWrap.UnitTests.IBM.WMQ
 
             Assert.ThrowsExactly<EndOfStreamException>(() => sut.ReadInt());
         }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void BackoutCount_NewMessage_ReturnsInstanceValue()
+        {
+            // -------
+            // Arrange
+
+            var sut = new MQMessageWrap();
+
+            // ---
+            // Act
+
+            var result = sut.BackoutCount;
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(sut.Instance.BackoutCount, result);
+        }
     }
 }

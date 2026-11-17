@@ -603,5 +603,122 @@ namespace JWWrap.UnitTests.Collections.Specialized
             Assert.AreEqual(1, sut.Instance.Count);
             Assert.AreEqual("a", sut.Instance.AllKeys[0]);
         }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Indexer_Index_ReturnsValue()
+        {
+            // -------
+            // Arrange
+
+            var sut = new NameValueCollectionFactory().Create();
+
+            sut.Add("a", "1");
+            sut.Add("b", "2");
+
+            // ---
+            // Act
+
+            var result = sut[1];
+
+            // ------
+            // Assert
+
+            Assert.AreEqual("2", result);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Indexer_IndexOutOfRange_Throws()
+        {
+            // -------
+            // Arrange
+
+            var sut = new NameValueCollectionFactory().Create();
+
+            sut.Add("a", "1");
+            sut.Add("b", "2");
+
+            // ------------
+            // Act & Assert
+
+            Assert.Throws<ArgumentOutOfRangeException>(() => sut[5].ToString());
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Count_TwoEntries_ReturnsTwo()
+        {
+            // -------
+            // Arrange
+
+            var sut = new NameValueCollectionFactory().Create();
+
+            sut.Add("a", "1");
+            sut.Add("b", "2");
+
+            // ---
+            // Act
+
+            var result = sut.Count;
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(2, result);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void AllKeys_TwoEntries_ReturnsKeys()
+        {
+            // -------
+            // Arrange
+
+            var sut = new NameValueCollectionFactory().Create();
+
+            sut.Add("a", "1");
+            sut.Add("b", "2");
+
+            // ---
+            // Act
+
+            var result = sut.AllKeys;
+
+            // ------
+            // Assert
+
+            CollectionAssert.AreEqual(new[] { "a", "b" }, result);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Keys_TwoEntries_ReturnsKeysCollection()
+        {
+            // -------
+            // Arrange
+
+            var sut = new NameValueCollectionFactory().Create();
+
+            sut.Add("a", "1");
+            sut.Add("b", "2");
+
+            // ---
+            // Act
+
+            var result = sut.Keys;
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(2, result.Count);
+            Assert.AreEqual("a", result[0]);
+            Assert.AreEqual("b", result[1]);
+        }
     }
 }

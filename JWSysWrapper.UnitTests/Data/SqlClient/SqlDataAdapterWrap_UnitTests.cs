@@ -713,5 +713,53 @@ namespace JWWrap.UnitTests.Data.SqlClient
 
             sut.Dispose();
         }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void FillSchema_DataSet_NoSelectCommand_ThrowsInvalidOperation()
+        {
+            // -------
+            // Arrange
+
+            var sut = new SqlDataAdapterWrap();
+
+            // ------------
+            // Act & Assert
+
+            Assert.ThrowsExactly<InvalidOperationException>(() => sut.FillSchema(new DataSet(), SchemaType.Source));
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void FillSchema_DataTable_NoSelectCommand_ThrowsInvalidOperation()
+        {
+            // -------
+            // Arrange
+
+            var sut = new SqlDataAdapterWrap();
+
+            // ------------
+            // Act & Assert
+
+            Assert.ThrowsExactly<InvalidOperationException>(() => sut.FillSchema(new System.Data.DataTable(), SchemaType.Source));
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void FillSchema_DataSetAndSourceTable_NoSelectCommand_ThrowsInvalidOperation()
+        {
+            // -------
+            // Arrange
+
+            var sut = new SqlDataAdapterWrap();
+
+            // ------------
+            // Act & Assert
+
+            Assert.ThrowsExactly<InvalidOperationException>(() => sut.FillSchema(new DataSet(), SchemaType.Source, "Items"));
+        }
     }
 }

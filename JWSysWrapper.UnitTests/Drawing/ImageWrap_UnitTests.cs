@@ -1075,7 +1075,7 @@ namespace JWWrap.UnitTests.Drawing
         // ----------------------------------------------------
 
         [TestMethod]
-        public void Dispose_Image_LeavesImageUsable()
+        public void Dispose_Image_DisposesInstance()
         {
             // -------
             // Arrange
@@ -1091,8 +1091,196 @@ namespace JWWrap.UnitTests.Drawing
             // ------
             // Assert
 
-            Assert.AreEqual(2, bitmap.Width);
-            Assert.AreEqual(3, bitmap.Height);
+            Assert.Throws<Exception>(() => bitmap.Width.ToString());
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Dispose_NoInstance_DoesNotThrow()
+        {
+            // -------
+            // Arrange
+
+            var sut = new ImageWrap();
+
+            // ------------
+            // Act & Assert
+
+            sut.Dispose();
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Flags_Bitmap_ReturnsInstanceFlags()
+        {
+            // -------
+            // Arrange
+
+            var bitmap = new Bitmap(2, 3);
+            var sut = new ImageWrap(bitmap);
+
+            // ---
+            // Act
+
+            var result = sut.Flags;
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(bitmap.Flags, result);
+
+            bitmap.Dispose();
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Clone_Bitmap_ReturnsIndependentWrap()
+        {
+            // -------
+            // Arrange
+
+            var bitmap = new Bitmap(2, 3);
+            var sut = new ImageWrap(bitmap);
+
+            // ---
+            // Act
+
+            var result = sut.Clone();
+
+            // ------
+            // Assert
+
+            Assert.IsInstanceOfType(result, typeof(ImageWrap));
+            Assert.AreNotSame(bitmap, ((ImageWrap) result).Instance);
+            Assert.AreEqual(2, ((ImageWrap) result).Width);
+            Assert.AreEqual(3, ((ImageWrap) result).Height);
+
+            ((ImageWrap) result).Dispose();
+            bitmap.Dispose();
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void RawFormat_Bitmap_ReturnsInstanceFormat()
+        {
+            // -------
+            // Arrange
+
+            var bitmap = new Bitmap(2, 3);
+            var sut = new ImageWrap(bitmap);
+
+            // ---
+            // Act
+
+            var result = sut.RawFormat;
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(bitmap.RawFormat, result);
+
+            bitmap.Dispose();
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void PixelFormat_Bitmap_ReturnsInstanceFormat()
+        {
+            // -------
+            // Arrange
+
+            var bitmap = new Bitmap(2, 3);
+            var sut = new ImageWrap(bitmap);
+
+            // ---
+            // Act
+
+            var result = sut.PixelFormat;
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(bitmap.PixelFormat, result);
+
+            bitmap.Dispose();
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void FrameDimensionsList_Bitmap_ReturnsInstanceList()
+        {
+            // -------
+            // Arrange
+
+            var bitmap = new Bitmap(2, 3);
+            var sut = new ImageWrap(bitmap);
+
+            // ---
+            // Act
+
+            var result = sut.FrameDimensionsList;
+
+            // ------
+            // Assert
+
+            CollectionAssert.AreEqual(bitmap.FrameDimensionsList, result);
+
+            bitmap.Dispose();
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Palette_Get_ReturnsInstancePalette()
+        {
+            // -------
+            // Arrange
+
+            var bitmap = new Bitmap(2, 3, PixelFormat.Format8bppIndexed);
+            var sut = new ImageWrap(bitmap);
+
+            // ---
+            // Act
+
+            var result = sut.Palette;
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(bitmap.Palette.Entries.Length, result.Entries.Length);
+
+            bitmap.Dispose();
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Palette_Set_UpdatesInstance()
+        {
+            // -------
+            // Arrange
+
+            var bitmap = new Bitmap(2, 3, PixelFormat.Format8bppIndexed);
+            var sut = new ImageWrap(bitmap);
+            var palette = bitmap.Palette;
+
+            palette.Entries[0] = Color.Red;
+
+            // ---
+            // Act
+
+            sut.Palette = palette;
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(Color.Red.ToArgb(), bitmap.Palette.Entries[0].ToArgb());
 
             bitmap.Dispose();
         }

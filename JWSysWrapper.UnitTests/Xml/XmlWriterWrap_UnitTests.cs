@@ -1291,5 +1291,86 @@ namespace JWWrap.UnitTests.Xml
 
             Assert.AreEqual(WriteState.Closed, sut.WriteState);
         }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Close_WriterOutput_CommitsNavigatorChanges()
+        {
+            // -------
+            // Arrange
+
+            var document = new XmlDocument();
+
+            document.LoadXml("<root/>");
+
+            var writer = document.DocumentElement.CreateNavigator().AppendChild();
+            var sut = new XmlWriterWrap(writer);
+
+            // ---
+            // Act
+
+            sut.WriteElementString("child", "v");
+            sut.Close();
+
+            // ------
+            // Assert
+
+            Assert.AreEqual("<root><child>v</child></root>", document.OuterXml);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Close_WriterOutputWithSettings_CommitsNavigatorChanges()
+        {
+            // -------
+            // Arrange
+
+            var document = new XmlDocument();
+
+            document.LoadXml("<root/>");
+
+            var writer = document.DocumentElement.CreateNavigator().AppendChild();
+            var sut = new XmlWriterWrap(writer, new XmlWriterSettings { ConformanceLevel = ConformanceLevel.Auto });
+
+            // ---
+            // Act
+
+            sut.WriteElementString("child", "v");
+            sut.Close();
+
+            // ------
+            // Assert
+
+            Assert.AreEqual("<root><child>v</child></root>", document.OuterXml);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Dispose_WriterOutput_CommitsNavigatorChanges()
+        {
+            // -------
+            // Arrange
+
+            var document = new XmlDocument();
+
+            document.LoadXml("<root/>");
+
+            var writer = document.DocumentElement.CreateNavigator().AppendChild();
+            var sut = new XmlWriterWrap(writer);
+
+            // ---
+            // Act
+
+            sut.WriteElementString("child", "v");
+            sut.Dispose();
+
+            // ------
+            // Assert
+
+            Assert.AreEqual("<root><child>v</child></root>", document.OuterXml);
+        }
     }
 }

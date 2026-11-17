@@ -25,21 +25,21 @@ namespace JWWrap.Impl.Drawing
         public Size Size => Instance.Size;
         public int Width => Instance.Width;
         public int Height => Instance.Height;
-        public void Dispose() => new NotImplementedException();
+        public void Dispose() => Instance?.Dispose();
         public int[] PropertyIdList => Instance.PropertyIdList;
-        public int Flags => throw new NotImplementedException();
+        public int Flags => Instance.Flags;
         public ImageWrap(Image instance) { Instance = instance; }
-        public object Clone() => throw new NotImplementedException();
+        public object Clone() => new ImageWrap((Image) Instance.Clone());
         public SizeF PhysicalDimension => Instance.PhysicalDimension;
         public PropertyItem[] PropertyItems => Instance.PropertyItems;
         public float VerticalResolution => Instance.VerticalResolution;
         public float HorizontalResolution => Instance.HorizontalResolution;
-        public ImageFormat RawFormat => throw new NotImplementedException();
-        public PixelFormat PixelFormat => throw new NotImplementedException();
+        public ImageFormat RawFormat => Instance.RawFormat;
+        public PixelFormat PixelFormat => Instance.PixelFormat;
         public object Tag { get => Instance.Tag; set => Instance.Tag = value; }
-        public Guid[] FrameDimensionsList => throw new NotImplementedException();
+        public Guid[] FrameDimensionsList => Instance.FrameDimensionsList;
         public RectangleF GetBounds(ref GraphicsUnit pageUnit) => Instance.GetBounds(ref pageUnit);
-        public ColorPalette Palette { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public ColorPalette Palette { get => Instance.Palette; set => Instance.Palette = value; }
         
         // ------------
         // Begin Static

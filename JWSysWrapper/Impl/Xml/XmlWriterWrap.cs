@@ -25,15 +25,24 @@ namespace JWWrap.Impl.Xml
     {
         public XmlWriter Instance { private set;  get; }
 
+        // The caller's writer when this wrapper was created over another XmlWriter. XmlWriter.Create does not
+        // close the writer it wraps, so closing it here is what commits changes made through an
+        // XPathNavigator writer.
+
+        // Auto conformance lets the wrapper sit over fragment-level writers such as the one returned by
+        // XPathNavigator.AppendChild, which reject the implicit WriteStartDocument of a Document-level writer.
+
+        private readonly XmlWriter _output;
+
         // ------------------------------------------------
 
         public XmlWriterWrap(Stream output) { Instance = XmlWriter.Create(output); }
-        public XmlWriterWrap(XmlWriter output) { Instance = XmlWriter.Create(output); }
+        public XmlWriterWrap(XmlWriter output) { Instance = XmlWriter.Create(output, new XmlWriterSettings { ConformanceLevel = ConformanceLevel.Auto }); _output = output; }
         public XmlWriterWrap(TextWriter output) { Instance = XmlWriter.Create(output); }
         public XmlWriterWrap(StringBuilder output) { Instance = XmlWriter.Create(output); }
         public XmlWriterWrap(string outputFileName) { Instance = XmlWriter.Create(outputFileName); }
         public XmlWriterWrap(Stream output, XmlWriterSettings settings) { Instance = XmlWriter.Create(output, settings); }
-        public XmlWriterWrap(XmlWriter output, XmlWriterSettings settings) { Instance = XmlWriter.Create(output, settings); }
+        public XmlWriterWrap(XmlWriter output, XmlWriterSettings settings) { Instance = XmlWriter.Create(output, settings); _output = output; }
         public XmlWriterWrap(TextWriter output, XmlWriterSettings settings) { Instance = XmlWriter.Create(output, settings); }
         public XmlWriterWrap(StringBuilder output, XmlWriterSettings settings) { Instance = XmlWriter.Create(output, settings); }
         public XmlWriterWrap(string outputFileName, XmlWriterSettings settings) { Instance = XmlWriter.Create(outputFileName, settings); }
@@ -46,7 +55,11 @@ namespace JWWrap.Impl.Xml
         public WriteState WriteState => Instance.WriteState;
         public XmlWriterSettings Settings => Instance.Settings;
 
-        public void Close() => Instance.Close();
+        public void Close()
+        {
+            Instance.Close();
+            _output?.Close();
+        }
 
         public void Dispose()
         {
@@ -58,7 +71,11 @@ namespace JWWrap.Impl.Xml
         public void WriteCData(string text) => Instance.WriteCData(text);
         public string LookupPrefix(string ns) => Instance.LookupPrefix(ns);
         public void WriteCharEntity(char ch) => Instance.WriteCharEntity(ch);
-        protected virtual void Dispose(bool disposing) => Instance.Dispose();
+        protected virtual void Dispose(bool disposing)
+        {
+            Instance.Dispose();
+            _output?.Dispose();
+        }
         public void WriteAttributes(XmlReader reader, bool defattr) => Instance.WriteAttributes(reader, defattr);
         public void WriteBase64(byte[] buffer, int index, int count) => Instance.WriteBase64(buffer, index, count);
         public void WriteBinHex(byte[] buffer, int index, int count) => Instance.WriteBinHex(buffer, index, count);

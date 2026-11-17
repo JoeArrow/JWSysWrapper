@@ -1416,5 +1416,522 @@ namespace JWWrap.UnitTests.Web
             Assert.AreEqual(2, sut.Rows.Count);
             Assert.AreEqual(2, grid.Rows.Count);
         }
+
+        // ----------------------------------------------------
+
+        private static Tuple<object, Type> Outcome(Func<object> action)
+        {
+            try
+            {
+                return Tuple.Create(action(), (Type) null);
+            }
+            catch(Exception ex)
+            {
+                return Tuple.Create((object) null, ex.GetType());
+            }
+        }
+
+        // ----------------------------------------------------
+
+        private static void AssertSameOutcome(Tuple<object, Type> expected, Tuple<object, Type> actual)
+        {
+            Assert.AreEqual(expected.Item2, actual.Item2);
+
+            if(expected.Item1 == null || expected.Item1 is string || expected.Item1.GetType().IsValueType)
+            {
+                Assert.AreEqual(expected.Item1, actual.Item1);
+            }
+            else
+            {
+                Assert.IsNotNull(actual.Item1);
+            }
+        }
+
+        // ----------------------------------------------------
+
+        private static object Wrapped(object value)
+        {
+            return "wrapped";
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Controls_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.WebControls.GridView();
+            var actualInstance = new System.Web.UI.WebControls.GridView();
+            var sut = new GridViewWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.Controls);
+            var actual = Outcome(() => (object) sut.Controls);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void ClientIDRowSuffixDataKeys_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.WebControls.GridView();
+            var actualInstance = new System.Web.UI.WebControls.GridView();
+            var sut = new GridViewWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.ClientIDRowSuffixDataKeys);
+            var actual = Outcome(() => (object) sut.ClientIDRowSuffixDataKeys);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void DataKeys_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.WebControls.GridView();
+            var actualInstance = new System.Web.UI.WebControls.GridView();
+            var sut = new GridViewWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.DataKeys);
+            var actual = Outcome(() => (object) sut.DataKeys);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void SelectedPersistedDataKey_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.WebControls.GridView();
+            var actualInstance = new System.Web.UI.WebControls.GridView();
+            var sut = new GridViewWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.SelectedPersistedDataKey);
+            var actual = Outcome(() => (object) sut.SelectedPersistedDataKey);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void SelectedValue_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.WebControls.GridView();
+            var actualInstance = new System.Web.UI.WebControls.GridView();
+            var sut = new GridViewWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.SelectedValue);
+            var actual = Outcome(() => (object) sut.SelectedValue);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void SelectedDataKey_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.WebControls.GridView();
+            var actualInstance = new System.Web.UI.WebControls.GridView();
+            var sut = new GridViewWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.SelectedDataKey);
+            var actual = Outcome(() => (object) sut.SelectedDataKey);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void SelectedIndex_Get_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.WebControls.GridView();
+            var actualInstance = new System.Web.UI.WebControls.GridView();
+            var sut = new GridViewWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) expectedInstance.SelectedIndex);
+            var actual = Outcome(() => (object) sut.SelectedIndex);
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void HeaderRow_Get_ReturnsWrapperLikeInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.WebControls.GridView();
+            var actualInstance = new System.Web.UI.WebControls.GridView();
+            var sut = new GridViewWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) Wrapped(expectedInstance.HeaderRow));
+            var actual = Outcome(() => (object) (sut.HeaderRow != null ? (object) "wrapped" : "unwrapped"));
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void FooterRow_Get_ReturnsWrapperLikeInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.WebControls.GridView();
+            var actualInstance = new System.Web.UI.WebControls.GridView();
+            var sut = new GridViewWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) Wrapped(expectedInstance.FooterRow));
+            var actual = Outcome(() => (object) (sut.FooterRow != null ? (object) "wrapped" : "unwrapped"));
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void BottomPagerRow_Get_ReturnsWrapperLikeInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.WebControls.GridView();
+            var actualInstance = new System.Web.UI.WebControls.GridView();
+            var sut = new GridViewWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) Wrapped(expectedInstance.BottomPagerRow));
+            var actual = Outcome(() => (object) (sut.BottomPagerRow != null ? (object) "wrapped" : "unwrapped"));
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void TopPagerRow_Get_ReturnsWrapperLikeInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.WebControls.GridView();
+            var actualInstance = new System.Web.UI.WebControls.GridView();
+            var sut = new GridViewWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) Wrapped(expectedInstance.TopPagerRow));
+            var actual = Outcome(() => (object) (sut.TopPagerRow != null ? (object) "wrapped" : "unwrapped"));
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void SelectedRow_Get_ReturnsWrapperLikeInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.WebControls.GridView();
+            var actualInstance = new System.Web.UI.WebControls.GridView();
+            var sut = new GridViewWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => (object) Wrapped(expectedInstance.SelectedRow));
+            var actual = Outcome(() => (object) (sut.SelectedRow != null ? (object) "wrapped" : "unwrapped"));
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void SelectedPersistedDataKey_Set_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.WebControls.GridView();
+            var actualInstance = new System.Web.UI.WebControls.GridView();
+            var sut = new GridViewWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.SelectedPersistedDataKey = null; return null; });
+            var actual = Outcome(() => { sut.SelectedPersistedDataKey = null; return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void SelectedIndex_Set_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.WebControls.GridView();
+            var actualInstance = new System.Web.UI.WebControls.GridView();
+            var sut = new GridViewWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.SelectedIndex = 0; return null; });
+            var actual = Outcome(() => { sut.SelectedIndex = 0; return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void DeleteRow_NoRows_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.WebControls.GridView();
+            var actualInstance = new System.Web.UI.WebControls.GridView();
+            var sut = new GridViewWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.DeleteRow(0); return null; });
+            var actual = Outcome(() => { sut.DeleteRow(0); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void SelectRow_NoRows_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.WebControls.GridView();
+            var actualInstance = new System.Web.UI.WebControls.GridView();
+            var sut = new GridViewWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.SelectRow(0); return null; });
+            var actual = Outcome(() => { sut.SelectRow(0); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void SetEditRow_NoRows_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.WebControls.GridView();
+            var actualInstance = new System.Web.UI.WebControls.GridView();
+            var sut = new GridViewWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.SetEditRow(0); return null; });
+            var actual = Outcome(() => { sut.SetEditRow(0); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void SetPageIndex_NoRows_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.WebControls.GridView();
+            var actualInstance = new System.Web.UI.WebControls.GridView();
+            var sut = new GridViewWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.SetPageIndex(0); return null; });
+            var actual = Outcome(() => { sut.SetPageIndex(0); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void Sort_NoRows_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.WebControls.GridView();
+            var actualInstance = new System.Web.UI.WebControls.GridView();
+            var sut = new GridViewWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.Sort("Name", System.Web.UI.WebControls.SortDirection.Ascending); return null; });
+            var actual = Outcome(() => { sut.Sort("Name", System.Web.UI.WebControls.SortDirection.Ascending); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
+
+        // ----------------------------------------------------
+
+        [TestMethod]
+        public void UpdateRow_NoRows_MatchesInstance()
+        {
+            // -------
+            // Arrange
+
+            var expectedInstance = new System.Web.UI.WebControls.GridView();
+            var actualInstance = new System.Web.UI.WebControls.GridView();
+            var sut = new GridViewWrap(actualInstance);
+
+            // ---
+            // Act
+
+            var expected = Outcome(() => { expectedInstance.UpdateRow(0, false); return null; });
+            var actual = Outcome(() => { sut.UpdateRow(0, false); return null; });
+
+            // ------
+            // Assert
+
+            AssertSameOutcome(expected, actual);
+        }
     }
 }
