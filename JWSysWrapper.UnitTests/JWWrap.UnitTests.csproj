@@ -115,6 +115,7 @@
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
@@ -135,6 +136,31 @@
     <Compile Include="Diagnostics\ProcessStartInfoWrap_UnitTests.cs" />
     <Compile Include="Diagnostics\ProcessWrap_UnitTests.cs" />
     <Compile Include="Diagnostics\TraceSourceWrap_UnitTests.cs" />
+    <Compile Include="Security\AccessControl\DirectorySecurityWrap_UnitTests.cs" />
+    <Compile Include="Security\AccessControl\FileSecurityWrap_UnitTests.cs" />
+    <Compile Include="Security\AccessControl\RegistrySecurityWrap_UnitTests.cs" />
+    <Compile Include="Security\DirectorySecurityWrap_UnitTests.cs" />
+    <Compile Include="Security\Certificate\KeyInfoX509DataFactoryWrap_UnitTests.cs" />
+    <Compile Include="Security\Certificate\KeyInfoX509DataFactory_UnitTests.cs" />
+    <Compile Include="Security\Certificate\KeyInfoX509DataWrap_UnitTests.cs" />
+    <Compile Include="Security\Certificate\TestCertificates.cs" />
+    <Compile Include="Security\Certificate\X509Certificate2CollectionFactory_UnitTests.cs" />
+    <Compile Include="Security\Certificate\X509Certificate2CollectionWrap_UnitTests.cs" />
+    <Compile Include="Security\Certificate\X509Certificate2Factory_UnitTests.cs" />
+    <Compile Include="Security\Certificate\X509Certificate2Wrap_UnitTests.cs" />
+    <Compile Include="Security\Certificate\X509CertificateFactoryWrap_UnitTests.cs" />
+    <Compile Include="Security\Certificate\X509CertificateFactory_UnitTests.cs" />
+    <Compile Include="Security\Certificate\X509CertificateWrap_UnitTests.cs" />
+    <Compile Include="Security\Certificate\X509ChainElementCollectionFactory_UnitTests.cs" />
+    <Compile Include="Security\Certificate\X509ChainElementCollectionWrap_UnitTests.cs" />
+    <Compile Include="Security\Certificate\X509ChainElementFactory_UnitTests.cs" />
+    <Compile Include="Security\Certificate\X509ChainElementWrap_UnitTests.cs" />
+    <Compile Include="Security\Certificate\X509ChainFactory_UnitTests.cs" />
+    <Compile Include="Security\Certificate\X509ChainWrap_UnitTests.cs" />
+    <Compile Include="Security\Certificate\X509StoreFactory_UnitTests.cs" />
+    <Compile Include="Security\Certificate\X509StoreWrap_UnitTests.cs" />
+    <Compile Include="Security\Extensions\SecurityExtensions_UnitTests.cs" />
+    <Compile Include="Security\FileSecurityWrap_UnitTests.cs" />
     <Compile Include="EventLog_UnitTests.cs" />
     <Compile Include="IO\Compression\GZipStreamWrap_UnitTests.cs" />
     <Compile Include="IO\DirectoryInfoWrap_UnitTests.cs" />

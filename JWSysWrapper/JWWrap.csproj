@@ -163,6 +163,7 @@
     <Compile Include="Impl\Security\Certificate\X509StoreWrap.cs" />
     <Compile Include="Impl\Security\DirectorySecurityWrap.cs" />
     <Compile Include="Impl\Security\FileSecurityWrap.cs" />
+    <Compile Include="Impl\Security\Extensions\SecurityExtensions.cs" />
     <Compile Include="Impl\Timers\TimerWrap.cs" />
     <Compile Include="Impl\TimeSpanWrap.cs" />
     <Compile Include="Impl\web\ControlCollectionWrap.cs" />
