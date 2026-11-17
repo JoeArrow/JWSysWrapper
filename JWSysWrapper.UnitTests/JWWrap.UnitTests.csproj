@@ -192,6 +192,13 @@
     <Compile Include="Web\GridViewRowCollectionWrap_UnitTests.cs" />
     <Compile Include="Web\GridViewRowWrap_UnitTests.cs" />
     <Compile Include="Web\HttpSessionStateWrap_UnitTests.cs" />
+    <Compile Include="Web\GridViewWrap_UnitTests.cs" />
+    <Compile Include="Web\HttpRequestWrap_UnitTests.cs" />
+    <Compile Include="Web\HttpResponseWrap_UnitTests.cs" />
+    <Compile Include="Web\PageWrap_UnitTests.cs" />
+    <Compile Include="Web\Script\Serialization\JavaScriptSerializerWrap_UnitTests.cs" />
+    <Compile Include="Web\Script\Serialization\JavaScriptSerializerWrapFactory_UnitTests.cs" />
+    <Compile Include="Web\Script\Serialization\JsonItem.cs" />
     <Compile Include="Web\WebControls\DataControlFieldCellWrap_UnitTests.cs" />
     <Compile Include="Web\WebControls\DataControlFieldCollectionWrap_UnitTests.cs" />
     <Compile Include="Web\WebControls\DataControlFieldWrap_UnitTests.cs" />
