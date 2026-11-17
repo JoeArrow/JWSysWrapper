@@ -188,7 +188,7 @@
     <Compile Include="Impl\Xml\XPath\XPathDocumentWrap.cs" />
     <Compile Include="Impl\Xml\XPath\XPathNavigatorWrap.cs" />
     <Compile Include="Impl\Xml\XPath\XPathNodeIteratorWrap.cs" />
-    <Compile Include="Impl\xslt\XslCompiledTransformWrap.cs" />
+    <Compile Include="Impl\Xslt\XslCompiledTransformWrap.cs" />
     <Compile Include="Interface\Attributes\GenerateFactoryAttribute.cs" />
     <Compile Include="Interface\Collections\Specialized\INameValueCollection.cs" />
     <Compile Include="Interface\Collections\Specialized\INameValueCollectionFactory.cs" />

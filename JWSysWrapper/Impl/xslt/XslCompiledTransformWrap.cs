@@ -6,7 +6,7 @@
 //
 #endregion
 
-namespace SystemWrapper.Xslt
+namespace JWWrap.Impl.Xslt
 {
     using System;
     using System.IO;

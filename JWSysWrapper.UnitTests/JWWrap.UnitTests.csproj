@@ -86,6 +86,12 @@
     <Reference Include="Moq, Version=4.16.0.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.16.1\lib\net45\Moq.dll</HintPath>
     </Reference>
+    <Reference Include="amqmdnet">
+      <HintPath>..\Lib\amqmdnet.dll</HintPath>
+    </Reference>
+    <Reference Include="amqmdxcs">
+      <HintPath>..\Lib\amqmdxcs.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.DirectoryServices" />
@@ -203,6 +209,9 @@
     <Compile Include="Security\Extensions\SecurityExtensions_UnitTests.cs" />
     <Compile Include="Security\FileSecurityWrap_UnitTests.cs" />
     <Compile Include="EventLog_UnitTests.cs" />
+    <Compile Include="IBM\WMQ\MQMessageWrap_UnitTests.cs" />
+    <Compile Include="IBM\WMQ\MQQueueManagerWrap_UnitTests.cs" />
+    <Compile Include="IBM\WMQ\MQQueueWrap_UnitTests.cs" />
     <Compile Include="IO\Compression\GZipStreamWrap_UnitTests.cs" />
     <Compile Include="IO\DirectoryInfoWrap_UnitTests.cs" />
     <Compile Include="IO\DirectoryWrap_UnitTests.cs" />
