@@ -129,6 +129,12 @@
     <Compile Include="Configuration\ConfigurationManagerWrap_UnitTests.cs" />
     <Compile Include="Configuration\ConfigurationWrap_UnitTests.cs" />
     <Compile Include="Diagnostics\StopwatchWrap_UnitTests.cs" />
+    <Compile Include="Diagnostics\FileVersionInfoFactory_UnitTests.cs" />
+    <Compile Include="Diagnostics\FileVersionInfoWrap_UnitTests.cs" />
+    <Compile Include="Diagnostics\ProcessStartInfoFactory_UnitTests.cs" />
+    <Compile Include="Diagnostics\ProcessStartInfoWrap_UnitTests.cs" />
+    <Compile Include="Diagnostics\ProcessWrap_UnitTests.cs" />
+    <Compile Include="Diagnostics\TraceSourceWrap_UnitTests.cs" />
     <Compile Include="EventLog_UnitTests.cs" />
     <Compile Include="IO\Compression\GZipStreamWrap_UnitTests.cs" />
     <Compile Include="IO\DirectoryInfoWrap_UnitTests.cs" />
